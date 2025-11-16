@@ -4,22 +4,83 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Electricidad = () => {
+  const { t, i18n } = useTranslation();
+
   const tareas: Array<{ icon: React.ElementType; titulo: string; desc: string }> = [
-    { icon: Lightbulb, titulo: "Instalación de Luminarias y Plafones", desc: "Montaje y conexión de lámparas, downlights y tiras LED con transformador." },
-    { icon: Plug, titulo: "Sustitución de Enchufes e Interruptores", desc: "Cambio de mecanismos, marcos, tomas USB y tapas dañadas." },
-    { icon: Zap, titulo: "Colocación de Tomas con Protección (GFCI)", desc: "Sustitución por tomas con protección diferencial en zonas húmedas (si procede)." },
-    { icon: Wrench, titulo: "Porteros, Timbres y Detectores", desc: "Cambio de pulsadores, zumbadores, detectores de movimiento y timbres inalámbricos." },
-    { icon: Cpu, titulo: "Programadores y Termostatos Básicos", desc: "Instalación y configuración sencilla cuando no requiera intervención en caldera o 230V compleja." },
-    { icon: Shield, titulo: "Revisión Visual y Remates", desc: "Ajuste de cajas, fijaciones, canaletas y remates estéticos." },
+    {
+      icon: Lightbulb,
+      titulo:
+        i18n.language.startsWith("en")
+          ? "Light fittings & downlights"
+          : "Instalación de Luminarias y Plafones",
+      desc:
+        i18n.language.startsWith("en")
+          ? "Fitting and wiring light fixtures, downlights and LED strips with transformers."
+          : "Montaje y conexión de lámparas, downlights y tiras LED con transformador.",
+    },
+    {
+      icon: Plug,
+      titulo:
+        i18n.language.startsWith("en")
+          ? "Replacing sockets & switches"
+          : "Sustitución de Enchufes e Interruptores",
+      desc:
+        i18n.language.startsWith("en")
+          ? "Changing mechanisms, faceplates, USB outlets and damaged covers."
+          : "Cambio de mecanismos, marcos, tomas USB y tapas dañadas.",
+    },
+    {
+      icon: Zap,
+      titulo:
+        i18n.language.startsWith("en")
+          ? "Fitting protected sockets"
+          : "Colocación de Tomas con Protección (GFCI)",
+      desc:
+        i18n.language.startsWith("en")
+          ? "Replacing standard sockets with RCD/GFCI‑type outlets in wet areas where appropriate."
+          : "Sustitución por tomas con protección diferencial en zonas húmedas (si procede).",
+    },
+    {
+      icon: Wrench,
+      titulo:
+        i18n.language.startsWith("en")
+          ? "Doorbells, chimes & sensors"
+          : "Porteros, Timbres y Detectores",
+      desc:
+        i18n.language.startsWith("en")
+          ? "Changing push‑buttons, sounders, motion sensors and wireless chimes."
+          : "Cambio de pulsadores, zumbadores, detectores de movimiento y timbres inalámbricos.",
+    },
+    {
+      icon: Cpu,
+      titulo:
+        i18n.language.startsWith("en")
+          ? "Basic programmers & thermostats"
+          : "Programadores y Termostatos Básicos",
+      desc:
+        i18n.language.startsWith("en")
+          ? "Simple installation and set‑up where this doesn’t require complex boiler or 230V work."
+          : "Instalación y configuración sencilla cuando no requiera intervención en caldera o 230V compleja.",
+    },
+    {
+      icon: Shield,
+      titulo:
+        i18n.language.startsWith("en")
+          ? "Visual checks & finishing touches"
+          : "Revisión Visual y Remates",
+      desc:
+        i18n.language.startsWith("en")
+          ? "Adjusting boxes, fixings, trunking and visible trim for a clean finish."
+          : "Ajuste de cajas, fijaciones, canaletas y remates estéticos.",
+    },
   ];
 
-  const exclusiones: string[] = [
-    "No emitimos boletines eléctricos ni modificamos cuadros generales.",
-    "No realizamos ampliaciones de potencia ni nuevas líneas completas.",
-    "No intervenimos en trabajos que requieran instalador autorizado.",
-  ];
+  const exclusiones: string[] = t("electricPage.exclusionsItems", {
+    returnObjects: true,
+  }) as string[];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -29,10 +90,11 @@ const Electricidad = () => {
         {/* Hero */}
         <section className="brand-hero py-16">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Servicios Eléctricos Menores</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              {t("electricPage.heroTitle")}
+            </h1>
             <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto">
-              Pequeñas instalaciones y sustituciones eléctricas para el hogar: luminarias, enchufes, interruptores y
-              remates, con seguridad y buen acabado.
+              {t("electricPage.heroSubtitle")}
             </p>
           </div>
         </section>
@@ -42,10 +104,11 @@ const Electricidad = () => {
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 space-y-6">
-                <h2 className="text-2xl font-bold">Qué incluye este servicio</h2>
+                <h2 className="text-2xl font-bold">
+                  {t("electricPage.whatIncludedTitle")}
+                </h2>
                 <p className="text-muted-foreground">
-                  Nos ocupamos de pequeñas actuaciones eléctricas habituales en el hogar que no requieren
-                  intervención de un instalador autorizado, priorizando la seguridad y el acabado estético.
+                  {t("electricPage.whatIncludedBody")}
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {tareas.map((t, i) => (
@@ -64,20 +127,32 @@ const Electricidad = () => {
               <div className="space-y-6">
                 <Card>
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-3">Importante</h3>
+                    <h3 className="text-xl font-semibold mb-3">
+                      {t("electricPage.exclusionsTitle")}
+                    </h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       {exclusiones.map((e, i) => (
-                        <li key={i} className="flex items-start"><Check className="w-4 h-4 text-primary mr-2 mt-0.5" /> {e}</li>
+                        <li key={i} className="flex items-start">
+                          <Check className="w-4 h-4 text-primary mr-2 mt-0.5" /> {e}
+                        </li>
                       ))}
                     </ul>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-3">Recomendado</h3>
+                    <h3 className="text-xl font-semibold mb-3">
+                      {t("electricPage.recommendedTitle")}
+                    </h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li className="flex items-start"><Check className="w-4 h-4 text-primary mr-2 mt-0.5" /> Uso de tomas con protección en cocinas y baños cuando proceda.</li>
-                      <li className="flex items-start"><Check className="w-4 h-4 text-primary mr-2 mt-0.5" /> Sustituir mecanismos deteriorados para evitar falsos contactos.</li>
+                      {t("electricPage.recommendedItems", {
+                        returnObjects: true,
+                      }).map((item: string, i: number) => (
+                        <li key={i} className="flex items-start">
+                          <Check className="w-4 h-4 text-primary mr-2 mt-0.5" />{" "}
+                          {item}
+                        </li>
+                      ))}
                     </ul>
                   </CardContent>
                 </Card>
@@ -94,19 +169,25 @@ const Electricidad = () => {
         {/* CTA Section */}
         <section className="brand-hero py-20 border-t-4 border-primary/90">
           <div className="container mx-auto px-4 text-center">
-            <p className="tracking-widest text-base md:text-lg opacity-90 mb-2">LA CALIDAD QUE ESPERAS</p>
+            <p className="tracking-widest text-base md:text-lg opacity-90 mb-2">
+              {t("electricPage.ctaBand.eyebrow")}
+            </p>
             <h2 className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primary mb-6">
-              LOS SERVICIOS QUE TE MERECES
+              {t("electricPage.ctaBand.heading")}
             </h2>
             <p className="text-lg md:text-xl opacity-90 max-w-4xl mx-auto mb-10">
-              Haga su instalación más segura y funcional con nuestras actuaciones eléctricas menores.
+              {t("electricPage.ctaBand.body")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="rounded-2xl px-8">
-                <Link to="/reservar">Reservar Ahora</Link>
+                <Link to="/reservar">
+                  {t("electricPage.ctaBand.bookNow")}
+                </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white">
-                <a href="tel:+34965000000">(965) 000-000</a>
+                <a href="tel:+34965000000">
+                  {t("electricPage.ctaBand.callLabel")}
+                </a>
               </Button>
             </div>
           </div>

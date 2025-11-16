@@ -16,7 +16,8 @@ All colors MUST be HSL.
     --popover-foreground: 0 0% 13%;
     --primary: 16 100% 50%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 30 25% 25%;
+    /* Brown brand tone (darker) */
+    --secondary: 30 60% 12%;
     --secondary-foreground: 0 0% 100%;
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
@@ -39,7 +40,7 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
     
     /* Custom design tokens */
-    --brown-bar: 30 25% 25%;
+    --brown-bar: 30 60% 12%;
     --orange-primary: 16 100% 50%;
     --light-bg: 0 0% 98%;
   }
@@ -122,4 +123,12 @@ All colors MUST be HSL.
   transform: translateY(0.02em); /* leve ajuste uniforme para header y footer */
   font-size: 1.02em; /* apenas más grande */
   text-shadow: 0 1px 0 hsla(0,0%,0%,0.05);
+}
+
+/* Si el contenedor del logo está en color primario, la 's' hereda el color */
+.brand-logo.text-primary .brand-word,
+.brand-logo.text-primary .brand-s,
+.brand-logo.text-secondary .brand-word,
+.brand-logo.text-secondary .brand-s {
+  color: inherit;
 }

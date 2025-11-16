@@ -2,46 +2,49 @@ import { Wrench, Hammer, Plug, TreePine, AirVent, Zap, Home } from "lucide-react
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
+import { useTranslation } from "react-i18next";
 
 const Servicios = () => {
+  const { t } = useTranslation();
+
   const services = [
     {
       icon: Wrench,
-      title: "Mantenimiento y Reparación del Hogar",
-      description: "Soluciones expertas para todo tipo de mantenimiento y reparaciones domésticas. Desde reparaciones de puertas y ventanas hasta trabajos de fontanería y carpintería.",
-      link: "/servicios/mantenimiento"
+      title: t("home.services.cards.maintenance.title"),
+      description: t("home.services.cards.maintenance.description"),
+      link: "/servicios/mantenimiento",
     },
     {
       icon: Hammer,
-      title: "Montaje e Instalación",
-      description: "Montaje profesional de muebles, instalación de estanterías, montaje de electrodomésticos y mucho más. Sin complicaciones para usted.",
-      link: "/servicios/montaje"
+      title: t("home.services.cards.assembly.title"),
+      description: t("home.services.cards.assembly.description"),
+      link: "/servicios/montaje",
     },
     {
       icon: Plug,
-      title: "Electrodomésticos: Instalación y Reparación",
-      description: "Instalación y reparación de lavadoras, lavavajillas, hornos, encimeras y otros electrodomésticos del hogar.",
-      link: "/servicios/electrodomesticos"
+      title: t("home.services.cards.appliances.title"),
+      description: t("home.services.cards.appliances.description"),
+      link: "/servicios/electrodomesticos",
     },
     {
       icon: Home,
       secondaryIcon: TreePine,
-      title: "Exteriores",
-      description: "Reformas exteriores, lavados a presión, cuidado de jardines y mejoras de espacios exteriores.",
-      link: "/servicios/exteriores"
+      title: t("home.services.cards.exteriors.title"),
+      description: t("home.services.cards.exteriors.description"),
+      link: "/servicios/exteriores",
     },
     {
       icon: AirVent,
-      title: "Aire Acondicionado: Reparación de Aires",
-      description: "Reparación y mantenimiento de aires acondicionados domésticos para mantener su hogar cómodo todo el año.",
-      link: "/servicios/aire-acondicionado"
+      title: t("home.services.cards.aircon.title"),
+      description: t("home.services.cards.aircon.description"),
+      link: "/servicios/aire-acondicionado",
     },
     {
       icon: Zap,
-      title: "Servicios Eléctricos Menores",
-      description: "Instalación de lámparas, reparación de enchufes, cambio de interruptores y otros trabajos eléctricos menores.",
-      link: "/servicios/electricidad"
-    }
+      title: t("home.services.cards.electrical.title"),
+      description: t("home.services.cards.electrical.description"),
+      link: "/servicios/electricidad",
+    },
   ];
 
   return (
@@ -53,10 +56,10 @@ const Servicios = () => {
         <section className="brand-hero py-16">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-              Nuestros Servicios
+              {t("servicesPage.heroTitle")}
             </h1>
             <p className="text-xl text-center max-w-3xl mx-auto opacity-90">
-              Ofrecemos una amplia gama de servicios profesionales para el mantenimiento y mejora de su hogar en la Vega Baja de Alicante
+              {t("servicesPage.heroSubtitle")}
             </p>
           </div>
         </section>
@@ -65,7 +68,7 @@ const Servicios = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <p className="text-center text-muted-foreground max-w-3xl mx-auto mb-12">
-              En Bricos, somos más que simples profesionales del mantenimiento; somos una parte vital de su comunidad local. Nuestros servicios van desde el mantenimiento de puertas y ventanas hasta instalaciones de seguridad, todo entregado con una artesanía excepcional. Nos enorgullecemos no solo de reparar hogares, sino de mejorarlos, asegurando que cada trabajo, ya sea montaje de muebles o mantenimiento de jardines, se realice con un toque personal.
+              {t("servicesPage.intro")}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, index) => (
@@ -80,31 +83,39 @@ const Servicios = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-6 text-center">
-                ¿Por Qué Elegir Bricos?
+                {t("servicesPage.whyTitle")}
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-background p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold mb-3">Profesionales Certificados</h3>
+                  <h3 className="text-xl font-semibold mb-3">
+                    {t("servicesPage.blocks.certifiedTitle")}
+                  </h3>
                   <p className="text-muted-foreground">
-                    Todos nuestros técnicos están certificados y cuentan con amplia experiencia en sus respectivas áreas.
+                    {t("servicesPage.blocks.certifiedText")}
                   </p>
                 </div>
                 <div className="bg-background p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold mb-3">Presupuesto Sin Compromiso</h3>
+                  <h3 className="text-xl font-semibold mb-3">
+                    {t("servicesPage.blocks.quoteTitle")}
+                  </h3>
                   <p className="text-muted-foreground">
-                    Le ofrecemos un presupuesto detallado y transparente antes de comenzar cualquier trabajo.
+                    {t("servicesPage.blocks.quoteText")}
                   </p>
                 </div>
                 <div className="bg-background p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold mb-3">Garantía de Calidad</h3>
+                  <h3 className="text-xl font-semibold mb-3">
+                    {t("servicesPage.blocks.qualityTitle")}
+                  </h3>
                   <p className="text-muted-foreground">
-                    Garantizamos la calidad de todos nuestros trabajos y materiales utilizados.
+                    {t("servicesPage.blocks.qualityText")}
                   </p>
                 </div>
                 <div className="bg-background p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold mb-3">Atención Personalizada</h3>
+                  <h3 className="text-xl font-semibold mb-3">
+                    {t("servicesPage.blocks.personalTitle")}
+                  </h3>
                   <p className="text-muted-foreground">
-                    Cada cliente es único y adaptamos nuestros servicios a sus necesidades específicas.
+                    {t("servicesPage.blocks.personalText")}
                   </p>
                 </div>
               </div>
