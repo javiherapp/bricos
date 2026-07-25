@@ -1,4 +1,4 @@
-import { Wrench, Hammer, Plug, TreePine, AirVent, Zap, Home } from "lucide-react";
+import { Wrench, Hammer, Plug, TreePine, AirVent, Zap, Home, Paintbrush, Leaf, Droplets } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
@@ -34,16 +34,34 @@ const Servicios = () => {
       link: "/servicios/exteriores",
     },
     {
-      icon: AirVent,
-      title: t("home.services.cards.aircon.title"),
-      description: t("home.services.cards.aircon.description"),
-      link: "/servicios/aire-acondicionado",
+      icon: Paintbrush,
+      title: t("home.services.cards.painting.title"),
+      description: t("home.services.cards.painting.description"),
+      link: "/servicios/pintura",
+    },
+    {
+      icon: Leaf,
+      title: t("home.services.cards.gardening.title"),
+      description: t("home.services.cards.gardening.description"),
+      link: "/servicios/jardineria",
+    },
+    {
+      icon: Droplets,
+      title: t("home.services.cards.plumbing.title"),
+      description: t("home.services.cards.plumbing.description"),
+      link: "/servicios/fontaneria",
     },
     {
       icon: Zap,
       title: t("home.services.cards.electrical.title"),
       description: t("home.services.cards.electrical.description"),
       link: "/servicios/electricidad",
+    },
+    {
+      icon: AirVent,
+      title: t("home.services.cards.aircon.title"),
+      description: t("home.services.cards.aircon.description"),
+      link: "/servicios/aire-acondicionado",
     },
   ];
 
@@ -70,7 +88,7 @@ const Servicios = () => {
             <p className="text-center text-muted-foreground max-w-3xl mx-auto mb-12">
               {t("servicesPage.intro")}
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {services.map((service, index) => (
                 <ServiceCard key={index} {...service} />
               ))}

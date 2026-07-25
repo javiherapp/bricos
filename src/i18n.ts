@@ -25,9 +25,13 @@ const resources = {
         servicesList: {
           homeMaintenance: "Mantenimiento del Hogar",
           assembly: "Montaje e Instalación",
-          cleaning: "Limpieza y Mantenimiento",
-          gardening: "Jardinería",
-          security: "Seguridad",
+          appliances: "Electrodomésticos",
+          exteriors: "Exteriores",
+          painting: "Pintura y Reformas menores",
+          gardening: "Jardinería y Paisajismo",
+          plumbing: "Fontanería Básica",
+          aircon: "Aire Acondicionado",
+          electrical: "Servicios Eléctricos",
         },
         contactTitle: "Contacto",
         location: "Vega Baja, Alicante, España",
@@ -66,7 +70,22 @@ const resources = {
             },
             exteriors: {
               title: "Exteriores",
-              description: "Reformas exteriores, lavados a presión, cuidado de jardines y más.",
+              description: "Fachadas, terrazas, vallas, lavados a presión, sellados y remates exteriores.",
+            },
+            painting: {
+              title: "Pintura y Reformas menores",
+              description:
+                "Retoques, parches y pequeños trabajos de acabado para renovar su vivienda sin una reforma grande.",
+            },
+            gardening: {
+              title: "Jardinería y Paisajismo",
+              description:
+                "Mantenimiento de jardín, paisajismo básico, estructuras ligeras y pequeños ajustes de riego.",
+            },
+            plumbing: {
+              title: "Fontanería Básica",
+              description:
+                "Sanitarios, grifería, cambios de grifos, cisternas, sifones, sellados y desatascos menores.",
             },
             aircon: {
               title: "Aire Acondicionado: Reparación de Aires",
@@ -81,6 +100,8 @@ const resources = {
         },
         whyPanel: {
           heading: "En Bricos, Lo Entendemos",
+          headingBeforeBrand: "En",
+          headingAfterBrand: ", Lo Entendemos",
           intro:
             "No todos tienen tiempo o habilidades para el bricolaje. En lugar de preocuparse, llámenos. Llegamos puntuales, equipados con herramientas y habilidades profesionales, listos para rescatar sus proyectos y mantener su hogar en forma impecable.",
           whyChooseLabel: "¿Por qué elegir",
@@ -110,7 +131,7 @@ const resources = {
             "En Bricos hacemos las cosas bien. Contamos con oficio, herramientas y cuidado para que el resultado sea el que toca: limpio, seguro y duradero.",
           rangeTitle: "Amplia Gama de Servicios",
           rangeText:
-            "Nuestros principales: mantenimiento y reparación, montaje e instalación, exteriores, electrodomésticos, aire acondicionado (reparación) y eléctricos menores.",
+            "Nuestros principales: mantenimiento y reparación, montaje e instalación, exteriores, pintura, jardinería y paisajismo, fontanería básica, electrodomésticos, aire acondicionado y eléctricos menores.",
           familyTitle: "Negocio Familiar",
           familyText:
             "Como empresa familiar, aportamos un nivel de cuidado y dedicación profundamente personal. Entendemos el valor del hogar y la importancia de la confianza.",
@@ -149,10 +170,10 @@ const resources = {
       exteriorsPage: {
         heroTitle: "Exteriores",
         heroSubtitle:
-          "Reformas y mantenimiento exterior para que su vivienda luzca impecable: lavado a presión, sellados, pintura, pequeñas reparaciones y cuidado de jardín.",
+          "Mantenimiento exterior para que su vivienda luzca cuidada: lavado a presión, sellados, fachadas, terrazas, vallas y protecciones.",
         whatIncludedTitle: "Qué incluye este servicio",
         whatIncludedBody:
-          "Nos ocupamos del mantenimiento exterior con tareas orientadas a proteger e incrementar la durabilidad de su vivienda. Trabajamos con especial cuidado en superficies expuestas al clima y en elementos que requieren fijación segura.",
+          "Nos ocupamos del mantenimiento exterior con tareas orientadas a proteger e incrementar la durabilidad de su vivienda. Trabajamos con especial cuidado en superficies expuestas al clima, juntas, vallas, terrazas y elementos que requieren fijación segura.",
         recommendedTitle: "Recomendado",
         recommendedItems: [
           "Revisión estacional de sellados y puntos de agua.",
@@ -177,6 +198,100 @@ const resources = {
           heading: "Nos esforzamos por mantener el 100% de satisfacción",
           body:
             "Si tiene cualquier consulta, póngase en contacto. Le ayudaremos con rapidez y cuidado.",
+        },
+      },
+      paintingPage: {
+        heroTitle: "Pintura y Reformas menores",
+        heroSubtitle:
+          "Retoques, parches y pequeños trabajos de acabado para renovar su vivienda sin meterse en una reforma grande.",
+        whatIncludedTitle: "Qué incluye este servicio",
+        whatIncludedBody:
+          "Nos ocupamos de trabajos puntuales de pintura, reparación y acabado: paredes marcadas, pequeñas grietas, golpes, humedades ya resueltas, puertas, rodapiés y remates después de instalaciones o arreglos.",
+        exclusionsTitle: "Importante",
+        exclusionsItems: [
+          "No realizamos reformas integrales ni obra mayor.",
+          "No asumimos trabajos complejos en altura o sin acceso seguro.",
+          "No tratamos humedades activas sin solucionar primero el origen del problema.",
+        ],
+        recommendedTitle: "Recomendado",
+        recommendedItems: [
+          "Agrupar varios retoques en una misma visita para ahorrar tiempo.",
+          "Guardar la referencia del color si ya existe una pintura previa.",
+          "Revisar golpes, grietas y sellados antes de pintar.",
+        ],
+        ctaBand: {
+          eyebrow: "LA CALIDAD QUE ESPERAS",
+          heading: "LOS SERVICIOS QUE TE MERECES",
+          body:
+            "Dé un nuevo acabado a su vivienda con retoques, parches y pintura puntual hechos con cuidado.",
+          bookNow: "Reservar Ahora",
+          callLabel: "(965) 000-000",
+        },
+        satisfactionBand: {
+          heading: "Acabados limpios, sin complicaciones",
+          body:
+            "Cuidamos la preparación, el remate y la limpieza para que el resultado se note por lo bien integrado que queda.",
+        },
+      },
+      gardeningPage: {
+        heroTitle: "Jardinería y Paisajismo",
+        heroSubtitle:
+          "Mantenimiento de jardín, paisajismo básico y estructuras ligeras para que su terraza, patio o parcela se vea cuidada, funcional y agradable.",
+        whatIncludedTitle: "Qué incluye este servicio",
+        whatIncludedBody:
+          "Realizamos tareas de jardinería y mejora exterior: poda ligera, limpieza de hojas y restos, preparación de zonas verdes, paisajismo básico, revisión de riego sencillo y pequeñas estructuras como jardineras, celosías, borduras o soportes.",
+        exclusionsTitle: "Importante",
+        exclusionsItems: [
+          "No realizamos tala de árboles grandes.",
+          "No asumimos grandes obras de paisajismo integral o movimientos importantes de terreno.",
+          "No instalamos sistemas de riego complejos desde cero.",
+        ],
+        recommendedTitle: "Recomendado",
+        recommendedItems: [
+          "Hacer mantenimiento antes de temporadas de calor o lluvias.",
+          "Mantener despejadas terrazas, desagües y zonas de paso.",
+          "Revisar goteros y mangueras al inicio de cada temporada.",
+        ],
+        ctaBand: {
+          eyebrow: "LA CALIDAD QUE ESPERAS",
+          heading: "LOS SERVICIOS QUE TE MERECES",
+          body:
+            "Ponga su jardín o terraza al día con mantenimiento, paisajismo práctico y estructuras exteriores bien rematadas.",
+          bookNow: "Reservar Ahora",
+          callLabel: "(965) 000-000",
+        },
+        satisfactionBand: {
+          heading: "Exteriores listos para disfrutar",
+          body:
+            "Nos encargamos de las tareas y mejoras que marcan la diferencia para que su zona exterior se vea cuidada, ordenada y con intención.",
+        },
+      },
+      plumbingPage: {
+        heroTitle: "Fontanería Básica",
+        heroSubtitle:
+          "Arreglos de sanitarios, cambio de grifos, instalación de grifería, cisternas, sifones, sellados y desatascos menores sin meterse en obra.",
+        whatIncludedTitle: "Qué incluye este servicio",
+        whatIncludedBody:
+          "Realizamos trabajos de fontanería ligera para solucionar problemas habituales del hogar: sanitarios que pierden agua, grifos deteriorados, flexos y sifones en mal estado, sellados de baño/cocina y atascos localizados. Nos centramos en reparaciones visibles, sustituciones y mantenimiento práctico, siempre con acabado limpio y presupuesto claro.",
+        exclusionsTitle: "Lo que no hacemos",
+        exclusionsItems: [
+          "No hacemos obra, rozas, reformas de baño ni albañilería.",
+          "No modificamos tuberías empotradas, bajantes, montantes ni instalaciones comunitarias.",
+          "No realizamos trabajos de gas, calderas o instalaciones que requieran técnico certificado específico.",
+        ],
+        recommendedTitle: "Recomendado",
+        recommendedItems: [
+          "Enviar fotos por WhatsApp del sanitario, grifo, fuga o atasco para valorar el trabajo antes de ir.",
+          "Agrupar varios arreglos de baño/cocina en una misma visita.",
+          "Cambiar flexos, juntas y sifones antiguos antes de que provoquen fugas mayores.",
+        ],
+        ctaBand: {
+          eyebrow: "ARREGLOS DE FONTANERÍA SIN OBRA",
+          heading: "SANITARIOS, GRIFOS Y DESATASCOS",
+          body:
+            "Cuéntenos qué necesita o envíenos fotos por WhatsApp. Le ayudamos con trabajos de fontanería básica en la Vega Baja.",
+          bookNow: "Reservar Ahora",
+          callLabel: "(965) 000-000",
         },
       },
       appliancesPage: {
@@ -377,9 +492,13 @@ const resources = {
         servicesList: {
           homeMaintenance: "Home maintenance",
           assembly: "Assembly & installation",
-          cleaning: "Cleaning & upkeep",
-          gardening: "Gardening",
-          security: "Security",
+          appliances: "Appliances",
+          exteriors: "Outdoor & exterior work",
+          painting: "Painting & small improvements",
+          gardening: "Gardening & landscaping",
+          plumbing: "Basic plumbing",
+          aircon: "Air conditioning",
+          electrical: "Small electrical jobs",
         },
         contactTitle: "Get in touch",
         location: "Vega Baja, Alicante, Spain",
@@ -418,7 +537,22 @@ const resources = {
             },
             exteriors: {
               title: "Outdoor & exterior work",
-              description: "Exterior improvements, pressure washing, garden care and more.",
+              description: "Facades, terraces, fencing, pressure washing, sealing and exterior finishing.",
+            },
+            painting: {
+              title: "Painting & small improvements",
+              description:
+                "Touch-ups, patches and small finishing jobs to refresh your home without a full renovation.",
+            },
+            gardening: {
+              title: "Gardening & landscaping",
+              description:
+                "Garden maintenance, basic landscaping, light outdoor structures and simple irrigation adjustments.",
+            },
+            plumbing: {
+              title: "Basic plumbing",
+              description:
+                "Toilet repairs, sanitary ware, tap replacement, cisterns, traps, sealing and minor unblocking.",
             },
             aircon: {
               title: "Air conditioning repairs",
@@ -433,6 +567,8 @@ const resources = {
         },
         whyPanel: {
           heading: "At Bricos, we get it",
+          headingBeforeBrand: "At",
+          headingAfterBrand: ", we get it",
           intro:
             "Not everyone has the time, tools or confidence for DIY. Instead of worrying about that list of jobs, just call us. We turn up on time, properly equipped and ready to get your home back in great shape.",
           whyChooseLabel: "Why choose",
@@ -462,7 +598,7 @@ const resources = {
             "At Bricos, we believe in doing things properly. The right tools, the right skills and the care to leave your home safe, tidy and looking how it should.",
           rangeTitle: "Wide range of services",
           rangeText:
-            "Our core services include home maintenance and repair, assembly and installation, exterior work, appliances, air conditioning repairs and small electrical jobs.",
+            "Our core services include home maintenance and repair, assembly and installation, exterior work, painting, gardening and landscaping, basic plumbing, appliances, air conditioning repairs and small electrical jobs.",
           familyTitle: "Family-run business",
           familyText:
             "As a family business, we bring a personal level of care and responsibility. We understand how important your home is and we work hard to earn your trust.",
@@ -501,10 +637,10 @@ const resources = {
       exteriorsPage: {
         heroTitle: "Outdoor & exterior work",
         heroSubtitle:
-          "Exterior repairs and improvements to keep your home looking its best: pressure washing, sealing, paintwork, small repairs and basic garden care.",
+          "Exterior maintenance to keep your home looking cared for: pressure washing, sealing, facades, terraces, fencing and protective finishes.",
         whatIncludedTitle: "What this service covers",
         whatIncludedBody:
-          "We look after exterior maintenance jobs that help protect and extend the life of your property. We pay special attention to weather‑exposed surfaces and anything that needs secure, long‑lasting fixings.",
+          "We look after exterior maintenance jobs that help protect and extend the life of your property. We pay special attention to weather-exposed surfaces, joints, fencing, terraces and anything that needs secure, long-lasting fixings.",
         recommendedTitle: "Recommended",
         recommendedItems: [
           "Seasonal checks on sealants and points where water can get in.",
@@ -529,6 +665,100 @@ const resources = {
           heading: "We work hard to keep every client happy",
           body:
             "If you have any questions at all, just get in touch and we’ll respond quickly and helpfully.",
+        },
+      },
+      paintingPage: {
+        heroTitle: "Painting & small improvements",
+        heroSubtitle:
+          "Touch-ups, patches and small finishing jobs to refresh your home without getting into a full renovation.",
+        whatIncludedTitle: "What this service covers",
+        whatIncludedBody:
+          "We take care of small painting, repair and finishing jobs: marked walls, small cracks, dents, already-resolved damp marks, doors, skirting boards and finishing touches after installations or repairs.",
+        exclusionsTitle: "Important",
+        exclusionsItems: [
+          "We do not carry out full renovations or major building work.",
+          "We do not take on complex work at height without safe access.",
+          "We do not paint over active damp before the source has been fixed.",
+        ],
+        recommendedTitle: "Recommended",
+        recommendedItems: [
+          "Grouping several touch-ups in one visit to save time.",
+          "Keeping the paint colour reference if an existing colour is being matched.",
+          "Checking knocks, cracks and sealant lines before painting.",
+        ],
+        ctaBand: {
+          eyebrow: "QUALITY YOU CAN EXPECT",
+          heading: "THE SERVICE YOUR HOME DESERVES",
+          body:
+            "Give your home a cleaner finish with careful touch-ups, patches and small paint jobs.",
+          bookNow: "Book now",
+          callLabel: "(965) 000-000",
+        },
+        satisfactionBand: {
+          heading: "Clean finishes, no fuss",
+          body:
+            "We look after the preparation, finishing and clean-up so the result blends in properly.",
+        },
+      },
+      gardeningPage: {
+        heroTitle: "Gardening & landscaping",
+        heroSubtitle:
+          "Garden maintenance, basic landscaping and light outdoor structures to keep your terrace, patio or plot tidy, practical and pleasant.",
+        whatIncludedTitle: "What this service covers",
+        whatIncludedBody:
+          "We carry out gardening and outdoor improvement tasks: light pruning, clearing leaves and green waste, preparing planted areas, basic landscaping, simple irrigation checks and small structures such as planters, trellises, borders or supports.",
+        exclusionsTitle: "Important",
+        exclusionsItems: [
+          "We do not fell large trees.",
+          "We do not take on major landscaping works or significant groundworks.",
+          "We do not install complex irrigation systems from scratch.",
+        ],
+        recommendedTitle: "Recommended",
+        recommendedItems: [
+          "Scheduling maintenance before hot or rainy seasons.",
+          "Keeping terraces, drains and walkways clear.",
+          "Checking drippers and hoses at the start of each season.",
+        ],
+        ctaBand: {
+          eyebrow: "QUALITY YOU CAN EXPECT",
+          heading: "THE SERVICE YOUR HOME DESERVES",
+          body:
+            "Bring your garden or terrace back into shape with maintenance, practical landscaping and well-finished outdoor structures.",
+          bookNow: "Book now",
+          callLabel: "(965) 000-000",
+        },
+        satisfactionBand: {
+          heading: "Outdoor areas ready to enjoy",
+          body:
+            "We handle the jobs and improvements that make your outside space feel cared for, ordered and intentional.",
+        },
+      },
+      plumbingPage: {
+        heroTitle: "Basic plumbing",
+        heroSubtitle:
+          "Toilet repairs, sanitary ware replacement, tap installation, tap replacement, cisterns, traps, sealing and minor unblocking without building work.",
+        whatIncludedTitle: "What this service covers",
+        whatIncludedBody:
+          "We handle light plumbing jobs around the home: leaking toilets, worn taps, damaged flexi-hoses and traps, bathroom/kitchen sealing and local blockages. The focus is visible repairs, replacements and practical maintenance, with tidy workmanship and clear quotes.",
+        exclusionsTitle: "What we do not do",
+        exclusionsItems: [
+          "We do not carry out building work, chasing walls, bathroom renovations or masonry.",
+          "We do not alter hidden pipework, soil stacks, rising mains or communal plumbing systems.",
+          "We do not work on gas, boilers or installations that require a specific certified technician.",
+        ],
+        recommendedTitle: "Recommended",
+        recommendedItems: [
+          "Send photos by WhatsApp of the toilet, tap, leak or blockage so we can assess the job before visiting.",
+          "Group several bathroom or kitchen fixes into one visit.",
+          "Replace old flexi-hoses, seals and traps before they cause larger leaks.",
+        ],
+        ctaBand: {
+          eyebrow: "PLUMBING FIXES WITHOUT BUILDING WORK",
+          heading: "TOILETS, TAPS AND UNBLOCKING",
+          body:
+            "Tell us what you need or send photos by WhatsApp. We help with basic plumbing jobs across the Vega Baja.",
+          bookNow: "Book now",
+          callLabel: "(965) 000-000",
         },
       },
       appliancesPage: {
@@ -725,5 +955,3 @@ i18n
   });
 
 export default i18n;
-
-

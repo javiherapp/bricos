@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 const Contacto = () => {
   const { toast } = useToast();
@@ -44,8 +45,8 @@ const Contacto = () => {
                 <CardContent className="p-6 text-center">
                   <Phone className="w-12 h-12 text-primary mx-auto mb-4" />
                   <h3 className="font-semibold mb-2">Teléfono</h3>
-                  <a href="tel:+34965000000" className="text-primary hover:underline">
-                    965 000 000
+                  <a href={`tel:${PHONE_TEL}`} className="text-primary hover:underline">
+                    {PHONE_DISPLAY}
                   </a>
                 </CardContent>
               </Card>
@@ -138,7 +139,7 @@ const Contacto = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" asChild>
-                  <a href="tel:+34965000000">
+                  <a href={`tel:${PHONE_TEL}`}>
                     <Phone className="w-5 h-5 mr-2" />
                     Llamar Ahora
                   </a>

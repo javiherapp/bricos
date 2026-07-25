@@ -1,4 +1,13 @@
-import { Check, Home, Wrench, Droplets, PanelsTopLeft, Shield } from "lucide-react";
+import {
+  Check,
+  Paintbrush,
+  PaintRoller,
+  Hammer,
+  Wrench,
+  DoorOpen,
+  Home,
+  Shield,
+} from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,66 +15,81 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const Exteriores = () => {
+const Pintura = () => {
   const { t, i18n } = useTranslation();
 
   const tareas: Array<{ icon: React.ElementType; titulo: string; desc: string }> = [
     {
-      icon: Droplets,
+      icon: PaintRoller,
       titulo:
         i18n.language.startsWith("en")
-          ? "Pressure washing"
-          : "Lavado a Presión",
+          ? "Interior paint touch-ups"
+          : "Retoques de Pintura Interior",
       desc:
         i18n.language.startsWith("en")
-          ? "Cleaning exterior floors, façades, walls and terraces to remove dirt, moss and algae."
-          : "Limpieza de suelos exteriores, fachadas, muros y terrazas para eliminar suciedad y verdín.",
-    },
-    {
-      icon: PanelsTopLeft,
-      titulo:
-        i18n.language.startsWith("en")
-          ? "Sealing & waterproofing"
-          : "Sellados e Impermeabilización",
-      desc:
-        i18n.language.startsWith("en")
-          ? "Sealing joints, cracks and water entry points to help prevent damp."
-          : "Sellado de juntas, grietas y puntos de entrada de agua para prevenir humedades.",
+          ? "Walls, ceilings and areas marked by everyday use, finished neatly and cleanly."
+          : "Paredes, techos y zonas marcadas por el uso diario, con acabado limpio y cuidado.",
     },
     {
       icon: Wrench,
       titulo:
         i18n.language.startsWith("en")
-          ? "Terrace & fence repairs"
-          : "Reparaciones en Terraza y Vallas",
+          ? "Patches & small repairs"
+          : "Parches y Pequeñas Reparaciones",
       desc:
         i18n.language.startsWith("en")
-          ? "Small adjustments and repairs on fencing, railings, decking and similar."
-          : "Ajustes y reparaciones menores en vallados, barandillas, listones y tarimas.",
+          ? "Small holes, cracks, scuffs and chipped areas prepared before painting."
+          : "Agujeros, fisuras, roces y desconchados preparados antes de pintar.",
+    },
+    {
+      icon: DoorOpen,
+      titulo:
+        i18n.language.startsWith("en")
+          ? "Doors, frames & skirting boards"
+          : "Puertas, Marcos y Rodapiés",
+      desc:
+        i18n.language.startsWith("en")
+          ? "Light sanding, paint, varnish and local touch-ups on woodwork and trims."
+          : "Lijado ligero, pintura, barniz y retoques puntuales en carpintería y remates.",
     },
     {
       icon: Home,
       titulo:
         i18n.language.startsWith("en")
-          ? "Façade & exterior maintenance"
-          : "Mantenimiento de Fachada y Exterior",
+          ? "Small exterior paint jobs"
+          : "Pintura Exterior Puntual",
       desc:
         i18n.language.startsWith("en")
-          ? "Fitting trims, fixings and small repairs on external parts of the property."
-          : "Colocación de remates, anclajes, fijaciones y pequeños trabajos en el exterior de la vivienda.",
+          ? "Walls, gates, railings, doors and exterior details where a full repaint is not needed."
+          : "Muros, puertas, rejas, vallas y detalles exteriores cuando no hace falta pintar todo.",
+    },
+    {
+      icon: Hammer,
+      titulo:
+        i18n.language.startsWith("en")
+          ? "Finishing after installations"
+          : "Remates Tras Instalaciones",
+      desc:
+        i18n.language.startsWith("en")
+          ? "Tidying drill marks, scuffs, sealant lines and visible finishes after other work."
+          : "Repaso de marcas de taladro, rozaduras, sellados y acabados visibles tras otros trabajos.",
     },
     {
       icon: Shield,
       titulo:
         i18n.language.startsWith("en")
-          ? "Protective treatments & finishes"
-          : "Protecciones y Acabados",
+          ? "Small aesthetic improvements"
+          : "Pequeñas Mejoras Estéticas",
       desc:
         i18n.language.startsWith("en")
-          ? "Applying protective products on wood/metal and other finishes to extend lifespan."
-          : "Aplicación de protectores en madera/metal y acabados para prolongar la vida útil.",
+          ? "Simple changes to make a room feel cleaner, brighter and better cared for."
+          : "Cambios sencillos para dejar una estancia más limpia, luminosa y cuidada.",
     },
   ];
+
+  const exclusiones: string[] = t("paintingPage.exclusionsItems", {
+    returnObjects: true,
+  }) as string[];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -76,10 +100,10 @@ const Exteriores = () => {
         <section className="brand-hero py-16">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              {t("exteriorsPage.heroTitle")}
+              {t("paintingPage.heroTitle")}
             </h1>
             <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto">
-              {t("exteriorsPage.heroSubtitle")}
+              {t("paintingPage.heroSubtitle")}
             </p>
           </div>
         </section>
@@ -90,19 +114,19 @@ const Exteriores = () => {
             <div className="grid lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 space-y-6">
                 <h2 className="text-2xl font-bold">
-                  {t("exteriorsPage.whatIncludedTitle")}
+                  {t("paintingPage.whatIncludedTitle")}
                 </h2>
                 <p className="text-muted-foreground">
-                  {t("exteriorsPage.whatIncludedBody")}
+                  {t("paintingPage.whatIncludedBody")}
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {tareas.map((t, i) => (
+                  {tareas.map((tarea, i) => (
                     <Card key={i}>
                       <CardContent className="p-4 flex items-start gap-3">
-                        <t.icon className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                        <tarea.icon className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                         <div>
-                          <div className="font-semibold">{t.titulo}</div>
-                          <div className="text-sm text-muted-foreground">{t.desc}</div>
+                          <div className="font-semibold">{tarea.titulo}</div>
+                          <div className="text-sm text-muted-foreground">{tarea.desc}</div>
                         </div>
                       </CardContent>
                     </Card>
@@ -113,15 +137,12 @@ const Exteriores = () => {
                 <Card>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-3">
-                      {t("exteriorsPage.recommendedTitle")}
+                      {t("paintingPage.exclusionsTitle")}
                     </h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      {t("exteriorsPage.recommendedItems", {
-                        returnObjects: true,
-                      }).map((item: string, i: number) => (
+                      {exclusiones.map((item, i) => (
                         <li key={i} className="flex items-start">
-                          <Check className="w-4 h-4 text-primary mr-2 mt-0.5" />{" "}
-                          {item}
+                          <Check className="w-4 h-4 text-primary mr-2 mt-0.5" /> {item}
                         </li>
                       ))}
                     </ul>
@@ -130,10 +151,10 @@ const Exteriores = () => {
                 <Card>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-3">
-                      {t("exteriorsPage.benefitsTitle")}
+                      {t("paintingPage.recommendedTitle")}
                     </h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      {t("exteriorsPage.benefitsItems", {
+                      {t("paintingPage.recommendedItems", {
                         returnObjects: true,
                       }).map((item: string, i: number) => (
                         <li key={i} className="flex items-start">
@@ -162,23 +183,23 @@ const Exteriores = () => {
         <section className="brand-hero py-20 border-t-4 border-primary/90">
           <div className="container mx-auto px-4 text-center">
             <p className="tracking-widest text-base md:text-lg opacity-90 mb-2">
-              {t("exteriorsPage.ctaBand.eyebrow")}
+              {t("paintingPage.ctaBand.eyebrow")}
             </p>
             <h2 className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primary mb-6">
-              {t("exteriorsPage.ctaBand.heading")}
+              {t("paintingPage.ctaBand.heading")}
             </h2>
             <p className="text-lg md:text-xl opacity-90 max-w-4xl mx-auto mb-10">
-              {t("exteriorsPage.ctaBand.body")}
+              {t("paintingPage.ctaBand.body")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="rounded-2xl px-8">
                 <Link to="/reservar">
-                  {t("exteriorsPage.ctaBand.bookNow")}
+                  {t("paintingPage.ctaBand.bookNow")}
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white">
                 <a href="tel:+34965000000">
-                  {t("exteriorsPage.ctaBand.callLabel")}
+                  {t("paintingPage.ctaBand.callLabel")}
                 </a>
               </Button>
             </div>
@@ -189,15 +210,18 @@ const Exteriores = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto rounded-3xl bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] p-8 md:p-12 shadow">
+              <div className="flex justify-center mb-4">
+                <Paintbrush className="w-10 h-10 text-primary" />
+              </div>
               <h3 className="text-center text-2xl md:text-3xl font-extrabold text-primary mb-4">
-                {t("exteriorsPage.satisfactionBand.heading")}
+                {t("paintingPage.satisfactionBand.heading")}
               </h3>
               <p className="text-center text-base md:text-lg opacity-90 max-w-3xl mx-auto mb-4">
-                {t("exteriorsPage.satisfactionBand.body")}
+                {t("paintingPage.satisfactionBand.body")}
               </p>
               <div className="text-center">
                 <a href="tel:+34965000000" className="text-2xl md:text-3xl font-extrabold text-primary">
-                  (965) 000-000
+                  {t("paintingPage.ctaBand.callLabel")}
                 </a>
               </div>
             </div>
@@ -210,4 +234,4 @@ const Exteriores = () => {
   );
 };
 
-export default Exteriores;
+export default Pintura;

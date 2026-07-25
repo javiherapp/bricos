@@ -15,16 +15,41 @@ import { es } from "date-fns/locale";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
+const WHATSAPP_PHONE = "34965000000"; // Cambia a tu número real en formato internacional sin +
+
 const Reservar = () => {
   const { toast } = useToast();
   const [date, setDate] = useState<Date>();
+  const [serviceType, setServiceType] = useState<string>("");
+  const [preferredTime, setPreferredTime] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const nombre = String(formData.get("nombre") ?? "");
+    const telefono = String(formData.get("telefono") ?? "");
+    const email = String(formData.get("email") ?? "");
+    const direccion = String(formData.get("direccion") ?? "");
+    const detalles = String(formData.get("detalles") ?? "");
+    const humanDate = date ? format(date, "PPP", { locale: es }) : "No indicada";
+
+    const msg =
+      `Nueva solicitud de presupuesto:\n` +
+      `• Nombre: ${nombre}\n` +
+      `• Teléfono: ${telefono}\n` +
+      `• Email: ${email}\n` +
+      `• Dirección: ${direccion}\n` +
+      `• Servicio: ${serviceType || "No indicado"}\n` +
+      `• Fecha: ${humanDate}\n` +
+      `• Horario: ${preferredTime || "No indicado"}\n` +
+      `• Detalles: ${detalles}`;
+
+    const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
     toast({
       title: "Reserva enviada",
       description: "Gracias por su reserva. Le contactaremos pronto para confirmar.",
     });
+    window.open(waUrl, "_blank");
   };
 
   return (
@@ -54,34 +79,35 @@ const Reservar = () => {
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="nombre">Nombre Completo *</Label>
-                        <Input id="nombre" placeholder="Juan Pérez" required />
+                        <Input id="nombre" name="nombre" placeholder="Juan Pérez" required />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="telefono">Teléfono *</Label>
-                        <Input id="telefono" type="tel" placeholder="965 000 000" required />
+                        <Input id="telefono" name="telefono" type="tel" placeholder="965 000 000" required />
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="email">Email *</Label>
-                      <Input id="email" type="email" placeholder="su@email.com" required />
+                      <Input id="email" name="email" type="email" placeholder="su@email.com" required />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="direccion">Dirección del Servicio *</Label>
-                      <Input id="direccion" placeholder="Calle, número, ciudad" required />
+                      <Input id="direccion" name="direccion" placeholder="Calle, número, ciudad" required />
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="servicio">Tipo de Servicio *</Label>
-                        <Select required>
+                        <Select value={serviceType} onValueChange={setServiceType} required>
                           <SelectTrigger>
                             <SelectValue placeholder="Seleccione un servicio" />
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="mantenimiento">Mantenimiento y Reparación</SelectItem>
                             <SelectItem value="montaje">Montaje e Instalación</SelectItem>
+                            <SelectItem value="fontaneria">Fontanería Básica</SelectItem>
                             <SelectItem value="limpieza">Limpieza y Mantenimiento</SelectItem>
                             <SelectItem value="jardin">Cuidado de Jardín</SelectItem>
                             <SelectItem value="seguridad">Seguridad</SelectItem>
@@ -122,7 +148,7 @@ const Reservar = () => {
 
                     <div className="space-y-2">
                       <Label htmlFor="horario">Horario Preferido</Label>
-                      <Select>
+                      <Select value={preferredTime} onValueChange={setPreferredTime}>
                         <SelectTrigger>
                           <SelectValue placeholder="Seleccione un horario" />
                         </SelectTrigger>
@@ -138,16 +164,14 @@ const Reservar = () => {
                       <Label htmlFor="detalles">Detalles del Trabajo *</Label>
                       <Textarea
                         id="detalles"
+                        name="detalles"
                         placeholder="Por favor, describa detalladamente el trabajo que necesita..."
                         rows={6}
                         required
                       />
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="presupuesto">Presupuesto Estimado (Opcional)</Label>
-                      <Input id="presupuesto" placeholder="Ej: 200-300€" />
-                    </div>
+                    
 
                     <div className="bg-muted p-4 rounded-lg">
                       <p className="text-sm text-muted-foreground">
@@ -156,7 +180,7 @@ const Reservar = () => {
                     </div>
 
                     <Button type="submit" className="w-full" size="lg">
-                      Enviar Solicitud de Reserva
+                      Pedir Presupuesto
                     </Button>
                   </form>
                 </CardContent>

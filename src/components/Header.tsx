@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 type LanguageToggleProps = {
   isEs: boolean;
@@ -91,9 +92,9 @@ const Header = () => {
 
             <div className="hidden md:flex items-center space-x-4">
               <LanguageToggle isEs={isEs} isEn={isEn} onChange={changeLanguage} />
-              <a href="tel:+34965000000" className="flex items-center text-foreground hover:text-primary">
+              <a href={`tel:${PHONE_TEL}`} className="flex items-center text-foreground hover:text-primary">
                 <Phone className="w-4 h-4 mr-2" />
-                965 000 000
+                {PHONE_DISPLAY}
               </a>
               <Button asChild className="bg-blue-600 hover:bg-blue-600/90 text-white rounded-full px-6 py-3">
                 <Link to="/reservar" className="text-center leading-tight uppercase tracking-wide">
@@ -158,9 +159,9 @@ const Header = () => {
                 {t("nav.contact")}
               </Link>
               <div className="pt-4 space-y-3">
-                <a href="tel:+34965000000" className="flex items-center text-foreground hover:text-primary">
+                <a href={`tel:${PHONE_TEL}`} className="flex items-center text-foreground hover:text-primary">
                   <Phone className="w-4 h-4 mr-2" />
-                  965 000 000
+                  {PHONE_DISPLAY}
                 </a>
                 <Button asChild className="w-full bg-blue-600 hover:bg-blue-600/90 text-white rounded-full py-4">
                   <Link to="/reservar" className="text-center leading-tight uppercase tracking-wide">

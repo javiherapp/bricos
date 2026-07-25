@@ -12,11 +12,13 @@ import {
   ThumbsUp,
   User,
   Plug,
+  Droplets,
   AirVent,
   Home,
+  Paintbrush,
+  Leaf,
   Target,
   Users,
-  MessageCircle,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -36,7 +38,10 @@ import exteriorImg from "@/assets/specialty-exterior.jpg";
 import appliancesImg from "@/assets/specialty-appliances.jpg";
 import mechanicalImg from "@/assets/specialty-mechanical.jpg";
 import plumbingImg from "@/assets/specialty-plumbing.png";
+import paintingImg from "@/assets/specialty-painting.jpg";
+import gardeningImg from "@/assets/specialty-gardening.jpg";
 import { useTranslation } from "react-i18next";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 const Index = () => {
   const { t } = useTranslation();
@@ -68,16 +73,34 @@ const Index = () => {
       link: "/servicios/exteriores",
     },
     {
-      icon: AirVent,
-      title: t("home.services.cards.aircon.title"),
-      description: t("home.services.cards.aircon.description"),
-      link: "/servicios/aire-acondicionado",
+      icon: Paintbrush,
+      title: t("home.services.cards.painting.title"),
+      description: t("home.services.cards.painting.description"),
+      link: "/servicios/pintura",
+    },
+    {
+      icon: Leaf,
+      title: t("home.services.cards.gardening.title"),
+      description: t("home.services.cards.gardening.description"),
+      link: "/servicios/jardineria",
+    },
+    {
+      icon: Droplets,
+      title: t("home.services.cards.plumbing.title"),
+      description: t("home.services.cards.plumbing.description"),
+      link: "/servicios/fontaneria",
     },
     {
       icon: Zap,
       title: t("home.services.cards.electrical.title"),
       description: t("home.services.cards.electrical.description"),
       link: "/servicios/electricidad",
+    },
+    {
+      icon: AirVent,
+      title: t("home.services.cards.aircon.title"),
+      description: t("home.services.cards.aircon.description"),
+      link: "/servicios/aire-acondicionado",
     },
   ];
 
@@ -95,8 +118,16 @@ const Index = () => {
       name: t("home.specialties.carpentry"),
     },
     {
+      image: paintingImg,
+      name: t("home.services.cards.painting.title"),
+    },
+    {
       image: exteriorImg,
       name: t("home.services.cards.exteriors.title"),
+    },
+    {
+      image: gardeningImg,
+      name: t("home.services.cards.gardening.title"),
     },
     {
       image: appliancesImg,
@@ -160,9 +191,9 @@ const Index = () => {
                   <Link to="/reservar">{t("home.hero.ctaQuote")}</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild className="text-lg border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-full px-8">
-                  <a href="tel:+34965000000">
+                  <a href={`tel:${PHONE_TEL}`}>
                     <Phone className="w-5 h-5 mr-2" />
-                    965 000 000
+                    {PHONE_DISPLAY}
                   </a>
                 </Button>
               </div>
@@ -221,7 +252,7 @@ const Index = () => {
             <p className="text-center text-muted-foreground max-w-3xl mx-auto mb-12">
               {t("home.services.description")}
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {services.map((service, index) => (
                 <ServiceCard key={index} {...service} />
               ))}
@@ -233,8 +264,9 @@ const Index = () => {
         <section className="py-20 bg-[hsl(var(--light-bg))]">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-center mb-6">
-              {t("home.whyPanel.heading").replace("Bricos", "")}{" "}
+              {t("home.whyPanel.headingBeforeBrand")}{" "}
               <span className="brand-script brand-script--primary align-baseline">Bricos</span>
+              {t("home.whyPanel.headingAfterBrand")}
             </h2>
             <p className="text-lg md:text-xl text-center text-muted-foreground max-w-4xl mx-auto mb-12">
               {t("home.whyPanel.intro")}
@@ -256,7 +288,7 @@ const Index = () => {
                   <span className="brand-script brand-script--primary text-2xl align-baseline">Bricos</span>
                 </div>
                 <div className="flex flex-col md:flex-row md:items-center md:gap-6 mb-8">
-                  <a href="tel:+34965000000" className="text-2xl md:text-3xl font-extrabold tracking-tight hover:text-[hsl(var(--primary))] transition-colors">
+                  <a href={`tel:${PHONE_TEL}`} className="text-2xl md:text-3xl font-extrabold tracking-tight hover:text-[hsl(var(--primary))] transition-colors">
                     (965) 000-000
                   </a>
                   <span className="text-muted-foreground">{t("home.whyPanel.callPrompt")}</span>
@@ -325,14 +357,6 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <div className="fixed bottom-6 right-6 z-40">
-            <Button asChild className="rounded-2xl px-6 py-6 text-lg bg-primary hover:bg-primary/90 text-white shadow-xl">
-              <Link to="/contacto" className="flex items-center gap-2" aria-label="Abrir chat de contacto">
-                <MessageCircle className="w-5 h-5" />
-                {t("home.stats.writeToUs")}
-              </Link>
-            </Button>
-          </div>
         </section>
 
         {/* Why Choose Us - Cards Section */}
@@ -383,15 +407,6 @@ const Index = () => {
               </div>
             </div>
           </div>
-
-          <div className="hidden md:block absolute -bottom-6 right-6">
-            <Button asChild className="rounded-3xl px-8 py-6 text-lg bg-primary hover:bg-primary/90 text-white shadow-[0_10px_20px_rgba(0,0,0,0.15)] ring-1 ring-black/10">
-              <Link to="/contacto" className="flex items-center gap-2" aria-label="Abrir chat de contacto">
-                <MessageCircle className="w-5 h-5" />
-                {t("home.stats.writeToUs")}
-              </Link>
-            </Button>
-          </div>
         </section>
 
         {/* Reviews Section */}
@@ -418,10 +433,10 @@ const Index = () => {
               {t("home.cta.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="outline" className="text-lg bg-white text-secondary hover:bg-white/90">
-                <a href="tel:+34965000000" className="flex items-center">
+              <Button size="lg" variant="outline" asChild className="text-lg bg-white text-secondary hover:bg-white/90">
+                <a href={`tel:${PHONE_TEL}`} className="flex items-center">
                   <Phone className="w-5 h-5 mr-2" />
-                  965 000 000
+                  {PHONE_DISPLAY}
                 </a>
               </Button>
               <Button size="lg" asChild className="text-lg">

@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 import Index from "./pages/Index";
 import Servicios from "./pages/Servicios";
 import SobreNosotros from "./pages/SobreNosotros";
@@ -14,8 +15,11 @@ import Mantenimiento from "./pages/servicios/Mantenimiento";
 import Montaje from "./pages/servicios/Montaje";
 import Exteriores from "./pages/servicios/Exteriores";
 import Electrodomesticos from "./pages/servicios/Electrodomesticos";
+import Pintura from "./pages/servicios/Pintura";
+import Jardineria from "./pages/servicios/Jardineria";
 import AireAcondicionado from "./pages/servicios/AireAcondicionado";
 import Electricidad from "./pages/servicios/Electricidad";
+import Fontaneria from "./pages/servicios/Fontaneria";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +36,9 @@ const App = () => (
           <Route path="/servicios/montaje" element={<Montaje />} />
           <Route path="/servicios/exteriores" element={<Exteriores />} />
           <Route path="/servicios/electrodomesticos" element={<Electrodomesticos />} />
+          <Route path="/servicios/pintura" element={<Pintura />} />
+          <Route path="/servicios/jardineria" element={<Jardineria />} />
+          <Route path="/servicios/fontaneria" element={<Fontaneria />} />
           <Route path="/servicios/aire-acondicionado" element={<AireAcondicionado />} />
           <Route path="/servicios/electricidad" element={<Electricidad />} />
           <Route path="/sobre-nosotros" element={<SobreNosotros />} />
@@ -40,6 +47,7 @@ const App = () => (
           <Route path="/reservar" element={<Reservar />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <FloatingWhatsAppButton />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

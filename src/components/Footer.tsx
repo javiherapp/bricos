@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -50,11 +51,51 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">{t("footer.servicesTitle")}</h4>
             <ul className="space-y-2 text-sm">
-              <li>{t("footer.servicesList.homeMaintenance")}</li>
-              <li>{t("footer.servicesList.assembly")}</li>
-              <li>{t("footer.servicesList.cleaning")}</li>
-              <li>{t("footer.servicesList.gardening")}</li>
-              <li>{t("footer.servicesList.security")}</li>
+              <li>
+                <Link to="/servicios/mantenimiento" className="hover:text-primary transition-colors">
+                  {t("footer.servicesList.homeMaintenance")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios/montaje" className="hover:text-primary transition-colors">
+                  {t("footer.servicesList.assembly")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios/electrodomesticos" className="hover:text-primary transition-colors">
+                  {t("footer.servicesList.appliances")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios/exteriores" className="hover:text-primary transition-colors">
+                  {t("footer.servicesList.exteriors")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios/pintura" className="hover:text-primary transition-colors">
+                  {t("footer.servicesList.painting")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios/jardineria" className="hover:text-primary transition-colors">
+                  {t("footer.servicesList.gardening")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios/fontaneria" className="hover:text-primary transition-colors">
+                  {t("footer.servicesList.plumbing")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios/electricidad" className="hover:text-primary transition-colors">
+                  {t("footer.servicesList.electrical")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicios/aire-acondicionado" className="hover:text-primary transition-colors">
+                  {t("footer.servicesList.aircon")}
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -63,8 +104,8 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start">
                 <Phone className="w-4 h-4 mr-2 mt-1 flex-shrink-0" />
-                <a href="tel:+34965000000" className="hover:text-primary transition-colors">
-                  965 000 000
+                <a href={`tel:${PHONE_TEL}`} className="hover:text-primary transition-colors">
+                  {PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-start">
