@@ -93,7 +93,7 @@ const Contacto = () => {
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="telefono">Teléfono *</Label>
-                        <Input id="telefono" type="tel" placeholder="965 000 000" required />
+                        <Input id="telefono" type="tel" placeholder="Ej: 600 123 123" required />
                       </div>
                     </div>
                     

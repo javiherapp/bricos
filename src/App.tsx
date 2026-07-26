@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 import Index from "./pages/Index";
 import Servicios from "./pages/Servicios";
@@ -23,30 +23,41 @@ import Fontaneria from "./pages/servicios/Fontaneria";
 
 const queryClient = new QueryClient();
 
+const AppRoutes = () => {
+  const { pathname } = useLocation();
+  const routeSpacing = pathname === "/reservar" ? "" : "pb-24 md:pb-0";
+
+  return (
+    <div className={routeSpacing}>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/servicios" element={<Servicios />} />
+        <Route path="/servicios/mantenimiento" element={<Mantenimiento />} />
+        <Route path="/servicios/montaje" element={<Montaje />} />
+        <Route path="/servicios/exteriores" element={<Exteriores />} />
+        <Route path="/servicios/electrodomesticos" element={<Electrodomesticos />} />
+        <Route path="/servicios/pintura" element={<Pintura />} />
+        <Route path="/servicios/jardineria" element={<Jardineria />} />
+        <Route path="/servicios/fontaneria" element={<Fontaneria />} />
+        <Route path="/servicios/aire-acondicionado" element={<AireAcondicionado />} />
+        <Route path="/servicios/electricidad" element={<Electricidad />} />
+        <Route path="/sobre-nosotros" element={<SobreNosotros />} />
+        <Route path="/zona-de-servicio" element={<ZonaServicio />} />
+        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/reservar" element={<Reservar />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/servicios" element={<Servicios />} />
-          <Route path="/servicios/mantenimiento" element={<Mantenimiento />} />
-          <Route path="/servicios/montaje" element={<Montaje />} />
-          <Route path="/servicios/exteriores" element={<Exteriores />} />
-          <Route path="/servicios/electrodomesticos" element={<Electrodomesticos />} />
-          <Route path="/servicios/pintura" element={<Pintura />} />
-          <Route path="/servicios/jardineria" element={<Jardineria />} />
-          <Route path="/servicios/fontaneria" element={<Fontaneria />} />
-          <Route path="/servicios/aire-acondicionado" element={<AireAcondicionado />} />
-          <Route path="/servicios/electricidad" element={<Electricidad />} />
-          <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-          <Route path="/zona-de-servicio" element={<ZonaServicio />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/reservar" element={<Reservar />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AppRoutes />
         <FloatingWhatsAppButton />
       </BrowserRouter>
     </TooltipProvider>

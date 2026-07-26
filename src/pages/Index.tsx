@@ -289,7 +289,7 @@ const Index = () => {
                 </div>
                 <div className="flex flex-col md:flex-row md:items-center md:gap-6 mb-8">
                   <a href={`tel:${PHONE_TEL}`} className="text-2xl md:text-3xl font-extrabold tracking-tight hover:text-[hsl(var(--primary))] transition-colors">
-                    (965) 000-000
+                    610 85 70 59
                   </a>
                   <span className="text-muted-foreground">{t("home.whyPanel.callPrompt")}</span>
                 </div>

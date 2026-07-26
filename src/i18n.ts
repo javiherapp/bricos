@@ -192,7 +192,7 @@ const resources = {
           body:
             "Empiece hoy el mantenimiento exterior con Bricos. Contáctenos para un presupuesto sin compromiso.",
           bookNow: "Reservar Ahora",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
         satisfactionBand: {
           heading: "Nos esforzamos por mantener el 100% de satisfacción",
@@ -225,7 +225,7 @@ const resources = {
           body:
             "Dé un nuevo acabado a su vivienda con retoques, parches y pintura puntual hechos con cuidado.",
           bookNow: "Reservar Ahora",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
         satisfactionBand: {
           heading: "Acabados limpios, sin complicaciones",
@@ -258,7 +258,7 @@ const resources = {
           body:
             "Ponga su jardín o terraza al día con mantenimiento, paisajismo práctico y estructuras exteriores bien rematadas.",
           bookNow: "Reservar Ahora",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
         satisfactionBand: {
           heading: "Exteriores listos para disfrutar",
@@ -291,7 +291,7 @@ const resources = {
           body:
             "Cuéntenos qué necesita o envíenos fotos por WhatsApp. Le ayudamos con trabajos de fontanería básica en la Vega Baja.",
           bookNow: "Reservar Ahora",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
       },
       appliancesPage: {
@@ -318,7 +318,7 @@ const resources = {
           body:
             "Empiece hoy mismo con la instalación o reparación de sus electrodomésticos con Bricos.",
           bookNow: "Reservar Ahora",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
       },
       airconPage: {
@@ -344,7 +344,7 @@ const resources = {
           heading: "LOS SERVICIOS QUE TE MERECES",
           body: "¿Gotea, huele o hace ruido su aire? Le ayudamos con mantenimiento y reparaciones menores.",
           bookNow: "Reservar Ahora",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
       },
       electricPage: {
@@ -370,7 +370,7 @@ const resources = {
           heading: "LOS SERVICIOS QUE TE MERECES",
           body: "Haga su instalación más segura y funcional con nuestras actuaciones eléctricas menores.",
           bookNow: "Reservar Ahora",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
       },
       aboutPage: {
@@ -426,7 +426,7 @@ const resources = {
           body:
             "Empiece hoy su proyecto de montaje con Bricos. Contáctenos para transformar su espacio con seguridad y un acabado impecable.",
           bookNow: "Reservar Ahora",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
         satisfactionBand: {
           heading: "Nos esforzamos por mantener el 100% de satisfacción",
@@ -459,7 +459,7 @@ const resources = {
           body:
             "Empiece hoy su mejora del hogar con Bricos. Contáctenos para transformar su espacio. Use nuestro formulario o llámenos para obtener un presupuesto de su proyecto.",
           bookNow: "Reservar Ahora",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
         satisfactionBand: {
           heading: "Nos esforzamos por mantener el 100% de satisfacción",
@@ -659,7 +659,7 @@ const resources = {
           body:
             "Start taking care of the outside of your home with Bricos today. Ask us for a clear, no‑obligation quote.",
           bookNow: "Book now",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
         satisfactionBand: {
           heading: "We work hard to keep every client happy",
@@ -692,7 +692,7 @@ const resources = {
           body:
             "Give your home a cleaner finish with careful touch-ups, patches and small paint jobs.",
           bookNow: "Book now",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
         satisfactionBand: {
           heading: "Clean finishes, no fuss",
@@ -725,7 +725,7 @@ const resources = {
           body:
             "Bring your garden or terrace back into shape with maintenance, practical landscaping and well-finished outdoor structures.",
           bookNow: "Book now",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
         satisfactionBand: {
           heading: "Outdoor areas ready to enjoy",
@@ -758,7 +758,7 @@ const resources = {
           body:
             "Tell us what you need or send photos by WhatsApp. We help with basic plumbing jobs across the Vega Baja.",
           bookNow: "Book now",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
       },
       appliancesPage: {
@@ -785,7 +785,7 @@ const resources = {
           body:
             "Start your appliance installation or light repair with Bricos today.",
           bookNow: "Book now",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
       },
       airconPage: {
@@ -811,7 +811,7 @@ const resources = {
           heading: "THE SERVICE YOUR HOME DESERVES",
           body: "Leaking, smelly or noisy air‑con? We can help with cleaning and light repairs.",
           bookNow: "Book now",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
       },
       electricPage: {
@@ -837,7 +837,7 @@ const resources = {
           heading: "THE SERVICE YOUR HOME DESERVES",
           body: "Make your installation safer and more practical with our small electrical jobs service.",
           bookNow: "Book now",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
       },
       aboutPage: {
@@ -893,7 +893,7 @@ const resources = {
           body:
             "Start your assembly project with Bricos today. We’ll help you get everything installed safely, neatly and ready to use.",
           bookNow: "Book now",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
         satisfactionBand: {
           heading: "We work hard to keep every client happy",
@@ -926,7 +926,7 @@ const resources = {
           body:
             "Start looking after your home with Bricos today. Get in touch and we’ll help you improve your space. Use our online form or give us a call for a clear, fair quote.",
           bookNow: "Book now",
-          callLabel: "(965) 000-000",
+          callLabel: "610 85 70 59",
         },
         satisfactionBand: {
           heading: "We work hard to keep every client happy",

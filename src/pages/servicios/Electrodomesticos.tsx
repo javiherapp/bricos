@@ -168,7 +168,7 @@ const Electrodomesticos = () => {
                 </Card>
                 <div className="text-center">
                   <Button asChild size="lg">
-                    <a href="tel:+34965000000">
+                    <a href="tel:+34610857059">
                       {i18n.language.startsWith("en")
                         ? "Request a quote"
                         : "Solicitar presupuesto"}
@@ -199,7 +199,7 @@ const Electrodomesticos = () => {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white">
-                <a href="tel:+34965000000">
+                <a href="tel:+34610857059">
                   {t("appliancesPage.ctaBand.callLabel")}
                 </a>
               </Button>

@@ -9,13 +9,12 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Calendar } from "@/components/ui/calendar";
 import { useToast } from "@/hooks/use-toast";
-import { CalendarIcon } from "lucide-react";
+import { CalendarIcon, MessageCircle } from "lucide-react";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-
-const WHATSAPP_PHONE = "34965000000"; // Cambia a tu número real en formato internacional sin +
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_PHONE } from "@/lib/contact";
 
 const Reservar = () => {
   const { toast } = useToast();
@@ -46,8 +45,8 @@ const Reservar = () => {
 
     const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
     toast({
-      title: "Reserva enviada",
-      description: "Gracias por su reserva. Le contactaremos pronto para confirmar.",
+      title: "Solicitud lista en WhatsApp",
+      description: "Revise el mensaje y pulse enviar. Le responderemos lo antes posible.",
     });
     window.open(waUrl, "_blank");
   };
@@ -61,10 +60,11 @@ const Reservar = () => {
         <section className="bg-gradient-to-br from-secondary to-secondary/90 text-secondary-foreground py-16">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-              Reservar Servicio
+              Presupuesto inmediato por WhatsApp
             </h1>
             <p className="text-xl text-center max-w-3xl mx-auto opacity-90">
-              Complete el formulario y nos pondremos en contacto con usted
+              Complete el formulario y se abrirá WhatsApp con su solicitud preparada.
+              Le responderemos lo antes posible para confirmar detalles y precio.
             </p>
           </div>
         </section>
@@ -76,6 +76,22 @@ const Reservar = () => {
               <Card>
                 <CardContent className="p-8">
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="rounded-lg border border-green-200 bg-green-50 p-4 text-green-950">
+                      <div className="flex items-start gap-3">
+                        <MessageCircle className="mt-0.5 h-5 w-5 shrink-0 text-green-600" />
+                        <div>
+                          <p className="font-semibold">
+                            Su presupuesto se enviará a nuestro WhatsApp.
+                          </p>
+                          <p className="mt-1 text-sm text-green-900">
+                            Al terminar, WhatsApp se abrirá con todos los datos listos.
+                            Solo tendrá que pulsar enviar y priorizaremos su solicitud
+                            para responder cuanto antes.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="nombre">Nombre Completo *</Label>
@@ -83,7 +99,7 @@ const Reservar = () => {
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="telefono">Teléfono *</Label>
-                        <Input id="telefono" name="telefono" type="tel" placeholder="965 000 000" required />
+                        <Input id="telefono" name="telefono" type="tel" placeholder="Ej: 600 123 123" required />
                       </div>
                     </div>
 
@@ -175,12 +191,14 @@ const Reservar = () => {
 
                     <div className="bg-muted p-4 rounded-lg">
                       <p className="text-sm text-muted-foreground">
-                        * Al enviar este formulario, uno de nuestros profesionales se pondrá en contacto con usted en un plazo de 24 horas para confirmar los detalles y proporcionar un presupuesto detallado.
+                        * Al enviar este formulario se abrirá WhatsApp con la solicitud
+                        preparada para nuestro equipo. Le contestaremos lo antes posible
+                        para resolver dudas y darle un presupuesto claro.
                       </p>
                     </div>
 
                     <Button type="submit" className="w-full" size="lg">
-                      Pedir Presupuesto
+                      Enviar por WhatsApp
                     </Button>
                   </form>
                 </CardContent>
@@ -192,7 +210,7 @@ const Reservar = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button variant="outline" asChild>
-                    <a href="tel:+34965000000">Llamar: 965 000 000</a>
+                    <a href={`tel:${PHONE_TEL}`}>Llamar: {PHONE_DISPLAY}</a>
                   </Button>
                   <Button variant="outline" asChild>
                     <a href="mailto:info@hogarpro.es">Email: info@hogarpro.es</a>

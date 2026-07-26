@@ -224,7 +224,7 @@ const AireAcondicionado = () => {
                 </Card>
                 <div className="text-center">
                   <Button asChild size="lg">
-                    <a href="tel:+34965000000">Solicitar presupuesto</a>
+                    <a href="tel:+34610857059">Solicitar presupuesto</a>
                   </Button>
                 </div>
               </div>
@@ -251,7 +251,7 @@ const AireAcondicionado = () => {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white">
-                <a href="tel:+34965000000">
+                <a href="tel:+34610857059">
                   {t("airconPage.ctaBand.callLabel")}
                 </a>
               </Button>

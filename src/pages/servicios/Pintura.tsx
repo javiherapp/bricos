@@ -167,7 +167,7 @@ const Pintura = () => {
                 </Card>
                 <div className="text-center">
                   <Button asChild size="lg">
-                    <a href="tel:+34965000000">
+                    <a href="tel:+34610857059">
                       {i18n.language.startsWith("en")
                         ? "Request a quote"
                         : "Solicitar presupuesto"}
@@ -198,7 +198,7 @@ const Pintura = () => {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white">
-                <a href="tel:+34965000000">
+                <a href="tel:+34610857059">
                   {t("paintingPage.ctaBand.callLabel")}
                 </a>
               </Button>
@@ -220,7 +220,7 @@ const Pintura = () => {
                 {t("paintingPage.satisfactionBand.body")}
               </p>
               <div className="text-center">
-                <a href="tel:+34965000000" className="text-2xl md:text-3xl font-extrabold text-primary">
+                <a href="tel:+34610857059" className="text-2xl md:text-3xl font-extrabold text-primary">
                   {t("paintingPage.ctaBand.callLabel")}
                 </a>
               </div>
