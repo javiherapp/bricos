@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
+import { EMAIL_ADDRESS, PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -110,8 +110,8 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <Mail className="w-4 h-4 mr-2 mt-1 flex-shrink-0" />
-                <a href="mailto:info@hogarpro.es" className="hover:text-primary transition-colors">
-                  info@hogarpro.es
+                <a href={`mailto:${EMAIL_ADDRESS}`} className="hover:text-primary transition-colors">
+                  {EMAIL_ADDRESS}
                 </a>
               </li>
               <li className="flex items-start">

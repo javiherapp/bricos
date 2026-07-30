@@ -96,6 +96,14 @@ const resources = {
             aircon: "Aire acondicionado",
           },
         },
+        promoModal: {
+          close: "Cerrar promoción",
+          eyebrow: "Promoción de bienvenida",
+          headline: "20€ de descuento en tu primer servicio",
+          codeLabel: "Código promocional:",
+          note: "Válido para nuevos clientes en servicios de mantenimiento del hogar en la Vega Baja.",
+          cta: "Pedir presupuesto",
+        },
         specialties: {
           title: "Nuestras Especialidades",
           carpentry: "Carpintería",
@@ -533,7 +541,7 @@ const resources = {
         contact: "Contact",
         quote: "Instant quote",
         quoteInstant: "Instant",
-        quoteInstantFull: "Instant quote",
+        quoteInstantFull: "Instant Quote",
       },
       footer: {
         description:
@@ -613,6 +621,14 @@ const resources = {
             electrical: "Electrical",
             aircon: "Air conditioning",
           },
+        },
+        promoModal: {
+          close: "Close promotion",
+          eyebrow: "Welcome offer",
+          headline: "€20 off your first service",
+          codeLabel: "Promo code:",
+          note: "Valid for new customers on home maintenance services in the Vega Baja.",
+          cta: "Get a quote",
         },
         specialties: {
           title: "Our specialities",

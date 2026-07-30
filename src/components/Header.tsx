@@ -96,10 +96,9 @@ const Header = () => {
                 <Phone className="w-4 h-4 mr-2" />
                 {PHONE_DISPLAY}
               </a>
-              <Button asChild className="bg-blue-600 hover:bg-blue-600/90 text-white rounded-full px-6 py-3">
-                <Link to="/reservar" className="text-center leading-tight uppercase tracking-wide">
-                  <span className="block">{t("nav.quote")}</span>
-                  <span className="block">{t("nav.quoteInstant")}</span>
+              <Button asChild className="rounded-full bg-primary px-6 py-3 text-white shadow-md shadow-primary/20 hover:bg-primary/90">
+                <Link to="/reservar" className="whitespace-nowrap text-center font-bold uppercase tracking-wide">
+                  {t("nav.quoteInstantFull")}
                 </Link>
               </Button>
             </div>
@@ -163,10 +162,9 @@ const Header = () => {
                   <Phone className="w-4 h-4 mr-2" />
                   {PHONE_DISPLAY}
                 </a>
-                <Button asChild className="w-full bg-blue-600 hover:bg-blue-600/90 text-white rounded-full py-4">
-                  <Link to="/reservar" className="text-center leading-tight uppercase tracking-wide">
-                    <span className="block">{t("nav.quote")}</span>
-                    <span className="block">{t("nav.quoteInstant")}</span>
+                <Button asChild className="w-full rounded-full bg-primary py-4 text-white shadow-md shadow-primary/20 hover:bg-primary/90">
+                  <Link to="/reservar" className="text-center font-bold uppercase tracking-wide">
+                    {t("nav.quoteInstantFull")}
                   </Link>
                 </Button>
               </div>

@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
+import { EMAIL_ADDRESS, PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 const Contacto = () => {
   const { toast } = useToast();
@@ -55,8 +55,8 @@ const Contacto = () => {
                 <CardContent className="p-6 text-center">
                   <Mail className="w-12 h-12 text-primary mx-auto mb-4" />
                   <h3 className="font-semibold mb-2">Email</h3>
-                  <a href="mailto:info@hogarpro.es" className="text-primary hover:underline">
-                    info@hogarpro.es
+                  <a href={`mailto:${EMAIL_ADDRESS}`} className="text-primary hover:underline">
+                    {EMAIL_ADDRESS}
                   </a>
                 </CardContent>
               </Card>
@@ -145,7 +145,7 @@ const Contacto = () => {
                   </a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <a href="mailto:info@hogarpro.es">
+                  <a href={`mailto:${EMAIL_ADDRESS}`}>
                     <Mail className="w-5 h-5 mr-2" />
                     Enviar Email
                   </a>

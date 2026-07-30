@@ -1,10 +1,11 @@
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   Phone,
   Wrench,
   Hammer,
-  Sparkles,
+  X,
   TreePine,
   Shield,
   Zap,
@@ -46,6 +47,52 @@ import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 const Index = () => {
   const { t } = useTranslation();
+  const [isPromoOpen, setIsPromoOpen] = useState(false);
+  const promoCode = "BRICOS20";
+
+  const closePromo = useCallback(() => {
+    try {
+      window.sessionStorage.setItem("bricosPromoSeen", "true");
+    } catch {
+      // The modal should still close even if storage is blocked.
+    }
+
+    setIsPromoOpen(false);
+  }, []);
+
+  useEffect(() => {
+    try {
+      if (window.sessionStorage.getItem("bricosPromoSeen") === "true") {
+        return;
+      }
+    } catch {
+      // Session storage can be unavailable in strict browsing modes.
+    }
+
+    const timer = window.setTimeout(() => setIsPromoOpen(true), 2500);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!isPromoOpen) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closePromo();
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [closePromo, isPromoOpen]);
 
   const services = [
     {
@@ -485,6 +532,67 @@ const Index = () => {
           </div>
         </section>
       </main>
+
+      {isPromoOpen && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/65 px-4 py-6 backdrop-blur-sm"
+          onClick={closePromo}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="bricos-promo-title"
+            className="relative w-full max-w-4xl overflow-hidden rounded-3xl bg-white px-6 pb-12 pt-14 text-center text-foreground shadow-2xl sm:px-12 md:px-20 md:pb-16 md:pt-16"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="absolute right-4 top-4 flex h-12 w-12 items-center justify-center rounded-full bg-black text-white transition hover:bg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:right-6 sm:top-6 sm:h-14 sm:w-14"
+              onClick={closePromo}
+              aria-label={t("home.promoModal.close")}
+            >
+              <X className="h-7 w-7" />
+            </button>
+
+            <div className="relative z-10">
+              <div className="mb-7 flex justify-center">
+                <div className="brand-logo text-6xl font-extrabold text-secondary sm:text-7xl">
+                  <span className="brand-word">Brico</span>
+                  <span className="brand-s">s</span>
+                </div>
+              </div>
+              <p className="mb-4 text-sm font-black uppercase text-primary">
+                {t("home.promoModal.eyebrow")}
+              </p>
+              <h2
+                id="bricos-promo-title"
+                className="mx-auto max-w-3xl text-3xl font-black uppercase leading-tight text-primary sm:text-5xl md:text-6xl"
+              >
+                {t("home.promoModal.headline")}
+              </h2>
+              <p className="mx-auto mt-6 max-w-2xl text-lg font-semibold sm:text-2xl">
+                {t("home.promoModal.codeLabel")}{" "}
+                <span className="font-black text-primary">{promoCode}</span>
+              </p>
+              <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground sm:text-base">
+                {t("home.promoModal.note")}
+              </p>
+
+              <Button
+                asChild
+                size="lg"
+                className="mt-8 rounded-full border-2 border-black bg-primary px-10 text-base font-black text-black hover:bg-primary/90 sm:px-16"
+              >
+                <Link to={`/reservar?promo=${promoCode}`} onClick={closePromo}>
+                  {t("home.promoModal.cta")}
+                </Link>
+              </Button>
+            </div>
+
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2 bg-primary" aria-hidden="true" />
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>

@@ -15,13 +15,16 @@ import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_PHONE } from "@/lib/contact";
+import { EMAIL_ADDRESS, PHONE_DISPLAY, PHONE_TEL, WHATSAPP_PHONE } from "@/lib/contact";
+import { useSearchParams } from "react-router-dom";
 
 const Reservar = () => {
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
   const [date, setDate] = useState<Date>();
   const [serviceType, setServiceType] = useState<string>("");
   const [preferredTime, setPreferredTime] = useState<string>("");
+  const promoCode = searchParams.get("promo")?.trim() ?? "";
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,6 +45,7 @@ const Reservar = () => {
       `• Servicio: ${serviceType || "No indicado"}\n` +
       `• Fecha: ${humanDate}\n` +
       `• Horario: ${preferredTime || "No indicado"}\n` +
+      (promoCode ? `• Código promocional: ${promoCode}\n` : "") +
       `• Detalles: ${detalles}`;
 
     const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
@@ -94,6 +98,18 @@ const Reservar = () => {
                         </div>
                       </div>
                     </div>
+
+                    {promoCode && (
+                      <div className="rounded-lg border border-primary/25 bg-primary/10 p-4 text-primary">
+                        <p className="font-semibold">
+                          Código promocional aplicado: {promoCode}
+                        </p>
+                        <p className="mt-1 text-sm text-foreground/70">
+                          Lo incluiremos en el mensaje de WhatsApp para aplicar
+                          el descuento correspondiente.
+                        </p>
+                      </div>
+                    )}
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
@@ -216,7 +232,7 @@ const Reservar = () => {
                     <a href={`tel:${PHONE_TEL}`}>Llamar: {PHONE_DISPLAY}</a>
                   </Button>
                   <Button variant="outline" asChild>
-                    <a href="mailto:info@hogarpro.es">Email: info@hogarpro.es</a>
+                    <a href={`mailto:${EMAIL_ADDRESS}`}>Email: {EMAIL_ADDRESS}</a>
                   </Button>
                 </div>
               </div>
