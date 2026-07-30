@@ -23,6 +23,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
+import ServiceTerms from "@/components/ServiceTerms";
 import ReviewCard from "@/components/ReviewCard";
 import {
   Carousel,
@@ -49,18 +50,42 @@ const Index = () => {
   const services = [
     {
       icon: Wrench,
+      shortTitle: t("home.hero.serviceGlance.maintenance"),
       title: t("home.services.cards.maintenance.title"),
       description: t("home.services.cards.maintenance.description"),
       link: "/servicios/mantenimiento",
     },
     {
       icon: Hammer,
+      shortTitle: t("home.hero.serviceGlance.assembly"),
       title: t("home.services.cards.assembly.title"),
       description: t("home.services.cards.assembly.description"),
       link: "/servicios/montaje",
     },
     {
+      icon: Droplets,
+      shortTitle: t("home.hero.serviceGlance.plumbing"),
+      title: t("home.services.cards.plumbing.title"),
+      description: t("home.services.cards.plumbing.description"),
+      link: "/servicios/fontaneria",
+    },
+    {
+      icon: AirVent,
+      shortTitle: t("home.hero.serviceGlance.aircon"),
+      title: t("home.services.cards.aircon.title"),
+      description: t("home.services.cards.aircon.description"),
+      link: "/servicios/aire-acondicionado",
+    },
+    {
+      icon: Zap,
+      shortTitle: t("home.hero.serviceGlance.electrical"),
+      title: t("home.services.cards.electrical.title"),
+      description: t("home.services.cards.electrical.description"),
+      link: "/servicios/electricidad",
+    },
+    {
       icon: Plug,
+      shortTitle: t("home.hero.serviceGlance.appliances"),
       title: t("home.services.cards.appliances.title"),
       description: t("home.services.cards.appliances.description"),
       link: "/servicios/electrodomesticos",
@@ -68,39 +93,24 @@ const Index = () => {
     {
       icon: Home,
       secondaryIcon: TreePine,
+      shortTitle: t("home.hero.serviceGlance.exteriors"),
       title: t("home.services.cards.exteriors.title"),
       description: t("home.services.cards.exteriors.description"),
       link: "/servicios/exteriores",
     },
     {
       icon: Paintbrush,
+      shortTitle: t("home.hero.serviceGlance.painting"),
       title: t("home.services.cards.painting.title"),
       description: t("home.services.cards.painting.description"),
       link: "/servicios/pintura",
     },
     {
       icon: Leaf,
+      shortTitle: t("home.hero.serviceGlance.gardening"),
       title: t("home.services.cards.gardening.title"),
       description: t("home.services.cards.gardening.description"),
       link: "/servicios/jardineria",
-    },
-    {
-      icon: Droplets,
-      title: t("home.services.cards.plumbing.title"),
-      description: t("home.services.cards.plumbing.description"),
-      link: "/servicios/fontaneria",
-    },
-    {
-      icon: Zap,
-      title: t("home.services.cards.electrical.title"),
-      description: t("home.services.cards.electrical.description"),
-      link: "/servicios/electricidad",
-    },
-    {
-      icon: AirVent,
-      title: t("home.services.cards.aircon.title"),
-      description: t("home.services.cards.aircon.description"),
-      link: "/servicios/aire-acondicionado",
     },
   ];
 
@@ -179,14 +189,14 @@ const Index = () => {
         >
           <div className="absolute inset-0 bg-black/50"></div>
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
+            <div className="max-w-4xl">
+              <h1 className="max-w-3xl text-4xl md:text-6xl font-extrabold mb-6">
                 {t("home.hero.title")}
               </h1>
-              <p className="text-xl mb-8 opacity-90">
+              <p className="max-w-3xl text-xl mb-8 opacity-90">
                 {t("home.hero.subtitle")}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <div className="max-w-3xl flex flex-col sm:flex-row gap-4 items-center justify-center">
                 <Button size="lg" asChild className="text-lg bg-primary hover:bg-primary/90 text-white rounded-full px-8">
                   <Link to="/reservar">{t("home.hero.ctaQuote")}</Link>
                 </Button>
@@ -197,6 +207,33 @@ const Index = () => {
                   </a>
                 </Button>
               </div>
+              <nav
+                className="mt-8 grid max-w-4xl grid-cols-3 gap-3 sm:grid-cols-5 lg:grid-cols-9"
+                aria-label={t("home.hero.serviceGlance.label")}
+              >
+                {services.map(({ icon: Icon, secondaryIcon: SecondaryIcon, shortTitle, title, link }) => (
+                  <Link
+                    key={link}
+                    to={link}
+                    className="group flex min-h-[5.4rem] min-w-0 flex-col items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/10 px-2.5 py-3 text-center text-white shadow-sm backdrop-blur-sm transition hover:border-primary hover:bg-primary/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black/60"
+                    aria-label={title}
+                  >
+                    <span className="relative flex h-8 w-8 shrink-0 items-center justify-center">
+                      {SecondaryIcon ? (
+                        <>
+                          <Icon className="h-6 w-6 translate-x-1 text-white transition-transform group-hover:scale-110" />
+                          <SecondaryIcon className="absolute h-5 w-5 -translate-x-2 -translate-y-1 text-white/85 transition-transform group-hover:scale-110" />
+                        </>
+                      ) : (
+                        <Icon className="h-7 w-7 text-white transition-transform group-hover:scale-110" />
+                      )}
+                    </span>
+                    <span className="max-w-full break-words text-[0.68rem] font-semibold leading-tight opacity-95">
+                      {shortTitle}
+                    </span>
+                  </Link>
+                ))}
+              </nav>
             </div>
           </div>
         </section>
@@ -259,6 +296,8 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        <ServiceTerms variant="summary" />
 
         {/* Why Choose Us Section - Redesigned */}
         <section className="py-20 bg-[hsl(var(--light-bg))]">

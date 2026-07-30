@@ -37,6 +37,45 @@ const resources = {
         location: "Vega Baja, Alicante, España",
         rights: "Todos los derechos reservados.",
       },
+      serviceTerms: {
+        summaryEyebrow: "Tarifa de referencia",
+        summaryTitle: "Primera hora + desplazamiento desde 70€",
+        summaryBody:
+          "Una referencia clara para pequeñas reparaciones, ajustes, montajes o varias tareas sencillas en una misma visita. Para trabajos mayores o especiales, preparamos un presupuesto a medida antes de empezar.",
+        fullEyebrow: "Professional service terms",
+        fullTitle: "Tarifas claras para pequeñas tareas",
+        fullIntro:
+          "La visita básica sirve como referencia cuando tiene una o varias pequeñas cosas que hacer en casa. Mantiene el coste bajo control y, si el trabajo necesita más tiempo, materiales o coordinación especial, lo confirmamos antes.",
+        priceLabel: "Primera hora + desplazamiento",
+        price: "Desde 70€",
+        priceDescription:
+          "Incluye la visita dentro de nuestra zona de servicio, la valoración, la coordinación y la primera hora para pequeñas tareas cuando sea posible.",
+        cta: "Pedir presupuesto",
+        items: [
+          {
+            title: "Presupuesto rápido y claro",
+            text: "Muchas solicitudes se pueden valorar con fotos o vídeo por WhatsApp.",
+          },
+          {
+            title: "Aprobación antes de superar lo acordado",
+            text: "No añadimos costes extra sin avisar y recibir confirmación.",
+          },
+          {
+            title: "Operario adicional si hace falta",
+            text: "+25€/h, siempre recomendado y aprobado previamente.",
+          },
+          {
+            title: "Materiales, retirada y especialistas",
+            text: "Se presupuestan aparte cuando corresponda.",
+          },
+          {
+            title: "Colaboraciones recurrentes",
+            text: "Condiciones a medida para property managers, varias viviendas o mantenimiento continuo.",
+          },
+        ],
+        footer:
+          "Para trabajos más grandes, intervenciones especiales, materiales, retirada de residuos o varias propiedades, le preparamos un presupuesto a medida antes de empezar.",
+      },
       home: {
         hero: {
           title: "Tu equipo de mantenimiento del hogar de confianza en la Vega Baja",
@@ -44,6 +83,18 @@ const resources = {
             "Profesionales puntuales y amables para arreglos, instalaciones y mejoras en casa. Trabajo bien hecho, sin complicaciones y con precios claros.",
           ctaQuote: "Presupuesto Instantáneo",
           call: "Llámanos",
+          serviceGlance: {
+            label: "Servicios principales",
+            maintenance: "Mantenimiento",
+            assembly: "Montaje",
+            appliances: "Electrodomésticos",
+            exteriors: "Exteriores",
+            painting: "Pintura",
+            gardening: "Jardín",
+            plumbing: "Fontanería",
+            electrical: "Electricidad",
+            aircon: "Aire acondicionado",
+          },
         },
         specialties: {
           title: "Nuestras Especialidades",
@@ -504,6 +555,45 @@ const resources = {
         location: "Vega Baja, Alicante, Spain",
         rights: "All rights reserved.",
       },
+      serviceTerms: {
+        summaryEyebrow: "Reference rate",
+        summaryTitle: "First hour + travel from €70",
+        summaryBody:
+          "A clear reference for small repairs, adjustments, assembly jobs or several simple tasks in one visit. For larger or specialist work, we prepare a tailored quote before we start.",
+        fullEyebrow: "Professional service terms",
+        fullTitle: "Clear rates for small jobs",
+        fullIntro:
+          "The basic visit is a useful reference when you have one or several small jobs to take care of at home. It keeps costs under control and, if the work needs more time, materials or specialist coordination, we confirm that first.",
+        priceLabel: "First hour + travel",
+        price: "From €70",
+        priceDescription:
+          "Includes the visit within our service area, assessment, coordination and the first hour for small tasks where possible.",
+        cta: "Request a quote",
+        items: [
+          {
+            title: "Fast, clear quotations",
+            text: "Many jobs can be assessed from photos or video via WhatsApp.",
+          },
+          {
+            title: "Approval before exceeding the agreed amount",
+            text: "Extra costs are not added without notice and confirmation.",
+          },
+          {
+            title: "Additional operative where required",
+            text: "+€25/h, always advised and approved in advance.",
+          },
+          {
+            title: "Materials, disposal and specialist work",
+            text: "Quoted separately where applicable.",
+          },
+          {
+            title: "Recurring partnerships",
+            text: "Tailored terms for property managers, multiple homes or ongoing maintenance.",
+          },
+        ],
+        footer:
+          "For larger jobs, specialist work, materials, waste disposal or multiple properties, we prepare a tailored quote before work begins.",
+      },
       home: {
         hero: {
           title: "Your trusted home maintenance team in the Vega Baja",
@@ -511,6 +601,18 @@ const resources = {
             "Punctual, friendly tradespeople for repairs, installations and home improvements. Quality work, no hassle, and clear, upfront pricing.",
           ctaQuote: "Get an instant quote",
           call: "Call us",
+          serviceGlance: {
+            label: "Main services",
+            maintenance: "Maintenance",
+            assembly: "Assembly",
+            appliances: "Appliances",
+            exteriors: "Exteriors",
+            painting: "Painting",
+            gardening: "Garden",
+            plumbing: "Plumbing",
+            electrical: "Electrical",
+            aircon: "Air conditioning",
+          },
         },
         specialties: {
           title: "Our specialities",

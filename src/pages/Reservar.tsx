@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ServiceTerms from "@/components/ServiceTerms";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -68,6 +69,8 @@ const Reservar = () => {
             </p>
           </div>
         </section>
+
+        <ServiceTerms variant="full" />
 
         {/* Booking Form */}
         <section className="py-16">
