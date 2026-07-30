@@ -158,7 +158,7 @@ const Electricidad = () => {
                 </Card>
                 <div className="text-center">
                   <Button asChild size="lg">
-                    <a href="tel:+34610857059">Solicitar presupuesto</a>
+                    <a href="tel:+34623635732">Solicitar presupuesto</a>
                   </Button>
                 </div>
               </div>
@@ -185,7 +185,7 @@ const Electricidad = () => {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white">
-                <a href="tel:+34610857059">
+                <a href="tel:+34623635732">
                   {t("electricPage.ctaBand.callLabel")}
                 </a>
               </Button>

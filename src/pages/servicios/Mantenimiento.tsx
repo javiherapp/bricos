@@ -225,7 +225,7 @@ const Mantenimiento = () => {
                 </Card>
                 <div className="text-center">
                   <Button asChild size="lg">
-                    <a href="tel:+34610857059">
+                    <a href="tel:+34623635732">
                       {i18n.language.startsWith("en")
                         ? "Request a quote"
                         : "Solicitar presupuesto"}
@@ -256,7 +256,7 @@ const Mantenimiento = () => {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white">
-                <a href="tel:+34610857059">
+                <a href="tel:+34623635732">
                   {t("maintenancePage.ctaBand.callLabel")}
                 </a>
               </Button>
@@ -278,8 +278,8 @@ const Mantenimiento = () => {
                 <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center">
                   <Phone className="w-7 h-7 text-primary" />
                 </div>
-                <a href="tel:+34610857059" className="text-2xl md:text-3xl font-extrabold text-primary">
-                  610 85 70 59
+                <a href="tel:+34623635732" className="text-2xl md:text-3xl font-extrabold text-primary">
+                  +34 623 635 732
                 </a>
               </div>
             </div>
