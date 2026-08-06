@@ -3,6 +3,7 @@ import {
   Droplets,
   Filter as FilterIcon,
   Hammer,
+  Plug,
   Shield,
   ShowerHead,
   Wrench,
@@ -73,6 +74,28 @@ const Fontaneria = () => {
         i18n.language.startsWith("en")
           ? "Replacing traps, wastes, flexi connectors and filters for sinks, basins and appliances."
           : "Cambio de sifones, válvulas, flexos, conexiones y filtros de fregaderos, lavabos y electrodomésticos.",
+    },
+    {
+      icon: FilterIcon,
+      titulo:
+        i18n.language.startsWith("en")
+          ? "Osmosis & water softeners"
+          : "Ósmosis y Descalcificadoras",
+      desc:
+        i18n.language.startsWith("en")
+          ? "Installing, maintaining and changing filters on domestic osmosis, water softener and water-treatment systems."
+          : "Instalación, mantenimiento y cambio de filtros en equipos domésticos de ósmosis, descalcificadoras y tratamiento de agua.",
+    },
+    {
+      icon: Plug,
+      titulo:
+        i18n.language.startsWith("en")
+          ? "Electric water heaters"
+          : "Termos y Calentadores Eléctricos",
+      desc:
+        i18n.language.startsWith("en")
+          ? "Installing or replacing electric water heaters, with visible water connections and basic set-up."
+          : "Instalación o sustitución de termos eléctricos, conexiones de agua visibles y puesta a punto básica.",
     },
     {
       icon: Droplets,

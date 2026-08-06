@@ -66,6 +66,17 @@ const AireAcondicionado = () => {
           : "Limpieza de bandeja y desatasco del tubo de condensados para evitar goteos.",
     },
     {
+      icon: AirVent,
+      titulo:
+        i18n.language.startsWith("en")
+          ? "Gas / refrigerant charging"
+          : "Carga de Gas/Refrigerante",
+      desc:
+        i18n.language.startsWith("en")
+          ? "Pressure checks, leak diagnosis and refrigerant charging when the system needs it."
+          : "Revisión de presión, detección de fugas y carga de refrigerante cuando el equipo lo necesita.",
+    },
+    {
       icon: Wrench,
       titulo:
         i18n.language.startsWith("en")
@@ -84,8 +95,8 @@ const AireAcondicionado = () => {
           : "Motor de Ventilador",
       desc:
         i18n.language.startsWith("en")
-          ? "Replacing the fan motor when this can be done without opening the gas circuit."
-          : "Sustitución del motor del ventilador cuando no requiere abrir el circuito frigorífico.",
+          ? "Replacing the fan motor and checking related system components where needed."
+          : "Sustitución del motor del ventilador y revisión de los elementos necesarios del sistema.",
     },
     {
       icon: Plug,
@@ -266,4 +277,3 @@ const AireAcondicionado = () => {
 };
 
 export default AireAcondicionado;
-

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ServiceTerms from "@/components/ServiceTerms";
@@ -7,16 +7,40 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Calendar } from "@/components/ui/calendar";
 import { useToast } from "@/hooks/use-toast";
-import { CalendarIcon, MessageCircle } from "lucide-react";
+import { CalendarIcon, Camera, Gift, ImageUp, MessageCircle, X } from "lucide-react";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { EMAIL_ADDRESS, PHONE_DISPLAY, PHONE_TEL, WHATSAPP_PHONE } from "@/lib/contact";
+import { trackMetaEvent } from "@/lib/metaPixel";
 import { useSearchParams } from "react-router-dom";
+
+const serviceOptions = [
+  { value: "mantenimiento", label: "Mantenimiento y Reparación del Hogar" },
+  { value: "montaje", label: "Montaje e Instalación" },
+  { value: "fontaneria", label: "Fontanería Básica" },
+  { value: "aire-acondicionado", label: "Aire Acondicionado" },
+  { value: "pintura", label: "Pintura y Reformas Menores" },
+  { value: "jardineria", label: "Jardinería y Paisajismo" },
+  { value: "electrodomesticos", label: "Electrodomésticos" },
+  { value: "exteriores", label: "Exteriores" },
+  { value: "electricidad", label: "Servicios Eléctricos Menores" },
+  { value: "otro", label: "Otro" },
+];
+
+const preferredTimeOptions = [
+  { value: "manana", label: "Mañana (8AM - 12PM)" },
+  { value: "tarde", label: "Tarde (12PM - 6PM)" },
+  { value: "flexible", label: "Flexible" },
+];
+
+const getOptionLabel = (
+  options: Array<{ value: string; label: string }>,
+  value: string,
+) => options.find((option) => option.value === value)?.label ?? value;
 
 const Reservar = () => {
   const { toast } = useToast();
@@ -24,7 +48,65 @@ const Reservar = () => {
   const [date, setDate] = useState<Date>();
   const [serviceType, setServiceType] = useState<string>("");
   const [preferredTime, setPreferredTime] = useState<string>("");
-  const promoCode = searchParams.get("promo")?.trim() ?? "";
+  const [problemPhoto, setProblemPhoto] = useState<File | null>(null);
+  const [problemPhotoPreview, setProblemPhotoPreview] = useState<string>("");
+  const cameraPhotoInputRef = useRef<HTMLInputElement>(null);
+  const uploadPhotoInputRef = useRef<HTMLInputElement>(null);
+  const initialPromoCode = searchParams.get("promo")?.trim().toUpperCase() ?? "";
+  const [promoCode, setPromoCode] = useState(initialPromoCode);
+  const appliedPromoCode = promoCode.trim().toUpperCase();
+
+  useEffect(() => {
+    return () => {
+      if (problemPhotoPreview) {
+        URL.revokeObjectURL(problemPhotoPreview);
+      }
+    };
+  }, [problemPhotoPreview]);
+
+  const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] ?? null;
+
+    if (problemPhotoPreview) {
+      URL.revokeObjectURL(problemPhotoPreview);
+    }
+
+    if (!file) {
+      setProblemPhoto(null);
+      setProblemPhotoPreview("");
+      return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+      e.currentTarget.value = "";
+      setProblemPhoto(null);
+      setProblemPhotoPreview("");
+      toast({
+        title: "Archivo no válido",
+        description: "Por favor, suba una foto en formato imagen.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setProblemPhoto(file);
+    setProblemPhotoPreview(URL.createObjectURL(file));
+  };
+
+  const clearProblemPhoto = () => {
+    if (problemPhotoPreview) {
+      URL.revokeObjectURL(problemPhotoPreview);
+    }
+
+    setProblemPhoto(null);
+    setProblemPhotoPreview("");
+    if (cameraPhotoInputRef.current) {
+      cameraPhotoInputRef.current.value = "";
+    }
+    if (uploadPhotoInputRef.current) {
+      uploadPhotoInputRef.current.value = "";
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,6 +117,12 @@ const Reservar = () => {
     const direccion = String(formData.get("direccion") ?? "");
     const detalles = String(formData.get("detalles") ?? "");
     const humanDate = date ? format(date, "PPP", { locale: es }) : "No indicada";
+    const serviceLabel = serviceType
+      ? getOptionLabel(serviceOptions, serviceType)
+      : "No indicado";
+    const preferredTimeLabel = preferredTime
+      ? getOptionLabel(preferredTimeOptions, preferredTime)
+      : "No indicado";
 
     const msg =
       `Nueva solicitud de presupuesto:\n` +
@@ -42,16 +130,27 @@ const Reservar = () => {
       `• Teléfono: ${telefono}\n` +
       `• Email: ${email}\n` +
       `• Dirección: ${direccion}\n` +
-      `• Servicio: ${serviceType || "No indicado"}\n` +
+      `• Servicio: ${serviceLabel}\n` +
       `• Fecha: ${humanDate}\n` +
-      `• Horario: ${preferredTime || "No indicado"}\n` +
-      (promoCode ? `• Código promocional: ${promoCode}\n` : "") +
+      `• Horario: ${preferredTimeLabel}\n` +
+      (appliedPromoCode
+        ? `• Código promocional: ${appliedPromoCode}\n` +
+          `• Validación del bono: comprobar primer servicio, teléfono, email y dirección antes de aplicar el descuento.\n`
+        : "") +
+      (problemPhoto
+        ? `• Foto del problema: seleccionada. La adjunto en este chat después de enviar el mensaje.\n`
+        : `• Foto del problema: no adjuntada\n`) +
       `• Detalles: ${detalles}`;
 
     const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
     toast({
       title: "Solicitud lista en WhatsApp",
       description: "Revise el mensaje y pulse enviar. Le responderemos lo antes posible.",
+    });
+    trackMetaEvent("Lead", {
+      content_category: "WhatsApp quote request",
+      content_name: serviceLabel,
+      preferred_time: preferredTimeLabel,
     });
     window.open(waUrl, "_blank");
   };
@@ -92,24 +191,43 @@ const Reservar = () => {
                           </p>
                           <p className="mt-1 text-sm text-green-900">
                             Al terminar, WhatsApp se abrirá con todos los datos listos.
-                            Solo tendrá que pulsar enviar y priorizaremos su solicitud
-                            para responder cuanto antes.
+                            Si añade una foto, podrá adjuntarla en el chat justo después
+                            de enviar el mensaje preparado.
                           </p>
                         </div>
                       </div>
                     </div>
 
-                    {promoCode && (
-                      <div className="rounded-lg border border-primary/25 bg-primary/10 p-4 text-primary">
-                        <p className="font-semibold">
-                          Código promocional aplicado: {promoCode}
-                        </p>
-                        <p className="mt-1 text-sm text-foreground/70">
-                          Lo incluiremos en el mensaje de WhatsApp para aplicar
-                          el descuento correspondiente.
-                        </p>
+                    <div className="rounded-lg border border-primary/25 bg-primary/10 p-4">
+                      <div className="flex items-start gap-3">
+                        <Gift className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                        <div className="w-full">
+                          <p className="font-semibold text-primary">
+                            ¿Es su primer servicio con Bricos?
+                          </p>
+                          <p className="mt-1 text-sm text-foreground/70">
+                            Use el código BRICOS20 y solicite 20€ de descuento.
+                            Lo revisaremos antes de confirmar el presupuesto.
+                          </p>
+                          <div className="mt-4 space-y-2">
+                            <Label htmlFor="promo">Código promocional</Label>
+                            <Input
+                              id="promo"
+                              name="promo"
+                              value={promoCode}
+                              onChange={(event) => setPromoCode(event.target.value.toUpperCase())}
+                              placeholder="BRICOS20"
+                            />
+                          </div>
+                          <p className="mt-3 text-xs text-foreground/60">
+                            Válido solo para nuevos clientes. Un uso por persona,
+                            teléfono, email y dirección de servicio. No acumulable
+                            con otras ofertas. No se aplica sobre materiales,
+                            desplazamientos especiales ni trabajos de terceros.
+                          </p>
+                        </div>
                       </div>
-                    )}
+                    </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
@@ -135,21 +253,26 @@ const Reservar = () => {
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="servicio">Tipo de Servicio *</Label>
-                        <Select value={serviceType} onValueChange={setServiceType} required>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Seleccione un servicio" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="mantenimiento">Mantenimiento y Reparación</SelectItem>
-                            <SelectItem value="montaje">Montaje e Instalación</SelectItem>
-                            <SelectItem value="fontaneria">Fontanería Básica</SelectItem>
-                            <SelectItem value="limpieza">Limpieza y Mantenimiento</SelectItem>
-                            <SelectItem value="jardin">Cuidado de Jardín</SelectItem>
-                            <SelectItem value="seguridad">Seguridad</SelectItem>
-                            <SelectItem value="electricidad">Servicios Eléctricos</SelectItem>
-                            <SelectItem value="otro">Otro</SelectItem>
-                          </SelectContent>
-                        </Select>
+                        <select
+                          id="servicio"
+                          name="servicio"
+                          value={serviceType}
+                          onChange={(event) => setServiceType(event.target.value)}
+                          required
+                          className={cn(
+                            "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+                            !serviceType && "text-muted-foreground",
+                          )}
+                        >
+                          <option value="" disabled>
+                            Seleccione un servicio
+                          </option>
+                          {serviceOptions.map((option) => (
+                            <option key={option.value} value={option.value}>
+                              {option.label}
+                            </option>
+                          ))}
+                        </select>
                       </div>
 
                       <div className="space-y-2">
@@ -157,6 +280,7 @@ const Reservar = () => {
                         <Popover>
                           <PopoverTrigger asChild>
                             <Button
+                              type="button"
                               variant="outline"
                               className={cn(
                                 "w-full justify-start text-left font-normal",
@@ -183,16 +307,107 @@ const Reservar = () => {
 
                     <div className="space-y-2">
                       <Label htmlFor="horario">Horario Preferido</Label>
-                      <Select value={preferredTime} onValueChange={setPreferredTime}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Seleccione un horario" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="manana">Mañana (8AM - 12PM)</SelectItem>
-                          <SelectItem value="tarde">Tarde (12PM - 6PM)</SelectItem>
-                          <SelectItem value="flexible">Flexible</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <select
+                        id="horario"
+                        name="horario"
+                        value={preferredTime}
+                        onChange={(event) => setPreferredTime(event.target.value)}
+                        className={cn(
+                          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+                          !preferredTime && "text-muted-foreground",
+                        )}
+                      >
+                        <option value="">Seleccione un horario</option>
+                        {preferredTimeOptions.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label>Foto del problema</Label>
+                      <div className="grid gap-3 rounded-lg border border-dashed border-input bg-muted/20 p-4 sm:grid-cols-[1fr_auto] sm:items-center">
+                        <div className="flex items-start gap-3">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                            <Camera className="h-5 w-5" />
+                          </div>
+                          <div>
+                            <p className="text-sm font-medium">
+                              Haga una foto o suba una imagen
+                            </p>
+                            <p className="mt-1 text-sm text-muted-foreground">
+                              Una imagen ayuda a valorar fugas, enchufes, muebles,
+                              grietas o piezas antes de visitarle.
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-2 sm:flex-row">
+                          <Button type="button" variant="outline" asChild>
+                            <Label
+                              htmlFor="foto-camara"
+                              className="inline-flex cursor-pointer items-center justify-center gap-2"
+                            >
+                              <Camera className="h-4 w-4" />
+                              Hacer foto
+                            </Label>
+                          </Button>
+                          <Button type="button" variant="outline" asChild>
+                            <Label
+                              htmlFor="foto-subida"
+                              className="inline-flex cursor-pointer items-center justify-center gap-2"
+                            >
+                              <ImageUp className="h-4 w-4" />
+                              Subir foto
+                            </Label>
+                          </Button>
+                        </div>
+                        <input
+                          id="foto-camara"
+                          name="foto-camara"
+                          type="file"
+                          accept="image/*"
+                          capture="environment"
+                          className="sr-only"
+                          ref={cameraPhotoInputRef}
+                          onChange={handlePhotoChange}
+                        />
+                        <input
+                          id="foto-subida"
+                          name="foto-subida"
+                          type="file"
+                          accept="image/*"
+                          className="sr-only"
+                          ref={uploadPhotoInputRef}
+                          onChange={handlePhotoChange}
+                        />
+                      </div>
+                      {problemPhoto && problemPhotoPreview && (
+                        <div className="flex items-center gap-4 rounded-lg border bg-background p-3">
+                          <img
+                            src={problemPhotoPreview}
+                            alt="Vista previa de la foto del problema"
+                            className="h-20 w-20 shrink-0 rounded-md object-cover"
+                          />
+                          <div className="min-w-0 flex-1">
+                            <p className="truncate text-sm font-medium">{problemPhoto.name}</p>
+                            <p className="mt-1 text-sm text-muted-foreground">
+                              Enviaremos el aviso en WhatsApp para que adjunte esta foto
+                              en el chat.
+                            </p>
+                          </div>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            onClick={clearProblemPhoto}
+                            aria-label="Quitar foto"
+                          >
+                            <X className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      )}
                     </div>
 
                     <div className="space-y-2">
@@ -212,7 +427,9 @@ const Reservar = () => {
                       <p className="text-sm text-muted-foreground">
                         * Al enviar este formulario se abrirá WhatsApp con la solicitud
                         preparada para nuestro equipo. Le contestaremos lo antes posible
-                        para resolver dudas y darle un presupuesto claro.
+                        para resolver dudas y darle un presupuesto claro. WhatsApp no
+                        permite adjuntar la foto automáticamente desde el formulario; si
+                        ha elegido una imagen, adjúntela en el chat que se abrirá.
                       </p>
                     </div>
 

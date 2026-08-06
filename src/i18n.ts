@@ -18,6 +18,15 @@ const resources = {
         quoteInstant: "Instantáneo",
         quoteInstantFull: "Presupuesto Instantáneo",
       },
+      privacy: {
+        cookieBanner: {
+          title: "Cookies de marketing",
+          body:
+            "Usamos Meta Pixel para medir visitas y solicitudes de presupuesto cuando acepta cookies de marketing.",
+          accept: "Aceptar",
+          reject: "Rechazar",
+        },
+      },
       footer: {
         description: "Servicio de mantenimiento y reparación del hogar de confianza en la Vega Baja de Alicante.",
         quickLinks: "Enlaces Rápidos",
@@ -35,6 +44,10 @@ const resources = {
         },
         contactTitle: "Contacto",
         location: "Vega Baja, Alicante, España",
+        promoTitle: "Nuevo cliente",
+        promoText: "20€ de descuento en su primer servicio con el código BRICOS20.",
+        promoCta: "Pedir presupuesto con descuento",
+        cookieSettings: "Preferencias de cookies",
         rights: "Todos los derechos reservados.",
       },
       serviceTerms: {
@@ -104,6 +117,14 @@ const resources = {
           note: "Válido para nuevos clientes en servicios de mantenimiento del hogar en la Vega Baja.",
           cta: "Pedir presupuesto",
         },
+        promoBanner: {
+          eyebrow: "Promoción para nuevos clientes",
+          title: "20€ de descuento en tu primer servicio",
+          body:
+            "Use el código BRICOS20 al pedir presupuesto. Válido una vez por persona, teléfono, email y dirección de servicio.",
+          codeLabel: "Código:",
+          cta: "Usar descuento",
+        },
         specialties: {
           title: "Nuestras Especialidades",
           carpentry: "Carpintería",
@@ -144,7 +165,7 @@ const resources = {
             plumbing: {
               title: "Fontanería Básica",
               description:
-                "Sanitarios, grifería, cambios de grifos, cisternas, sifones, sellados y desatascos menores.",
+                "Sanitarios, grifería, cisternas, sifones, ósmosis, descalcificadoras, termos eléctricos, sellados y desatascos menores.",
             },
             aircon: {
               title: "Aire Acondicionado: Reparación de Aires",
@@ -328,27 +349,27 @@ const resources = {
       plumbingPage: {
         heroTitle: "Fontanería Básica",
         heroSubtitle:
-          "Arreglos de sanitarios, cambio de grifos, instalación de grifería, cisternas, sifones, sellados y desatascos menores sin meterse en obra.",
+          "Arreglos de sanitarios, cambio de grifos, instalación de grifería, cisternas, sifones, ósmosis, descalcificadoras, termos eléctricos, sellados y desatascos menores sin meterse en obra.",
         whatIncludedTitle: "Qué incluye este servicio",
         whatIncludedBody:
-          "Realizamos trabajos de fontanería ligera para solucionar problemas habituales del hogar: sanitarios que pierden agua, grifos deteriorados, flexos y sifones en mal estado, sellados de baño/cocina y atascos localizados. Nos centramos en reparaciones visibles, sustituciones y mantenimiento práctico, siempre con acabado limpio y presupuesto claro.",
+          "Realizamos trabajos de fontanería ligera para solucionar problemas habituales del hogar: sanitarios que pierden agua, grifos deteriorados, flexos y sifones en mal estado, equipos de ósmosis, descalcificadoras, filtros de agua, termos eléctricos, sellados de baño/cocina y atascos localizados. Nos centramos en reparaciones visibles, sustituciones y mantenimiento práctico, siempre con acabado limpio y presupuesto claro.",
         exclusionsTitle: "Lo que no hacemos",
         exclusionsItems: [
           "No hacemos obra, rozas, reformas de baño ni albañilería.",
           "No modificamos tuberías empotradas, bajantes, montantes ni instalaciones comunitarias.",
-          "No realizamos trabajos de gas, calderas o instalaciones que requieran técnico certificado específico.",
+          "No realizamos trabajos de gas, calderas, calentadores de gas ni instalaciones que requieran técnico certificado específico.",
         ],
         recommendedTitle: "Recomendado",
         recommendedItems: [
-          "Enviar fotos por WhatsApp del sanitario, grifo, fuga o atasco para valorar el trabajo antes de ir.",
+          "Enviar fotos por WhatsApp del sanitario, grifo, fuga, ósmosis, descalcificadora, termo eléctrico o atasco para valorar el trabajo antes de ir.",
           "Agrupar varios arreglos de baño/cocina en una misma visita.",
           "Cambiar flexos, juntas y sifones antiguos antes de que provoquen fugas mayores.",
         ],
         ctaBand: {
           eyebrow: "ARREGLOS DE FONTANERÍA SIN OBRA",
-          heading: "SANITARIOS, GRIFOS Y DESATASCOS",
+          heading: "SANITARIOS, GRIFOS, ÓSMOSIS Y TERMOS",
           body:
-            "Cuéntenos qué necesita o envíenos fotos por WhatsApp. Le ayudamos con trabajos de fontanería básica en la Vega Baja.",
+            "Cuéntenos qué necesita o envíenos fotos por WhatsApp. Le ayudamos con trabajos de fontanería básica, ósmosis, descalcificadoras y termos eléctricos en la Vega Baja.",
           bookNow: "Reservar Ahora",
           callLabel: "+34 623 635 732",
         },
@@ -383,15 +404,15 @@ const resources = {
       airconPage: {
         heroTitle: "Aire Acondicionado: Reparación y Mantenimiento",
         heroSubtitle:
-          "Servicio de “manitas” para mantener y reparar su aire acondicionado: limpieza, desagües, electrónica, ventiladores y ajustes mecánicos/eléctricos. Sin manipular el gas ni realizar instalaciones certificadas.",
+          "Servicio completo para su aire acondicionado: limpieza, desagües, electrónica, ventiladores, ajustes mecánicos/eléctricos, instalación, revisión de fugas y carga de gas/refrigerante cuando el equipo lo necesite.",
         whatIncludedTitle: "Qué incluye este servicio",
         whatIncludedBody:
-          "Realizamos tareas de mantenimiento ligero y reparaciones menores habituales en equipos domésticos split: limpieza de filtros y unidades, desatasco de desagües, reducción de ruidos y vibraciones, y remates estéticos. Nuestro objetivo es que su equipo funcione mejor y con menos incidencias del día a día.",
-        exclusionsTitle: "Importante",
+          "Realizamos mantenimiento, reparación e instalación en equipos domésticos split: limpieza de filtros y unidades, desatasco de desagües, reducción de ruidos y vibraciones, sustitución de piezas, revisión del circuito frigorífico, detección de fugas y carga de gas/refrigerante. Nuestro objetivo es dejar el equipo funcionando correctamente, de principio a fin.",
+        exclusionsTitle: "Servicio completo",
         exclusionsItems: [
-          "No realizamos carga de gas ni manipulación del circuito frigorífico.",
-          "No intervenimos en gases fluorados ni en instalaciones que requieran certificación F-Gas.",
-          "No hacemos instalaciones completas ni traslados de equipos.",
+          "Trabajamos mantenimiento, reparaciones, instalación y puesta a punto.",
+          "Revisamos fugas, presión y circuito frigorífico cuando procede.",
+          "Realizamos carga de gas/refrigerante y ajustes para recuperar rendimiento.",
         ],
         recommendedTitle: "Recomendado",
         recommendedItems: [
@@ -401,7 +422,7 @@ const resources = {
         ctaBand: {
           eyebrow: "LA CALIDAD QUE ESPERAS",
           heading: "LOS SERVICIOS QUE TE MERECES",
-          body: "¿Gotea, huele o hace ruido su aire? Le ayudamos con mantenimiento y reparaciones menores.",
+          body: "¿Gotea, huele, no enfría o hace ruido su aire? Le ayudamos con mantenimiento, reparación e instalación.",
           bookNow: "Reservar Ahora",
           callLabel: "+34 623 635 732",
         },
@@ -543,6 +564,15 @@ const resources = {
         quoteInstant: "Instant",
         quoteInstantFull: "Instant Quote",
       },
+      privacy: {
+        cookieBanner: {
+          title: "Marketing cookies",
+          body:
+            "We use the Meta Pixel to measure visits and quote requests when you accept marketing cookies.",
+          accept: "Accept",
+          reject: "Reject",
+        },
+      },
       footer: {
         description:
           "A trusted home maintenance and repair service for the Vega Baja area of Alicante.",
@@ -561,6 +591,10 @@ const resources = {
         },
         contactTitle: "Get in touch",
         location: "Vega Baja, Alicante, Spain",
+        promoTitle: "New customer",
+        promoText: "€20 off your first service with code BRICOS20.",
+        promoCta: "Request a quote with discount",
+        cookieSettings: "Cookie preferences",
         rights: "All rights reserved.",
       },
       serviceTerms: {
@@ -630,6 +664,14 @@ const resources = {
           note: "Valid for new customers on home maintenance services in the Vega Baja.",
           cta: "Get a quote",
         },
+        promoBanner: {
+          eyebrow: "New customer offer",
+          title: "€20 off your first service",
+          body:
+            "Use code BRICOS20 when requesting your quote. Valid once per person, phone number, email and service address.",
+          codeLabel: "Code:",
+          cta: "Use discount",
+        },
         specialties: {
           title: "Our specialities",
           carpentry: "Carpentry",
@@ -670,7 +712,7 @@ const resources = {
             plumbing: {
               title: "Basic plumbing",
               description:
-                "Toilet repairs, sanitary ware, tap replacement, cisterns, traps, sealing and minor unblocking.",
+                "Toilets, taps, cisterns, traps, osmosis units, water softeners, electric water heaters, sealing and minor unblocking.",
             },
             aircon: {
               title: "Air conditioning repairs",
@@ -854,27 +896,27 @@ const resources = {
       plumbingPage: {
         heroTitle: "Basic plumbing",
         heroSubtitle:
-          "Toilet repairs, sanitary ware replacement, tap installation, tap replacement, cisterns, traps, sealing and minor unblocking without building work.",
+          "Toilet repairs, sanitary ware replacement, tap installation, tap replacement, cisterns, traps, osmosis units, water softeners, electric water heaters, sealing and minor unblocking without building work.",
         whatIncludedTitle: "What this service covers",
         whatIncludedBody:
-          "We handle light plumbing jobs around the home: leaking toilets, worn taps, damaged flexi-hoses and traps, bathroom/kitchen sealing and local blockages. The focus is visible repairs, replacements and practical maintenance, with tidy workmanship and clear quotes.",
+          "We handle light plumbing jobs around the home: leaking toilets, worn taps, damaged flexi-hoses and traps, osmosis units, water softeners, water filters, electric water heaters, bathroom/kitchen sealing and local blockages. The focus is visible repairs, replacements and practical maintenance, with tidy workmanship and clear quotes.",
         exclusionsTitle: "What we do not do",
         exclusionsItems: [
           "We do not carry out building work, chasing walls, bathroom renovations or masonry.",
           "We do not alter hidden pipework, soil stacks, rising mains or communal plumbing systems.",
-          "We do not work on gas, boilers or installations that require a specific certified technician.",
+          "We do not work on gas, boilers, gas water heaters or installations that require a specific certified technician.",
         ],
         recommendedTitle: "Recommended",
         recommendedItems: [
-          "Send photos by WhatsApp of the toilet, tap, leak or blockage so we can assess the job before visiting.",
+          "Send photos by WhatsApp of the toilet, tap, leak, osmosis unit, water softener, electric water heater or blockage so we can assess the job before visiting.",
           "Group several bathroom or kitchen fixes into one visit.",
           "Replace old flexi-hoses, seals and traps before they cause larger leaks.",
         ],
         ctaBand: {
           eyebrow: "PLUMBING FIXES WITHOUT BUILDING WORK",
-          heading: "TOILETS, TAPS AND UNBLOCKING",
+          heading: "TOILETS, TAPS, OSMOSIS AND HEATERS",
           body:
-            "Tell us what you need or send photos by WhatsApp. We help with basic plumbing jobs across the Vega Baja.",
+            "Tell us what you need or send photos by WhatsApp. We help with basic plumbing, osmosis units, water softeners and electric water heaters across the Vega Baja.",
           bookNow: "Book now",
           callLabel: "+34 623 635 732",
         },
@@ -909,15 +951,15 @@ const resources = {
       airconPage: {
         heroTitle: "Air conditioning: repair & servicing",
         heroSubtitle:
-          "Handyman‑style support to keep your air‑con running: cleaning, drains, electrics, fans and mechanical adjustments – without touching the gas circuit or doing certified installations.",
+          "Complete air-conditioning service: cleaning, drains, electronics, fans, mechanical/electrical adjustments, installation, leak checks and gas/refrigerant charging when the system needs it.",
         whatIncludedTitle: "What this service covers",
         whatIncludedBody:
-          "We carry out light maintenance and common small repairs on domestic split units: cleaning filters and indoor/outdoor units, clearing blocked drains, reducing noise and vibration and tidying up visible finishes. The aim is to help your system run better with fewer everyday issues.",
-        exclusionsTitle: "Important",
+          "We handle maintenance, repairs and installation for domestic split units: cleaning filters and indoor/outdoor units, clearing drains, reducing noise and vibration, replacing parts, checking the refrigeration circuit, finding leaks and charging gas/refrigerant. The aim is to get the system working properly from start to finish.",
+        exclusionsTitle: "Complete service",
         exclusionsItems: [
-          "We do not carry out gas charging or work on the sealed refrigeration circuit.",
-          "We do not work with fluorinated gases or systems that require F‑Gas certification.",
-          "We do not install complete new systems or relocate existing units.",
+          "We cover maintenance, repairs, installation and commissioning.",
+          "We check leaks, pressure and the refrigeration circuit where needed.",
+          "We carry out gas/refrigerant charging and adjustments to restore performance.",
         ],
         recommendedTitle: "Recommended",
         recommendedItems: [

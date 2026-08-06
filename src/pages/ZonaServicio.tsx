@@ -58,6 +58,22 @@ const ZonaServicio = () => {
               </p>
             </div>
 
+            <div className="max-w-5xl mx-auto mb-12">
+              <div className="overflow-hidden rounded-lg border bg-background shadow-sm">
+                <iframe
+                  title="Mapa de zona de servicio Bricos en la Vega Baja de Alicante"
+                  src="https://www.google.com/maps?q=Vega%20Baja%20del%20Segura%2C%20Alicante%2C%20Espa%C3%B1a&output=embed"
+                  className="h-[360px] w-full"
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <p className="mt-4 text-center text-sm text-muted-foreground">
+                Servicio local de mantenimiento del hogar, aire acondicionado, fontanería, carpintería, pintura y jardinería en la Vega Baja de Alicante, incluyendo Torrevieja, Orihuela, Guardamar del Segura, Rojales y Pilar de la Horadada.
+              </p>
+            </div>
+
             {/* Cities Grid */}
             <div className="max-w-5xl mx-auto">
               <h3 className="text-2xl font-semibold mb-8 text-center">

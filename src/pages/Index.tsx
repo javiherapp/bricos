@@ -20,6 +20,7 @@ import {
   Leaf,
   Target,
   Users,
+  Gift,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -285,6 +286,43 @@ const Index = () => {
           </div>
         </section>
 
+        <section className="border-b border-border bg-background py-4">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto flex max-w-5xl flex-col gap-4 rounded-lg border bg-white px-4 py-3 shadow-sm md:flex-row md:items-center md:justify-between md:px-5 md:py-4">
+              <div className="flex items-start gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground">
+                  <Gift className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wide text-primary">
+                    {t("home.promoBanner.eyebrow")}
+                  </p>
+                  <h2 className="mt-0.5 text-lg font-black text-foreground md:text-xl">
+                    {t("home.promoBanner.title")}
+                  </h2>
+                  <p className="mt-1 max-w-2xl text-xs text-muted-foreground md:text-sm">
+                    {t("home.promoBanner.body")}
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                <div className="rounded-md border border-border bg-background px-3 py-2 text-center text-sm">
+                  <span className="font-semibold text-muted-foreground">
+                    {t("home.promoBanner.codeLabel")}
+                  </span>{" "}
+                  <span className="font-black text-primary">{promoCode}</span>
+                </div>
+                <Button asChild size="sm" className="rounded-full px-5">
+                  <Link to={`/reservar?promo=${promoCode}`} className="inline-flex items-center">
+                    <Gift className="mr-2 h-4 w-4" />
+                    {t("home.promoBanner.cta")}
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Specialties Carousel Section */}
         <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-4">
@@ -361,8 +399,12 @@ const Index = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left: Mascot + brand panel */}
               <div className="flex flex-col items-center">
-                <div className="w-72 h-72 md:w-80 md:h-80 rounded-full bg-white shadow-xl flex items-center justify-center ring-1 ring-black/5">
-                  <div className="text-[4.5rem] md:text-[5rem]" aria-hidden>🛠️</div>
+                <div className="flex h-72 w-72 items-center justify-center overflow-hidden rounded-full bg-white shadow-xl ring-1 ring-black/5 md:h-80 md:w-80">
+                  <img
+                    src="/bricos-mascot.png"
+                    alt="Mascota de Bricos"
+                    className="h-[92%] w-auto object-contain"
+                  />
                 </div>
               </div>
 

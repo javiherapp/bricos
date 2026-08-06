@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Gift } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { EMAIL_ADDRESS, PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
+import { clearMarketingConsent } from "@/lib/metaPixel";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -119,6 +120,21 @@ const Footer = () => {
                 <span>{t("footer.location")}</span>
               </li>
             </ul>
+            <div className="mt-5 rounded-lg border border-primary/40 bg-primary/10 p-4 text-sm">
+              <div className="flex items-start gap-2">
+                <Gift className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <div>
+                  <p className="font-semibold text-primary">{t("footer.promoTitle")}</p>
+                  <p className="mt-1 text-secondary-foreground/85">{t("footer.promoText")}</p>
+                  <Link
+                    to="/reservar?promo=BRICOS20"
+                    className="mt-2 inline-block font-semibold text-primary hover:underline"
+                  >
+                    {t("footer.promoCta")}
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -126,6 +142,13 @@ const Footer = () => {
           <p>
             &copy; {new Date().getFullYear()} Bricos. {t("footer.rights")}
           </p>
+          <button
+            type="button"
+            onClick={clearMarketingConsent}
+            className="mt-3 text-xs text-secondary-foreground/70 underline-offset-4 transition-colors hover:text-primary hover:underline"
+          >
+            {t("footer.cookieSettings")}
+          </button>
         </div>
       </div>
     </footer>
