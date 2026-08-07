@@ -23,6 +23,7 @@ const resources = {
           title: "Cookies de marketing",
           body:
             "Usamos Meta Pixel para medir visitas y solicitudes de presupuesto cuando acepta cookies de marketing.",
+          link: "Ver política de cookies",
           accept: "Aceptar",
           reject: "Rechazar",
         },
@@ -48,6 +49,9 @@ const resources = {
         promoText: "20€ de descuento en su primer servicio con el código BRICOS20.",
         promoCta: "Pedir presupuesto con descuento",
         cookieSettings: "Preferencias de cookies",
+        legalNotice: "Aviso legal",
+        privacyPolicy: "Política de privacidad",
+        cookiesPolicy: "Política de cookies",
         rights: "Todos los derechos reservados.",
       },
       serviceTerms: {
@@ -569,6 +573,7 @@ const resources = {
           title: "Marketing cookies",
           body:
             "We use the Meta Pixel to measure visits and quote requests when you accept marketing cookies.",
+          link: "View cookie policy",
           accept: "Accept",
           reject: "Reject",
         },
@@ -595,6 +600,9 @@ const resources = {
         promoText: "€20 off your first service with code BRICOS20.",
         promoCta: "Request a quote with discount",
         cookieSettings: "Cookie preferences",
+        legalNotice: "Legal notice",
+        privacyPolicy: "Privacy policy",
+        cookiesPolicy: "Cookie policy",
         rights: "All rights reserved.",
       },
       serviceTerms: {

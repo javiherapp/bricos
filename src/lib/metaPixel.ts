@@ -2,8 +2,14 @@ const META_PIXEL_ID = "1039503842143802";
 
 export const MARKETING_CONSENT_KEY = "bricosMarketingConsent";
 export const MARKETING_CONSENT_EVENT = "bricos-marketing-consent-changed";
+const MARKETING_CONSENT_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 365 * 2;
 
 type MarketingConsent = "granted" | "rejected" | null;
+
+type StoredMarketingConsent = {
+  value: Exclude<MarketingConsent, null>;
+  updatedAt: number;
+};
 
 type FbqFunction = ((...args: unknown[]) => void) & {
   callMethod?: (...args: unknown[]) => void;
@@ -27,8 +33,36 @@ export const getMarketingConsent = (): MarketingConsent => {
     return null;
   }
 
-  const value = window.localStorage.getItem(MARKETING_CONSENT_KEY);
-  return value === "granted" || value === "rejected" ? value : null;
+  const storedValue = window.localStorage.getItem(MARKETING_CONSENT_KEY);
+  if (!storedValue) {
+    return null;
+  }
+
+  if (storedValue === "granted" || storedValue === "rejected") {
+    window.localStorage.setItem(
+      MARKETING_CONSENT_KEY,
+      JSON.stringify({ value: storedValue, updatedAt: Date.now() }),
+    );
+    return storedValue;
+  }
+
+  try {
+    const parsed = JSON.parse(storedValue) as Partial<StoredMarketingConsent>;
+    const isValidConsent =
+      parsed.value === "granted" || parsed.value === "rejected";
+    const isFresh =
+      typeof parsed.updatedAt === "number" &&
+      Date.now() - parsed.updatedAt <= MARKETING_CONSENT_MAX_AGE_MS;
+
+    if (isValidConsent && isFresh) {
+      return parsed.value ?? null;
+    }
+  } catch {
+    // Invalid stored consent is cleared below.
+  }
+
+  window.localStorage.removeItem(MARKETING_CONSENT_KEY);
+  return null;
 };
 
 export const setMarketingConsent = (value: Exclude<MarketingConsent, null>) => {
@@ -36,7 +70,10 @@ export const setMarketingConsent = (value: Exclude<MarketingConsent, null>) => {
     return;
   }
 
-  window.localStorage.setItem(MARKETING_CONSENT_KEY, value);
+  window.localStorage.setItem(
+    MARKETING_CONSENT_KEY,
+    JSON.stringify({ value, updatedAt: Date.now() }),
+  );
   window.dispatchEvent(
     new CustomEvent(MARKETING_CONSENT_EVENT, { detail: value }),
   );

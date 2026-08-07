@@ -16,7 +16,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { cn } from "@/lib/utils";
 import { EMAIL_ADDRESS, PHONE_DISPLAY, PHONE_TEL, WHATSAPP_PHONE } from "@/lib/contact";
 import { trackMetaEvent } from "@/lib/metaPixel";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const serviceOptions = [
   { value: "mantenimiento", label: "Mantenimiento y Reparación del Hogar" },
@@ -432,6 +432,19 @@ const Reservar = () => {
                         ha elegido una imagen, adjúntela en el chat que se abrirá.
                       </p>
                     </div>
+
+                    <p className="text-xs leading-6 text-muted-foreground">
+                      Al enviar sus datos, Bricos los usará para responder a su
+                      solicitud, preparar el presupuesto y gestionar la comunicación
+                      del servicio. Puede consultar más información en la{" "}
+                      <Link
+                        to="/politica-privacidad"
+                        className="font-medium text-primary underline-offset-4 hover:underline"
+                      >
+                        Política de privacidad
+                      </Link>
+                      .
+                    </p>
 
                     <Button type="submit" className="w-full" size="lg">
                       Enviar por WhatsApp

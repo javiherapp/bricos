@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -116,6 +117,19 @@ const Contacto = () => {
                         required
                       />
                     </div>
+
+                    <p className="text-xs leading-6 text-muted-foreground">
+                      Al enviar este formulario, Bricos usará sus datos para
+                      responder a su consulta y gestionar la comunicación del
+                      servicio solicitado. Puede consultar más información en la{" "}
+                      <Link
+                        to="/politica-privacidad"
+                        className="font-medium text-primary underline-offset-4 hover:underline"
+                      >
+                        Política de privacidad
+                      </Link>
+                      .
+                    </p>
                     
                     <Button type="submit" className="w-full" size="lg">
                       Enviar Mensaje

@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { MapPin, Check } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const ZonaServicio = () => {
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
+
   const ciudades = [
     "Orihuela",
     "Torrevieja",
@@ -60,14 +64,33 @@ const ZonaServicio = () => {
 
             <div className="max-w-5xl mx-auto mb-12">
               <div className="overflow-hidden rounded-lg border bg-background shadow-sm">
-                <iframe
-                  title="Mapa de zona de servicio Bricos en la Vega Baja de Alicante"
-                  src="https://www.google.com/maps?q=Vega%20Baja%20del%20Segura%2C%20Alicante%2C%20Espa%C3%B1a&output=embed"
-                  className="h-[360px] w-full"
-                  loading="lazy"
-                  allowFullScreen
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                {isMapLoaded ? (
+                  <iframe
+                    title="Mapa de zona de servicio Bricos en la Vega Baja de Alicante"
+                    src="https://www.google.com/maps?q=Vega%20Baja%20del%20Segura%2C%20Alicante%2C%20Espa%C3%B1a&output=embed"
+                    className="h-[360px] w-full"
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                ) : (
+                  <div className="flex min-h-[360px] flex-col items-center justify-center gap-4 bg-muted/30 p-6 text-center">
+                    <MapPin className="h-12 w-12 text-primary" />
+                    <div>
+                      <p className="text-lg font-semibold">
+                        Mapa de cobertura en la Vega Baja
+                      </p>
+                      <p className="mt-2 max-w-xl text-sm text-muted-foreground">
+                        El mapa se carga desde Google Maps. Al pulsar el botón,
+                        Google puede tratar datos técnicos de navegación conforme
+                        a sus propias políticas.
+                      </p>
+                    </div>
+                    <Button type="button" onClick={() => setIsMapLoaded(true)}>
+                      Cargar mapa
+                    </Button>
+                  </div>
+                )}
               </div>
               <p className="mt-4 text-center text-sm text-muted-foreground">
                 Servicio local de mantenimiento del hogar, aire acondicionado, fontanería, carpintería, pintura y jardinería en la Vega Baja de Alicante, incluyendo Torrevieja, Orihuela, Guardamar del Segura, Rojales y Pilar de la Horadada.

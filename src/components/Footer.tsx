@@ -142,6 +142,17 @@ const Footer = () => {
           <p>
             &copy; {new Date().getFullYear()} Bricos. {t("footer.rights")}
           </p>
+          <nav className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-secondary-foreground/70">
+            <Link to="/aviso-legal" className="hover:text-primary hover:underline">
+              {t("footer.legalNotice")}
+            </Link>
+            <Link to="/politica-privacidad" className="hover:text-primary hover:underline">
+              {t("footer.privacyPolicy")}
+            </Link>
+            <Link to="/politica-cookies" className="hover:text-primary hover:underline">
+              {t("footer.cookiesPolicy")}
+            </Link>
+          </nav>
           <button
             type="button"
             onClick={clearMarketingConsent}

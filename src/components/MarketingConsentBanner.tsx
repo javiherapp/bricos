@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import {
@@ -40,17 +41,30 @@ const MarketingConsentBanner = () => {
           <p className="font-semibold">{t("privacy.cookieBanner.title")}</p>
           <p className="mt-1 max-w-3xl text-sm text-muted-foreground">
             {t("privacy.cookieBanner.body")}
+            {" "}
+            <Link
+              to="/politica-cookies"
+              className="font-medium text-primary underline-offset-4 hover:underline"
+            >
+              {t("privacy.cookieBanner.link")}
+            </Link>
           </p>
         </div>
         <div className="flex flex-col gap-2 sm:flex-row">
           <Button
             type="button"
             variant="outline"
+            className="min-w-32"
             onClick={() => handleChoice("rejected")}
           >
             {t("privacy.cookieBanner.reject")}
           </Button>
-          <Button type="button" onClick={() => handleChoice("granted")}>
+          <Button
+            type="button"
+            variant="outline"
+            className="min-w-32 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            onClick={() => handleChoice("granted")}
+          >
             {t("privacy.cookieBanner.accept")}
           </Button>
         </div>

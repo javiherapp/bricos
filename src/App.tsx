@@ -12,6 +12,7 @@ import SobreNosotros from "./pages/SobreNosotros";
 import ZonaServicio from "./pages/ZonaServicio";
 import Contacto from "./pages/Contacto";
 import Reservar from "./pages/Reservar";
+import LegalPage from "./pages/legal/LegalPage";
 import NotFound from "./pages/NotFound";
 import Mantenimiento from "./pages/servicios/Mantenimiento";
 import Montaje from "./pages/servicios/Montaje";
@@ -47,6 +48,9 @@ const AppRoutes = () => {
         <Route path="/zona-de-servicio" element={<ZonaServicio />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/reservar" element={<Reservar />} />
+        <Route path="/aviso-legal" element={<LegalPage kind="legal" />} />
+        <Route path="/politica-privacidad" element={<LegalPage kind="privacy" />} />
+        <Route path="/politica-cookies" element={<LegalPage kind="cookies" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
