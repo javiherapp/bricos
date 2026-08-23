@@ -14,6 +14,7 @@ import {
   User,
   Plug,
   Droplets,
+  KeyRound,
   AirVent,
   Home,
   Paintbrush,
@@ -40,16 +41,17 @@ import carpentryImg from "@/assets/specialty-carpentry.jpg";
 import exteriorImg from "@/assets/specialty-exterior.jpg";
 import appliancesImg from "@/assets/specialty-appliances.jpg";
 import mechanicalImg from "@/assets/specialty-mechanical.jpg";
-import plumbingImg from "@/assets/specialty-plumbing.png";
+import plumbingImg from "@/assets/specialty-plumbing.jpg";
 import paintingImg from "@/assets/specialty-painting.jpg";
 import gardeningImg from "@/assets/specialty-gardening.jpg";
 import { useTranslation } from "react-i18next";
 import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 const Index = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isPromoOpen, setIsPromoOpen] = useState(false);
   const promoCode = "BRICOS20";
+  const isEnglish = i18n.language.startsWith("en");
 
   const closePromo = useCallback(() => {
     try {
@@ -116,6 +118,13 @@ const Index = () => {
       title: t("home.services.cards.plumbing.title"),
       description: t("home.services.cards.plumbing.description"),
       link: "/servicios/fontaneria",
+    },
+    {
+      icon: KeyRound,
+      shortTitle: t("home.hero.serviceGlance.locksmith"),
+      title: t("home.services.cards.locksmith.title"),
+      description: t("home.services.cards.locksmith.description"),
+      link: "/servicios/cerrajeria",
     },
     {
       icon: AirVent,
@@ -220,6 +229,17 @@ const Index = () => {
     }
   ];
 
+  const localCities = [
+    "Torrevieja",
+    "Orihuela",
+    "Orihuela Costa",
+    "Guardamar del Segura",
+    "Rojales",
+    "Pilar de la Horadada",
+    "San Miguel de Salinas",
+    "Almoradí",
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -229,10 +249,8 @@ const Index = () => {
         <section
           className="relative bg-cover bg-center text-white py-32 md:py-40"
           style={{
-            // First image: your uploaded file in /public/hero.jpg
-            // Second image: fallback Unsplash photo if the first is missing
             backgroundImage:
-              "url(/hero.png), url(/hero.jpg), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070')",
+              "url(/hero.jpg), url(/hero.png), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070')",
           }}
         >
           <div className="absolute inset-0 bg-black/50"></div>
@@ -256,7 +274,7 @@ const Index = () => {
                 </Button>
               </div>
               <nav
-                className="mt-8 grid max-w-4xl grid-cols-3 gap-3 sm:grid-cols-5 lg:grid-cols-9"
+                className="mt-8 grid max-w-4xl grid-cols-3 gap-3 sm:grid-cols-5 lg:grid-cols-10"
                 aria-label={t("home.hero.serviceGlance.label")}
               >
                 {services.map(({ icon: Icon, secondaryIcon: SecondaryIcon, shortTitle, title, link }) => (
@@ -383,6 +401,63 @@ const Index = () => {
         </section>
 
         <ServiceTerms variant="summary" />
+
+        <section className="border-y border-border bg-white py-16">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-5xl">
+              <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                <div>
+                  <p className="mb-3 text-sm font-bold uppercase tracking-wide text-primary">
+                    {isEnglish ? "Local home maintenance" : "Servicio local de manitas"}
+                  </p>
+                  <h2 className="text-3xl font-black tracking-tight md:text-4xl">
+                    {isEnglish
+                      ? "Handyman and home repair services across the Vega Baja, Alicante"
+                      : "Manitas y mantenimiento del hogar en toda la Vega Baja de Alicante"}
+                  </h2>
+                  <p className="mt-5 text-lg leading-8 text-muted-foreground">
+                    {isEnglish
+                      ? "Bricos helps homeowners, second-home owners and property managers with reliable repairs, installations and small improvements in Torrevieja, Orihuela, Orihuela Costa, Guardamar del Segura and nearby towns."
+                      : "Bricos ayuda a propietarios, segundas residencias y gestores de viviendas con reparaciones, instalaciones y pequeñas mejoras en Torrevieja, Orihuela, Orihuela Costa, Guardamar del Segura y municipios cercanos."}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <Button asChild>
+                      <Link to="/zona-de-servicio">
+                        {isEnglish ? "View service area" : "Ver zona de servicio"}
+                      </Link>
+                    </Button>
+                    <Button asChild variant="outline">
+                      <Link to="/contacto">
+                        {isEnglish ? "Ask for availability" : "Consultar disponibilidad"}
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+                <div className="rounded-lg border bg-muted/30 p-5">
+                  <h3 className="mb-4 text-lg font-bold">
+                    {isEnglish ? "Main towns covered" : "Municipios principales"}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {localCities.map((city) => (
+                      <Link
+                        key={city}
+                        to="/zona-de-servicio"
+                        className="rounded-full border border-primary/20 bg-white px-3 py-2 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary"
+                      >
+                        {city}
+                      </Link>
+                    ))}
+                  </div>
+                  <p className="mt-5 text-sm leading-6 text-muted-foreground">
+                    {isEnglish
+                      ? "Not sure if we cover your area? Send us your location and a few photos of the job."
+                      : "Si su localidad no aparece, envíe su ubicación y unas fotos del trabajo para confirmarlo."}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Why Choose Us Section - Redesigned */}
         <section className="py-20 bg-[hsl(var(--light-bg))]">

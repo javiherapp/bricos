@@ -1,4 +1,4 @@
-import { Wrench, Hammer, Plug, TreePine, AirVent, Zap, Home, Paintbrush, Leaf, Droplets } from "lucide-react";
+import { Wrench, Hammer, Plug, TreePine, AirVent, Zap, Home, Paintbrush, Leaf, Droplets, KeyRound } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
@@ -50,6 +50,12 @@ const Servicios = () => {
       title: t("home.services.cards.plumbing.title"),
       description: t("home.services.cards.plumbing.description"),
       link: "/servicios/fontaneria",
+    },
+    {
+      icon: KeyRound,
+      title: t("home.services.cards.locksmith.title"),
+      description: t("home.services.cards.locksmith.description"),
+      link: "/servicios/cerrajeria",
     },
     {
       icon: Zap,

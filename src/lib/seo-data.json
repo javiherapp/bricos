@@ -1,0 +1,190 @@
+{
+  "siteUrl": "https://www.bricos.net",
+  "siteName": "Bricos",
+  "defaultImage": "/bricos-icon-512.png",
+  "logo": "/bricos-icon-512.png",
+  "phoneDisplay": "+34 623 635 732",
+  "phoneTel": "+34623635732",
+  "email": "bricosmultiservicio@gmail.com",
+  "defaultRobots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+  "serviceArea": [
+    "Vega Baja del Segura",
+    "Alicante",
+    "Orihuela",
+    "Torrevieja",
+    "Orihuela Costa",
+    "Pilar de la Horadada",
+    "San Miguel de Salinas",
+    "Guardamar del Segura",
+    "Rojales",
+    "San Fulgencio",
+    "Algorfa",
+    "Formentera del Segura",
+    "Almoradí",
+    "Callosa de Segura"
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "title": "Bricos | Manitas y mantenimiento del hogar en Vega Baja, Alicante",
+      "description": "Servicio local de manitas, mantenimiento, reparaciones, montaje, fontanería básica, pintura, jardinería, aire acondicionado y electrodomésticos en la Vega Baja de Alicante.",
+      "breadcrumb": ["Inicio"],
+      "priority": 1,
+      "changeFrequency": "weekly"
+    },
+    {
+      "path": "/servicios",
+      "title": "Servicios de manitas en Vega Baja, Alicante | Bricos",
+      "description": "Mantenimiento del hogar, montaje, fontanería, cerrajería, aire acondicionado, electricidad, pintura, jardinería, exteriores y electrodomésticos en Vega Baja.",
+      "breadcrumb": ["Inicio", "Servicios"],
+      "priority": 0.95,
+      "changeFrequency": "weekly"
+    },
+    {
+      "path": "/servicios/mantenimiento",
+      "title": "Mantenimiento del hogar en Vega Baja | Bricos",
+      "description": "Reparaciones menores, sellados, ajustes de puertas, pladur, pintura puntual y mantenimiento preventivo para viviendas en Torrevieja, Orihuela y Vega Baja.",
+      "breadcrumb": ["Inicio", "Servicios", "Mantenimiento del hogar"],
+      "serviceType": "Mantenimiento y reparación del hogar",
+      "priority": 0.9,
+      "changeFrequency": "monthly"
+    },
+    {
+      "path": "/servicios/montaje",
+      "title": "Montaje de muebles e instalación en Vega Baja | Bricos",
+      "description": "Montaje de muebles, IKEA, soportes de TV, estores, cortinas, espejos, electrodomésticos y elementos del hogar con fijación segura en Vega Baja.",
+      "breadcrumb": ["Inicio", "Servicios", "Montaje e instalación"],
+      "serviceType": "Montaje e instalación del hogar",
+      "priority": 0.85,
+      "changeFrequency": "monthly"
+    },
+    {
+      "path": "/servicios/electrodomesticos",
+      "title": "Reparación de electrodomésticos en Vega Baja | Bricos",
+      "description": "Reparación e instalación de frigoríficos, lavadoras, secadoras, lavavajillas, extractores, vitrocerámicas y hornos en la Vega Baja de Alicante.",
+      "breadcrumb": ["Inicio", "Servicios", "Electrodomésticos"],
+      "serviceType": "Reparación e instalación de electrodomésticos",
+      "priority": 0.9,
+      "changeFrequency": "monthly"
+    },
+    {
+      "path": "/servicios/exteriores",
+      "title": "Mantenimiento exterior en Vega Baja | Bricos",
+      "description": "Mantenimiento de fachadas, terrazas, vallas, sellados, lavado a presion y remates exteriores para viviendas en la Vega Baja de Alicante.",
+      "breadcrumb": ["Inicio", "Servicios", "Exteriores"],
+      "serviceType": "Mantenimiento exterior del hogar",
+      "priority": 0.82,
+      "changeFrequency": "monthly"
+    },
+    {
+      "path": "/servicios/pintura",
+      "title": "Pintura y reformas menores en Vega Baja | Bricos",
+      "description": "Retoques de pintura, parches, pequeños acabados, reparación de golpes y remates para renovar viviendas sin obra grande en Vega Baja.",
+      "breadcrumb": ["Inicio", "Servicios", "Pintura"],
+      "serviceType": "Pintura y reformas menores",
+      "priority": 0.82,
+      "changeFrequency": "monthly"
+    },
+    {
+      "path": "/servicios/jardineria",
+      "title": "Jardinería y paisajismo en Vega Baja | Bricos",
+      "description": "Mantenimiento de jardín, limpieza exterior, poda ligera, paisajismo básico, riego sencillo y estructuras ligeras para patios y terrazas.",
+      "breadcrumb": ["Inicio", "Servicios", "Jardinería"],
+      "serviceType": "Jardinería y paisajismo",
+      "priority": 0.82,
+      "changeFrequency": "monthly"
+    },
+    {
+      "path": "/servicios/fontaneria",
+      "title": "Fontanería básica en Vega Baja, Alicante | Bricos",
+      "description": "Arreglo de grifos, sanitarios, cisternas, sifones, ósmosis, descalcificadoras, termos eléctricos, sellados y desatascos menores sin obra.",
+      "breadcrumb": ["Inicio", "Servicios", "Fontanería"],
+      "serviceType": "Fontanería básica",
+      "priority": 0.9,
+      "changeFrequency": "monthly"
+    },
+    {
+      "path": "/servicios/cerrajeria",
+      "title": "Cerrajería residencial en Vega Baja | Bricos",
+      "description": "Apertura de puertas de vivienda, cambio de bombines, mantenimiento de cerraduras y ajustes de puertas para hogares en Vega Baja.",
+      "breadcrumb": ["Inicio", "Servicios", "Cerrajería"],
+      "serviceType": "Cerrajería residencial",
+      "priority": 0.85,
+      "changeFrequency": "monthly"
+    },
+    {
+      "path": "/servicios/aire-acondicionado",
+      "title": "Reparación de aire acondicionado en Vega Baja | Bricos",
+      "description": "Mantenimiento, limpieza, reparación, instalación, revisión de fugas y carga de refrigerante para aires acondicionados domésticos en Vega Baja.",
+      "breadcrumb": ["Inicio", "Servicios", "Aire acondicionado"],
+      "serviceType": "Reparación y mantenimiento de aire acondicionado",
+      "priority": 0.9,
+      "changeFrequency": "monthly"
+    },
+    {
+      "path": "/servicios/electricidad",
+      "title": "Electricista para trabajos menores en Vega Baja | Bricos",
+      "description": "Pequeñas instalaciones eléctricas, luminarias, enchufes, interruptores y remates del hogar con seguridad y buen acabado en Vega Baja.",
+      "breadcrumb": ["Inicio", "Servicios", "Electricidad"],
+      "serviceType": "Servicios eléctricos menores",
+      "priority": 0.85,
+      "changeFrequency": "monthly"
+    },
+    {
+      "path": "/sobre-nosotros",
+      "title": "Sobre Bricos | Equipo local de mantenimiento en Vega Baja",
+      "description": "Conozca a Bricos, equipo local de mantenimiento, reparaciones e instalaciones del hogar para la Vega Baja de Alicante.",
+      "breadcrumb": ["Inicio", "Sobre nosotros"],
+      "priority": 0.72,
+      "changeFrequency": "monthly"
+    },
+    {
+      "path": "/zona-de-servicio",
+      "title": "Zona de servicio en Vega Baja, Alicante | Bricos",
+      "description": "Atendemos Torrevieja, Orihuela, Guardamar del Segura, Rojales, Pilar de la Horadada, San Miguel de Salinas y municipios de la Vega Baja.",
+      "breadcrumb": ["Inicio", "Zona de servicio"],
+      "priority": 0.88,
+      "changeFrequency": "monthly"
+    },
+    {
+      "path": "/contacto",
+      "title": "Contacto Bricos | Presupuesto en Vega Baja",
+      "description": "Contacte con Bricos para pedir presupuesto de mantenimiento, reparaciones, montaje, fontaneria, electrodomesticos o aire acondicionado en Vega Baja.",
+      "breadcrumb": ["Inicio", "Contacto"],
+      "priority": 0.78,
+      "changeFrequency": "monthly"
+    },
+    {
+      "path": "/reservar",
+      "title": "Pedir presupuesto de manitas en Vega Baja | Bricos",
+      "description": "Solicite presupuesto para mantenimiento del hogar, reparaciones, montaje, fontanería, aire acondicionado, electricidad y electrodomésticos en Vega Baja.",
+      "breadcrumb": ["Inicio", "Presupuesto"],
+      "priority": 0.82,
+      "changeFrequency": "monthly"
+    },
+    {
+      "path": "/aviso-legal",
+      "title": "Aviso legal | Bricos",
+      "description": "Aviso legal de Bricos.",
+      "breadcrumb": ["Inicio", "Aviso legal"],
+      "includeInSitemap": false,
+      "robots": "noindex,follow"
+    },
+    {
+      "path": "/politica-privacidad",
+      "title": "Política de privacidad | Bricos",
+      "description": "Política de privacidad de Bricos.",
+      "breadcrumb": ["Inicio", "Política de privacidad"],
+      "includeInSitemap": false,
+      "robots": "noindex,follow"
+    },
+    {
+      "path": "/politica-cookies",
+      "title": "Política de cookies | Bricos",
+      "description": "Política de cookies de Bricos.",
+      "breadcrumb": ["Inicio", "Política de cookies"],
+      "includeInSitemap": false,
+      "robots": "noindex,follow"
+    }
+  ]
+}

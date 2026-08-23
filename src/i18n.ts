@@ -40,6 +40,7 @@ const resources = {
           painting: "Pintura y Reformas menores",
           gardening: "Jardinería y Paisajismo",
           plumbing: "Fontanería Básica",
+          locksmith: "Cerrajería Residencial",
           aircon: "Aire Acondicionado",
           electrical: "Servicios Eléctricos",
         },
@@ -109,6 +110,7 @@ const resources = {
             painting: "Pintura",
             gardening: "Jardín",
             plumbing: "Fontanería",
+            locksmith: "Cerrajería",
             electrical: "Electricidad",
             aircon: "Aire acondicionado",
           },
@@ -148,9 +150,9 @@ const resources = {
               description: "Montaje e instalación sin esfuerzo para su comodidad.",
             },
             appliances: {
-              title: "Electrodomésticos: Instalación y Reparación",
+              title: "Electrodomésticos: Reparación e Instalación",
               description:
-                "Instalación y reparación de electrodomésticos: lavadoras, lavavajillas, hornos, encimeras y más.",
+                "Reparación e instalación de frigoríficos, lavadoras, secadoras, lavavajillas, extractores, vitrocerámicas, hornos y más.",
             },
             exteriors: {
               title: "Exteriores",
@@ -170,6 +172,11 @@ const resources = {
               title: "Fontanería Básica",
               description:
                 "Sanitarios, grifería, cisternas, sifones, ósmosis, descalcificadoras, termos eléctricos, sellados y desatascos menores.",
+            },
+            locksmith: {
+              title: "Cerrajería Residencial",
+              description:
+                "Apertura de puertas de vivienda, cambio de bombines y mantenimiento de cerraduras solo para hogares.",
             },
             aircon: {
               title: "Aire Acondicionado: Reparación de Aires",
@@ -215,7 +222,7 @@ const resources = {
             "En Bricos hacemos las cosas bien. Contamos con oficio, herramientas y cuidado para que el resultado sea el que toca: limpio, seguro y duradero.",
           rangeTitle: "Amplia Gama de Servicios",
           rangeText:
-            "Nuestros principales: mantenimiento y reparación, montaje e instalación, exteriores, pintura, jardinería y paisajismo, fontanería básica, electrodomésticos, aire acondicionado y eléctricos menores.",
+            "Nuestros principales: mantenimiento y reparación, montaje e instalación, exteriores, pintura, jardinería y paisajismo, fontanería básica, cerrajería residencial, electrodomésticos, aire acondicionado y eléctricos menores.",
           familyTitle: "Negocio Familiar",
           familyText:
             "Como empresa familiar, aportamos un nivel de cuidado y dedicación profundamente personal. Entendemos el valor del hogar y la importancia de la confianza.",
@@ -378,29 +385,71 @@ const resources = {
           callLabel: "+34 623 635 732",
         },
       },
-      appliancesPage: {
-        heroTitle: "Electrodomésticos: Instalación y Reparación",
+      locksmithPage: {
+        heroTitle: "Cerrajería Residencial",
         heroSubtitle:
-          "Instalación y reparación ligera de electrodomésticos con acabados limpios, nivelado correcto y conexiones seguras.",
+          "Aperturas y mantenimiento de cerraduras para viviendas, pisos, casas y apartamentos. Servicio exclusivamente residencial, con presupuesto claro y trabajo cuidadoso.",
         whatIncludedTitle: "Qué incluye este servicio",
         whatIncludedBody:
-          "Nos encargamos de instalar y poner a punto sus electrodomésticos, cuidando los detalles: desde el nivelado y la fijación hasta las conexiones de agua y electricidad cuando corresponda. También realizamos ajustes y reparaciones menores para alargar su vida útil.",
+          "Realizamos trabajos de cerrajería doméstica centrados en accesos del hogar: apertura de puertas de vivienda, ajuste y mantenimiento de cerraduras, cambio de bombines, reparación de manillas, cerraderos y herrajes visibles. Trabajamos solo en viviendas residenciales y, en aperturas, podemos solicitar acreditación de residencia, propiedad o autorización.",
+        exclusionsTitle: "Importante",
+        exclusionsItems: [
+          "Solo realizamos trabajos de cerrajería residencial en viviendas.",
+          "No abrimos vehículos, locales comerciales, cajas fuertes ni persianas metálicas comerciales.",
+          "Para aperturas de puerta se podrá solicitar documentación o prueba de autorización sobre la vivienda.",
+        ],
         recommendedTitle: "Recomendado",
         recommendedItems: [
-          "Revisar mangueras y desagües anualmente.",
-          "Mantener nivelado para evitar vibraciones y ruidos.",
+          "Enviar fotos por WhatsApp de la puerta, cerradura, bombín o herraje antes de la visita.",
+          "Cambiar bombines antiguos, dañados o sin control claro de copias de llaves.",
+          "Revisar cerraderos y holguras cuando la puerta roza, cuesta cerrar o la llave gira con dificultad.",
+        ],
+        ctaBand: {
+          eyebrow: "CERRAJERÍA SOLO RESIDENCIAL",
+          heading: "APERTURAS Y MANTENIMIENTO DEL HOGAR",
+          body:
+            "Cuéntenos qué necesita o envíenos fotos por WhatsApp. Le ayudamos con aperturas, bombines, cerraduras y ajustes de puertas en viviendas de la Vega Baja.",
+          bookNow: "Reservar Ahora",
+          callLabel: "+34 623 635 732",
+        },
+      },
+      appliancesPage: {
+        heroEyebrow: "Más de 20 años de experiencia",
+        heroTitle: "Reparación e instalación de electrodomésticos",
+        heroSubtitle:
+          "Reparamos e instalamos frigoríficos, lavadoras, secadoras, lavavajillas, extractores, campanas, vitrocerámicas y hornos en la Vega Baja.",
+        quickTitle: "De un vistazo",
+        quickItems: [
+          "Reparaciones",
+          "Frigoríficos",
+          "Lavadoras y secadoras",
+          "Lavavajillas",
+          "Extractores y campanas",
+          "Vitrocerámicas y hornos",
+        ],
+        quotePanel: {
+          primaryCta: "Pedir presupuesto",
+        },
+        whatIncludedTitle: "Qué incluye este servicio",
+        whatIncludedBody:
+          "Trabajamos reparaciones e instalaciones de electrodomésticos del hogar: averías de frío, lavado, secado, desagüe, calor, encendido, ventilación, errores electrónicos y sustitución de piezas cuando sea viable.",
+        recommendedTitle: "Recomendado",
+        recommendedItems: [
+          "Indicar qué aparato falla: frigorífico, lavadora, secadora, lavavajillas, extractor, vitrocerámica u horno.",
+          "Enviar marca, modelo y síntoma: no enfría, no lava, no seca, no desagua, no calienta, no enciende o marca error.",
+          "Enviar una foto o vídeo corto de la avería si es posible.",
         ],
         benefitsTitle: "Beneficios",
         benefitsItems: [
-          "Instalación segura y estética.",
-          "Mayor durabilidad y rendimiento.",
-          "Ahorro de tiempo y problemas futuros.",
+          "Reparaciones e instalaciones de electrodomésticos del hogar.",
+          "Más de 20 años de experiencia.",
+          "Presupuesto claro antes de empezar.",
         ],
         ctaBand: {
-          eyebrow: "LA CALIDAD QUE ESPERAS",
-          heading: "LOS SERVICIOS QUE TE MERECES",
+          eyebrow: "REPARACIÓN E INSTALACIÓN DE ELECTRODOMÉSTICOS",
+          heading: "PIDA PRESUPUESTO HOY",
           body:
-            "Empiece hoy mismo con la instalación o reparación de sus electrodomésticos con Bricos.",
+            "Mándenos marca, modelo y el fallo por WhatsApp o reserve online. Le ayudamos con reparaciones e instalaciones del hogar sin complicaciones.",
           bookNow: "Reservar Ahora",
           callLabel: "+34 623 635 732",
         },
@@ -591,6 +640,7 @@ const resources = {
           painting: "Painting & small improvements",
           gardening: "Gardening & landscaping",
           plumbing: "Basic plumbing",
+          locksmith: "Residential locksmith",
           aircon: "Air conditioning",
           electrical: "Small electrical jobs",
         },
@@ -660,6 +710,7 @@ const resources = {
             painting: "Painting",
             gardening: "Garden",
             plumbing: "Plumbing",
+            locksmith: "Locksmith",
             electrical: "Electrical",
             aircon: "Air conditioning",
           },
@@ -699,9 +750,9 @@ const resources = {
               description: "Stress-free assembly and installation to make your home work better for you.",
             },
             appliances: {
-              title: "Appliances: install & repair",
+              title: "Appliances: repairs & installation",
               description:
-                "Installation and repair of appliances including washing machines, dishwashers, ovens, hobs and more.",
+                "Repair and installation of fridges, washing machines, dryers, dishwashers, extractors, hobs, ovens and more.",
             },
             exteriors: {
               title: "Outdoor & exterior work",
@@ -721,6 +772,11 @@ const resources = {
               title: "Basic plumbing",
               description:
                 "Toilets, taps, cisterns, traps, osmosis units, water softeners, electric water heaters, sealing and minor unblocking.",
+            },
+            locksmith: {
+              title: "Residential locksmith",
+              description:
+                "Home door opening, cylinder replacement and lock maintenance for residential properties only.",
             },
             aircon: {
               title: "Air conditioning repairs",
@@ -766,7 +822,7 @@ const resources = {
             "At Bricos, we believe in doing things properly. The right tools, the right skills and the care to leave your home safe, tidy and looking how it should.",
           rangeTitle: "Wide range of services",
           rangeText:
-            "Our core services include home maintenance and repair, assembly and installation, exterior work, painting, gardening and landscaping, basic plumbing, appliances, air conditioning repairs and small electrical jobs.",
+            "Our core services include home maintenance and repair, assembly and installation, exterior work, painting, gardening and landscaping, basic plumbing, residential locksmith work, appliances, air conditioning repairs and small electrical jobs.",
           familyTitle: "Family-run business",
           familyText:
             "As a family business, we bring a personal level of care and responsibility. We understand how important your home is and we work hard to earn your trust.",
@@ -929,29 +985,71 @@ const resources = {
           callLabel: "+34 623 635 732",
         },
       },
-      appliancesPage: {
-        heroTitle: "Appliances: install & light repair",
+      locksmithPage: {
+        heroTitle: "Residential locksmith",
         heroSubtitle:
-          "Appliance installation and light repair with neat finishes, correct levelling and safe connections.",
+          "Door opening and lock maintenance for flats, houses and apartments. Residential service only, with clear quotes and careful workmanship.",
         whatIncludedTitle: "What this service covers",
         whatIncludedBody:
-          "We install and set up your appliances, taking care of the details: from levelling and fixing in place through to water and power connections where appropriate. We also carry out small adjustments and light repairs to help extend their working life.",
+          "We handle domestic locksmith jobs around home access points: opening residential doors, adjusting and servicing locks, replacing cylinders, and repairing handles, strike plates and visible lock hardware. We work on residential properties only and, for door openings, may ask for proof of residence, ownership or authorisation.",
+        exclusionsTitle: "Important",
+        exclusionsItems: [
+          "We only carry out residential locksmith work for homes.",
+          "We do not open vehicles, commercial premises, safes or commercial roller shutters.",
+          "For door openings, documentation or proof of authorisation for the home may be requested.",
+        ],
         recommendedTitle: "Recommended",
         recommendedItems: [
-          "Checking hoses and waste pipes at least once a year.",
-          "Keeping appliances level to reduce noise and vibration.",
+          "Send photos by WhatsApp of the door, lock, cylinder or hardware before the visit.",
+          "Replace old, damaged cylinders or cylinders where key copies are no longer controlled.",
+          "Check strike plates and door alignment when the door rubs, is hard to close or the key turns poorly.",
+        ],
+        ctaBand: {
+          eyebrow: "RESIDENTIAL LOCKSMITH ONLY",
+          heading: "HOME OPENINGS AND LOCK MAINTENANCE",
+          body:
+            "Tell us what you need or send photos by WhatsApp. We help with openings, cylinders, locks and door adjustments in homes across the Vega Baja.",
+          bookNow: "Book now",
+          callLabel: "+34 623 635 732",
+        },
+      },
+      appliancesPage: {
+        heroEyebrow: "Over 20 years of experience",
+        heroTitle: "Appliance repairs and installation",
+        heroSubtitle:
+          "We repair and install fridges, washing machines, dryers, dishwashers, extractors, cooker hoods, ceramic hobs and ovens across the Vega Baja.",
+        quickTitle: "At a glance",
+        quickItems: [
+          "Repairs",
+          "Fridges",
+          "Washers & dryers",
+          "Dishwashers",
+          "Extractors & hoods",
+          "Ceramic hobs & ovens",
+        ],
+        quotePanel: {
+          primaryCta: "Request a quote",
+        },
+        whatIncludedTitle: "What this service covers",
+        whatIncludedBody:
+          "We handle domestic appliance repairs and installations: cooling faults, washing and drying faults, drainage, heating, power issues, ventilation, electronic errors and part replacement where practical.",
+        recommendedTitle: "Recommended",
+        recommendedItems: [
+          "Tell us which appliance has failed: fridge, washing machine, dryer, dishwasher, extractor, hob or oven.",
+          "Send the brand, model and symptom: not cooling, not washing, not drying, not draining, not heating, not switching on or showing an error.",
+          "Send a short photo or video of the fault if possible.",
         ],
         benefitsTitle: "Benefits",
         benefitsItems: [
-          "Safe, tidy installation that looks right in your kitchen.",
-          "Helps appliances last longer and work better.",
-          "Saves you time, effort and future headaches.",
+          "Domestic appliance repairs and installations.",
+          "Over 20 years of experience.",
+          "Clear quote before work starts.",
         ],
         ctaBand: {
-          eyebrow: "QUALITY YOU CAN EXPECT",
-          heading: "THE SERVICE YOUR HOME DESERVES",
+          eyebrow: "APPLIANCE REPAIRS AND INSTALLATION",
+          heading: "REQUEST A QUOTE TODAY",
           body:
-            "Start your appliance installation or light repair with Bricos today.",
+            "Send us the brand, model and fault by WhatsApp or book online. We help with domestic repairs and installations without fuss.",
           bookNow: "Book now",
           callLabel: "+34 623 635 732",
         },
@@ -1117,7 +1215,7 @@ i18n
       escapeValue: false,
     },
     detection: {
-      order: ["localStorage", "navigator", "htmlTag"],
+      order: ["localStorage", "htmlTag", "navigator"],
       caches: ["localStorage"],
     },
   });

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 import MarketingConsentBanner from "@/components/MarketingConsentBanner";
 import MetaPixelRouteTracker from "@/components/MetaPixelRouteTracker";
+import Seo from "@/components/Seo";
 import Index from "./pages/Index";
 import Servicios from "./pages/Servicios";
 import SobreNosotros from "./pages/SobreNosotros";
@@ -23,6 +24,7 @@ import Jardineria from "./pages/servicios/Jardineria";
 import AireAcondicionado from "./pages/servicios/AireAcondicionado";
 import Electricidad from "./pages/servicios/Electricidad";
 import Fontaneria from "./pages/servicios/Fontaneria";
+import Cerrajeria from "./pages/servicios/Cerrajeria";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +44,7 @@ const AppRoutes = () => {
         <Route path="/servicios/pintura" element={<Pintura />} />
         <Route path="/servicios/jardineria" element={<Jardineria />} />
         <Route path="/servicios/fontaneria" element={<Fontaneria />} />
+        <Route path="/servicios/cerrajeria" element={<Cerrajeria />} />
         <Route path="/servicios/aire-acondicionado" element={<AireAcondicionado />} />
         <Route path="/servicios/electricidad" element={<Electricidad />} />
         <Route path="/sobre-nosotros" element={<SobreNosotros />} />
@@ -63,6 +66,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <Seo />
         <MetaPixelRouteTracker />
         <AppRoutes />
         <FloatingWhatsAppButton />
