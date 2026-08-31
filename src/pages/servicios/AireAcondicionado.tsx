@@ -12,12 +12,18 @@ import {
   MessageCircle,
   CheckCircle2,
   Star,
-  BadgeCheck,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import airconHeroImg from "@/assets/aircon-service-hero.jpg";
@@ -354,53 +360,48 @@ const AireAcondicionado = () => {
                     <Star key={i} className="h-4 w-4 fill-[#fbbc04] text-[#fbbc04]" />
                   ))}
                 </span>
+                <span className="text-xs font-bold text-[#5f6368]">
+                  {customerReviews.length} {isEnglish ? "reviews" : "reseñas"}
+                </span>
               </div>
-              <p className="text-xs font-black uppercase text-primary">
-                {isEnglish ? "Real customer reviews" : "Reseñas reales de clientes"}
-              </p>
-              <h2 className="mt-2 text-3xl font-black md:text-4xl">
-                {isEnglish ? "Air-conditioning customers trust Bricos" : "Clientes que confían en Bricos"}
-              </h2>
             </div>
-            <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-              {customerReviews.map((card) => (
-                <article
-                  key={`${card.name}-${card.source}`}
-                  className="h-full rounded-lg border border-[#dadce0] bg-white p-5 shadow-sm"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex min-w-0 items-center gap-3">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#e8f0fe] text-sm font-black text-[#1a73e8]">
-                        {card.initials}
-                      </div>
-                      <div className="min-w-0">
-                        <h3 className="truncate text-base font-bold text-[#202124]">
+            <Carousel
+              opts={{ align: "start", loop: false }}
+              className="mx-auto mt-8 max-w-6xl px-10 md:px-12"
+            >
+              <CarouselContent>
+                {customerReviews.map((card) => (
+                  <CarouselItem
+                    key={`${card.name}-${card.review}`}
+                    className="basis-full sm:basis-1/2 lg:basis-1/3"
+                  >
+                    <article className="flex h-full min-h-[245px] flex-col rounded-lg border border-[#dadce0] bg-white p-5 shadow-sm">
+                      <div className="flex min-w-0 items-center gap-3">
+                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#e8f0fe] text-sm font-black text-[#1a73e8]">
+                          {card.initials}
+                        </div>
+                        <h3 className="min-w-0 truncate text-base font-bold text-[#202124]">
                           {card.name}
                         </h3>
-                        <p className="truncate text-xs font-medium text-muted-foreground">
-                          {card.meta}
-                        </p>
                       </div>
-                    </div>
-                    <span className="inline-flex items-center gap-1 rounded-full border border-[#dadce0] px-2 py-1 text-[0.65rem] font-black uppercase text-[#5f6368]">
-                      <BadgeCheck className="h-3 w-3 text-[#1a73e8]" />
-                      {card.source}
-                    </span>
-                  </div>
-                  <div
-                    className="mt-4 flex gap-0.5"
-                    aria-label={isEnglish ? "Five-star review" : "Reseña de cinco estrellas"}
-                  >
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-[#fbbc04] text-[#fbbc04]" />
-                    ))}
-                  </div>
-                  <p className="mt-3 text-sm leading-6 text-[#3c4043]">
-                    {card.review}
-                  </p>
-                </article>
-              ))}
-            </div>
+                      <div
+                        className="mt-4 flex gap-0.5"
+                        aria-label={isEnglish ? "Five-star review" : "Reseña de cinco estrellas"}
+                      >
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-4 w-4 fill-[#fbbc04] text-[#fbbc04]" />
+                        ))}
+                      </div>
+                      <p className="mt-2 text-sm leading-6 text-[#3c4043]">
+                        {card.review}
+                      </p>
+                    </article>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-0 h-10 w-10 border-[#dadce0] bg-white text-[#3c4043] shadow-md hover:bg-[#f8fafd] md:left-0" />
+              <CarouselNext className="right-0 h-10 w-10 border-[#dadce0] bg-white text-[#3c4043] shadow-md hover:bg-[#f8fafd] md:right-0" />
+            </Carousel>
           </div>
         </section>
 

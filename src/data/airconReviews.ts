@@ -1,62 +1,96 @@
 export type AirconReview = {
   name: string;
   initials: string;
-  source: "Google" | "WhatsApp";
-  meta: string;
   review: string;
 };
 
-// Sustituye estas entradas por el texto literal de las reseñas reales de Google o WhatsApp.
+// Sustituye estas entradas por el texto literal de las reseñas reales.
 export const airconReviewsEs: AirconReview[] = [
   {
-    name: "María García",
-    initials: "MG",
-    source: "Google",
-    meta: "Reseña de cliente",
+    name: "Sarah M.",
+    initials: "SM",
     review:
-      "Excelente servicio. Muy atentos al detalle en las comunicaciones, presupuesto, programación y trabajo realizado. Recomiendo totalmente este equipo profesional.",
+      "I honestly could not believe what was inside the air-con unit. The amount of dirt was shocking. They cleaned it properly, showed me the difference and the air felt fresher straight away.",
   },
   {
-    name: "Ana Martínez",
-    initials: "AM",
-    source: "WhatsApp",
-    meta: "Mensaje de clienta",
+    name: "Claire T.",
+    initials: "CT",
     review:
-      "Es raro encontrar un servicio como Bricos que se destaque en trabajos de calidad. Su trabajo es minucioso, duradero y a un precio razonable. Los recomiendo altamente.",
+      "Booked a normal air-con maintenance visit before the summer. They cleaned the filters, checked the drain and outdoor unit, and left everything tidy. Very easy to deal with.",
   },
   {
-    name: "Emily Johnson",
-    initials: "EJ",
-    source: "Google",
-    meta: "Customer review",
+    name: "Carmen R.",
+    initials: "CR",
     review:
-      "Outstanding service. Clear communication, fair pricing, punctual scheduling, and excellent workmanship. Highly recommended.",
+      "Vinieron a limpiar el aire del salón porque olía mal y salía poco aire. Lo dejaron funcionando mucho mejor y fueron muy claros con lo que hacía falta.",
+  },
+  {
+    name: "Helen P.",
+    initials: "HP",
+    review:
+      "Bricos installed a new split unit in the bedroom and also cleaned two older air conditioners in the house. The installation was neat and the other units are working much better.",
+  },
+  {
+    name: "Jose M.",
+    initials: "JM",
+    review:
+      "El aire no enfriaba como antes y revisaron presión y posibles fugas antes de cargar gas. Me explicaron todo sin líos y volvió a enfriar bien.",
+  },
+  {
+    name: "Margaret C.",
+    initials: "MC",
+    review:
+      "My air conditioner was running but not cooling the room. They found the problem, fixed it and checked the temperature before leaving. Proper, reliable service.",
+  },
+  {
+    name: "James W.",
+    initials: "JW",
+    review:
+      "Good maintenance visit. They cleaned the indoor unit, checked the drainage because it had started to smell, and gave simple advice for keeping the filters clean.",
   },
 ];
 
 export const airconReviewsEn: AirconReview[] = [
   {
-    name: "Emily Johnson",
-    initials: "EJ",
-    source: "Google",
-    meta: "Customer review",
+    name: "Sarah M.",
+    initials: "SM",
     review:
-      "Outstanding service. Clear communication, fair pricing, punctual scheduling, and excellent workmanship. Highly recommended.",
+      "I honestly could not believe what was inside the air-con unit. The amount of dirt was shocking. They cleaned it properly, showed me the difference and the air felt fresher straight away.",
   },
   {
-    name: "Graham Whitaker",
-    initials: "GW",
-    source: "Google",
-    meta: "Customer review",
+    name: "Claire T.",
+    initials: "CT",
     review:
-      "They texted ahead, arrived 10 minutes early, price exactly as quoted, and left everything tidy. Will use again.",
+      "Booked a normal air-con maintenance visit before the summer. They cleaned the filters, checked the drain and outdoor unit, and left everything tidy. Very easy to deal with.",
   },
   {
-    name: "María García",
-    initials: "MG",
-    source: "WhatsApp",
-    meta: "Client message",
+    name: "Carmen R.",
+    initials: "CR",
     review:
-      "Excelente servicio. Muy atentos al detalle en las comunicaciones, presupuesto, programación y trabajo realizado. Recomiendo totalmente este equipo profesional.",
+      "Vinieron a limpiar el aire del salón porque olía mal y salía poco aire. Lo dejaron funcionando mucho mejor y fueron muy claros con lo que hacía falta.",
+  },
+  {
+    name: "Helen P.",
+    initials: "HP",
+    review:
+      "Bricos installed a new split unit in the bedroom and also cleaned two older air conditioners in the house. The installation was neat and the other units are working much better.",
+  },
+  {
+    name: "Jose M.",
+    initials: "JM",
+    review:
+      "El aire no enfriaba como antes y revisaron presión y posibles fugas antes de cargar gas. Me explicaron todo sin líos y volvió a enfriar bien.",
+  },
+  {
+    name: "Margaret C.",
+    initials: "MC",
+    review:
+      "My air conditioner was running but not cooling the room. They found the problem, fixed it and checked the temperature before leaving. Proper, reliable service.",
+  },
+  {
+    name: "James W.",
+    initials: "JW",
+    review:
+      "Good maintenance visit. They cleaned the indoor unit, checked the drainage because it had started to smell, and gave simple advice for keeping the filters clean.",
   },
 ];
