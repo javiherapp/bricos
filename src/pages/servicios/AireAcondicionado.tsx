@@ -11,10 +11,10 @@ import {
   Settings,
   MessageCircle,
   CheckCircle2,
+  Star,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ReviewCard from "@/components/ReviewCard";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -25,6 +25,7 @@ import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 const AireAcondicionado = () => {
   const { t, i18n } = useTranslation();
   const isEnglish = i18n.language.startsWith("en");
+  const bookingLink = `/reservar?servicio=aire-acondicionado${isEnglish ? "&lng=en" : ""}`;
 
   const coreServices = [
     {
@@ -248,45 +249,51 @@ const AireAcondicionado = () => {
     returnObjects: true,
   }) as string[];
 
-  const reviews = isEnglish
+  const reviewStyleCards = isEnglish
     ? [
         {
-          name: "Emily Johnson",
-          initials: "EJ",
+          initials: "MC",
+          title: "Maintenance & cleaning",
+          service: "Air-conditioning service",
           review:
-            "Outstanding service. Clear communication, fair pricing, punctual scheduling, and excellent workmanship. Highly recommended.",
+            "Filters, indoor unit, accessible fan drum, tray and drain checked so the system can recover airflow and remove smells.",
         },
         {
-          name: "Graham Whitaker",
-          initials: "GW",
+          initials: "RD",
+          title: "Repair diagnosis",
+          service: "Weak cooling, leaks or noise",
           review:
-            "They fixed a dodgy light switch and put up two shelves the same afternoon. Texted ahead, arrived 10 minutes early, price exactly as quoted, and left everything tidy. Will use again.",
+            "Clear checks before replacing parts: outdoor unit, visible electrics, pressures, leaks, vibration and cooling performance.",
         },
         {
-          name: "María García",
-          initials: "MG",
+          initials: "IN",
+          title: "Installations",
+          service: "New split units and replacements",
           review:
-            "Excelente servicio. Muy atentos al detalle en las comunicaciones, presupuesto, programación y trabajo realizado. Recomiendo totalmente este equipo profesional.",
+            "Tidy visible finishes, commissioning, remote setup and practical guidance before leaving the air-con ready to use.",
         },
       ]
     : [
         {
-          name: "María García",
-          initials: "MG",
+          initials: "ML",
+          title: "Mantenimiento y limpieza",
+          service: "Servicio de aire acondicionado",
           review:
-            "Excelente servicio. Muy atentos al detalle en las comunicaciones, presupuesto, programación y trabajo realizado. Recomiendo totalmente este equipo profesional.",
+            "Filtros, unidad interior, turbina accesible, bandeja y desagüe revisados para recuperar caudal y quitar olores.",
         },
         {
-          name: "Ana Martínez",
-          initials: "AM",
+          initials: "DR",
+          title: "Diagnóstico y reparación",
+          service: "No enfría, gotea o hace ruido",
           review:
-            "Es raro encontrar un servicio como Bricos que se destaque en trabajos de calidad. Su trabajo es minucioso, duradero y a un precio razonable. Los recomiendo altamente.",
+            "Revisión clara antes de cambiar piezas: unidad exterior, electricidad visible, presión, fugas, vibraciones y rendimiento.",
         },
         {
-          name: "Emily Johnson",
-          initials: "EJ",
+          initials: "IN",
+          title: "Instalaciones",
+          service: "Equipos split nuevos o sustituciones",
           review:
-            "Outstanding service. Clear communication, fair pricing, punctual scheduling, and excellent workmanship. Highly recommended.",
+            "Remates visibles cuidados, puesta en marcha, configuración del mando y comprobación final antes de dejarlo funcionando.",
         },
       ];
 
@@ -323,7 +330,7 @@ const AireAcondicionado = () => {
               </div>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg" className="rounded-full px-8 text-base font-black">
-                  <Link to="/reservar?servicio=aire-acondicionado">
+                  <Link to={bookingLink}>
                     <MessageCircle className="mr-2 h-5 w-5" />
                     {t("airconPage.heroCta")}
                   </Link>
@@ -380,12 +387,48 @@ const AireAcondicionado = () => {
 
         <section className="border-y border-border bg-muted/30 py-12">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-black text-center mb-8 md:text-4xl">
-              {isEnglish ? "Customer reviews" : "Reseñas de clientes"}
-            </h2>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {reviews.map((review, index) => (
-                <ReviewCard key={index} {...review} />
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-xs font-black uppercase text-primary">
+                {isEnglish ? "Air-con work" : "Trabajos de aire acondicionado"}
+              </p>
+              <h2 className="mt-2 text-3xl font-black md:text-4xl">
+                {isEnglish ? "What the service focuses on" : "Lo que se cuida en cada aviso"}
+              </h2>
+            </div>
+            <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+              {reviewStyleCards.map((card) => (
+                <article
+                  key={card.title}
+                  className="h-full rounded-lg border border-border bg-white p-5 shadow-sm"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex min-w-0 items-center gap-3">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-black text-primary-foreground">
+                        {card.initials}
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="truncate text-base font-black">{card.title}</h3>
+                        <p className="truncate text-xs font-medium text-muted-foreground">
+                          {card.service}
+                        </p>
+                      </div>
+                    </div>
+                    <span className="rounded-full border border-border px-2 py-1 text-[0.65rem] font-black uppercase text-muted-foreground">
+                      Bricos
+                    </span>
+                  </div>
+                  <div
+                    className="mt-4 flex gap-0.5"
+                    aria-label={isEnglish ? "Five star service style" : "Estilo de servicio cinco estrellas"}
+                  >
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-foreground">
+                    {card.review}
+                  </p>
+                </article>
               ))}
             </div>
           </div>
@@ -450,7 +493,7 @@ const AireAcondicionado = () => {
                 </Card>
                 <div className="text-center">
                   <Button asChild size="lg">
-                    <Link to="/reservar?servicio=aire-acondicionado">
+                    <Link to={bookingLink}>
                       {t("airconPage.ctaBand.bookNow")}
                     </Link>
                   </Button>
@@ -474,7 +517,7 @@ const AireAcondicionado = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="rounded-2xl px-8">
-                <Link to="/reservar?servicio=aire-acondicionado">
+                <Link to={bookingLink}>
                   {t("airconPage.ctaBand.bookNow")}
                 </Link>
               </Button>
