@@ -12,6 +12,7 @@ import {
   MessageCircle,
   CheckCircle2,
   Star,
+  BadgeCheck,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -21,6 +22,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import airconHeroImg from "@/assets/aircon-service-hero.jpg";
 import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
+import { airconReviewsEn, airconReviewsEs } from "@/data/airconReviews";
 
 const AireAcondicionado = () => {
   const { t, i18n } = useTranslation();
@@ -249,53 +251,7 @@ const AireAcondicionado = () => {
     returnObjects: true,
   }) as string[];
 
-  const reviewStyleCards = isEnglish
-    ? [
-        {
-          initials: "MC",
-          title: "Maintenance & cleaning",
-          service: "Air-conditioning service",
-          review:
-            "Filters, indoor unit, accessible fan drum, tray and drain checked so the system can recover airflow and remove smells.",
-        },
-        {
-          initials: "RD",
-          title: "Repair diagnosis",
-          service: "Weak cooling, leaks or noise",
-          review:
-            "Clear checks before replacing parts: outdoor unit, visible electrics, pressures, leaks, vibration and cooling performance.",
-        },
-        {
-          initials: "IN",
-          title: "Installations",
-          service: "New split units and replacements",
-          review:
-            "Tidy visible finishes, commissioning, remote setup and practical guidance before leaving the air-con ready to use.",
-        },
-      ]
-    : [
-        {
-          initials: "ML",
-          title: "Mantenimiento y limpieza",
-          service: "Servicio de aire acondicionado",
-          review:
-            "Filtros, unidad interior, turbina accesible, bandeja y desagüe revisados para recuperar caudal y quitar olores.",
-        },
-        {
-          initials: "DR",
-          title: "Diagnóstico y reparación",
-          service: "No enfría, gotea o hace ruido",
-          review:
-            "Revisión clara antes de cambiar piezas: unidad exterior, electricidad visible, presión, fugas, vibraciones y rendimiento.",
-        },
-        {
-          initials: "IN",
-          title: "Instalaciones",
-          service: "Equipos split nuevos o sustituciones",
-          review:
-            "Remates visibles cuidados, puesta en marcha, configuración del mando y comprobación final antes de dejarlo funcionando.",
-        },
-      ];
+  const customerReviews = isEnglish ? airconReviewsEn : airconReviewsEs;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -388,44 +344,58 @@ const AireAcondicionado = () => {
         <section className="border-y border-border bg-muted/30 py-12">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-3xl text-center">
+              <div className="mx-auto mb-4 flex w-fit items-center gap-3 rounded-full border border-border bg-white px-4 py-2 shadow-sm">
+                <span className="text-2xl font-black leading-none text-foreground">5.0</span>
+                <span
+                  className="flex gap-0.5"
+                  aria-label={isEnglish ? "Five stars" : "Cinco estrellas"}
+                >
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-[#fbbc04] text-[#fbbc04]" />
+                  ))}
+                </span>
+              </div>
               <p className="text-xs font-black uppercase text-primary">
-                {isEnglish ? "Air-con work" : "Trabajos de aire acondicionado"}
+                {isEnglish ? "Real customer reviews" : "Reseñas reales de clientes"}
               </p>
               <h2 className="mt-2 text-3xl font-black md:text-4xl">
-                {isEnglish ? "What the service focuses on" : "Lo que se cuida en cada aviso"}
+                {isEnglish ? "Air-conditioning customers trust Bricos" : "Clientes que confían en Bricos"}
               </h2>
             </div>
             <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-              {reviewStyleCards.map((card) => (
+              {customerReviews.map((card) => (
                 <article
-                  key={card.title}
-                  className="h-full rounded-lg border border-border bg-white p-5 shadow-sm"
+                  key={`${card.name}-${card.source}`}
+                  className="h-full rounded-lg border border-[#dadce0] bg-white p-5 shadow-sm"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex min-w-0 items-center gap-3">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-black text-primary-foreground">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#e8f0fe] text-sm font-black text-[#1a73e8]">
                         {card.initials}
                       </div>
                       <div className="min-w-0">
-                        <h3 className="truncate text-base font-black">{card.title}</h3>
+                        <h3 className="truncate text-base font-bold text-[#202124]">
+                          {card.name}
+                        </h3>
                         <p className="truncate text-xs font-medium text-muted-foreground">
-                          {card.service}
+                          {card.meta}
                         </p>
                       </div>
                     </div>
-                    <span className="rounded-full border border-border px-2 py-1 text-[0.65rem] font-black uppercase text-muted-foreground">
-                      Bricos
+                    <span className="inline-flex items-center gap-1 rounded-full border border-[#dadce0] px-2 py-1 text-[0.65rem] font-black uppercase text-[#5f6368]">
+                      <BadgeCheck className="h-3 w-3 text-[#1a73e8]" />
+                      {card.source}
                     </span>
                   </div>
                   <div
                     className="mt-4 flex gap-0.5"
-                    aria-label={isEnglish ? "Five star service style" : "Estilo de servicio cinco estrellas"}
+                    aria-label={isEnglish ? "Five-star review" : "Reseña de cinco estrellas"}
                   >
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                      <Star key={i} className="h-4 w-4 fill-[#fbbc04] text-[#fbbc04]" />
                     ))}
                   </div>
-                  <p className="mt-3 text-sm leading-6 text-foreground">
+                  <p className="mt-3 text-sm leading-6 text-[#3c4043]">
                     {card.review}
                   </p>
                 </article>
