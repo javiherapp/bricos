@@ -9,18 +9,96 @@ import {
   Plug,
   Cpu,
   Settings,
+  MessageCircle,
+  CheckCircle2,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ReviewCard from "@/components/ReviewCard";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import airconHeroImg from "@/assets/aircon-service-hero.jpg";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 const AireAcondicionado = () => {
   const { t, i18n } = useTranslation();
+  const isEnglish = i18n.language.startsWith("en");
+
+  const coreServices = [
+    {
+      icon: Wrench,
+      title: isEnglish ? "Repairs" : "Reparaciones",
+      desc: isEnglish
+        ? "Fast diagnosis and repair when your air-con leaks, smells, makes noise or stops cooling."
+        : "Diagnóstico y reparación cuando el aire gotea, huele, hace ruido o no enfría bien.",
+    },
+    {
+      icon: FilterIcon,
+      title: isEnglish ? "Maintenance & cleaning" : "Mantenimiento y limpieza",
+      desc: isEnglish
+        ? "Filter, unit, fan drum, drain and tray cleaning to improve airflow and hygiene."
+        : "Limpieza de filtros, unidades, turbina, bandeja y desagüe para mejorar aire e higiene.",
+    },
+    {
+      icon: Settings,
+      title: isEnglish ? "Installations" : "Instalaciones",
+      desc: isEnglish
+        ? "Installation, replacement and commissioning of domestic split air-conditioning units."
+        : "Instalación, sustitución y puesta en marcha de equipos split domésticos.",
+    },
+    {
+      icon: AirVent,
+      title: isEnglish ? "Gas refills" : "Carga de gas",
+      desc: isEnglish
+        ? "Leak checks, pressure checks and refrigerant charging when the system needs it."
+        : "Revisión de fugas, presión y carga de refrigerante cuando el sistema lo necesita.",
+    },
+  ];
+
+  const heroBullets = [
+    isEnglish ? "Repairs, servicing and installations" : "Reparación, mantenimiento e instalación",
+    isEnglish ? "Send photos by WhatsApp for a quicker quote" : "Envíe fotos por WhatsApp para valorar antes",
+    isEnglish ? "Vega Baja, Torrevieja and Orihuela Costa" : "Vega Baja, Torrevieja y Orihuela Costa",
+  ];
+
+  const benefits = [
+    {
+      icon: Wind,
+      title: isEnglish ? "Better performance" : "Mejor rendimiento",
+      desc: isEnglish
+        ? "Keep the unit working at its best."
+        : "Ayuda a que el equipo enfríe como debe.",
+    },
+    {
+      icon: Droplets,
+      title: isEnglish ? "Cleaner air" : "Aire más limpio",
+      desc: isEnglish
+        ? "Reduce dust, smells and blocked drains."
+        : "Reduce polvo, olores y problemas de desagüe.",
+    },
+    {
+      icon: Shield,
+      title: isEnglish ? "Reliable service" : "Servicio fiable",
+      desc: isEnglish
+        ? "Local, careful work with clear quotes."
+        : "Trabajo local y cuidado con presupuesto claro.",
+    },
+  ];
 
   const tareas: Array<{ icon: React.ElementType; titulo: string; desc: string }> = [
+    {
+      icon: Wrench,
+      titulo:
+        i18n.language.startsWith("en")
+          ? "Diagnosis & repairs"
+          : "Diagnóstico y Reparaciones",
+      desc:
+        i18n.language.startsWith("en")
+          ? "Finding faults in domestic split units and repairing accessible parts where possible."
+          : "Localización de fallos en equipos split domésticos y reparación de piezas accesibles cuando procede.",
+    },
     {
       icon: FilterIcon,
       titulo:
@@ -132,6 +210,17 @@ const AireAcondicionado = () => {
           : "Revisión de mando a distancia, pilas, sincronización y modos de funcionamiento.",
     },
     {
+      icon: Settings,
+      titulo:
+        i18n.language.startsWith("en")
+          ? "Installation & commissioning"
+          : "Instalación y Puesta en Marcha",
+      desc:
+        i18n.language.startsWith("en")
+          ? "Installing, replacing and commissioning domestic split units with tidy visible finishes."
+          : "Instalación, sustitución y puesta en marcha de equipos split domésticos con remates visibles cuidados.",
+    },
+    {
       icon: Wrench,
       titulo:
         i18n.language.startsWith("en")
@@ -159,20 +248,146 @@ const AireAcondicionado = () => {
     returnObjects: true,
   }) as string[];
 
+  const reviews = isEnglish
+    ? [
+        {
+          name: "Emily Johnson",
+          initials: "EJ",
+          review:
+            "Outstanding service. Clear communication, fair pricing, punctual scheduling, and excellent workmanship. Highly recommended.",
+        },
+        {
+          name: "Graham Whitaker",
+          initials: "GW",
+          review:
+            "They fixed a dodgy light switch and put up two shelves the same afternoon. Texted ahead, arrived 10 minutes early, price exactly as quoted, and left everything tidy. Will use again.",
+        },
+        {
+          name: "María García",
+          initials: "MG",
+          review:
+            "Excelente servicio. Muy atentos al detalle en las comunicaciones, presupuesto, programación y trabajo realizado. Recomiendo totalmente este equipo profesional.",
+        },
+      ]
+    : [
+        {
+          name: "María García",
+          initials: "MG",
+          review:
+            "Excelente servicio. Muy atentos al detalle en las comunicaciones, presupuesto, programación y trabajo realizado. Recomiendo totalmente este equipo profesional.",
+        },
+        {
+          name: "Ana Martínez",
+          initials: "AM",
+          review:
+            "Es raro encontrar un servicio como Bricos que se destaque en trabajos de calidad. Su trabajo es minucioso, duradero y a un precio razonable. Los recomiendo altamente.",
+        },
+        {
+          name: "Emily Johnson",
+          initials: "EJ",
+          review:
+            "Outstanding service. Clear communication, fair pricing, punctual scheduling, and excellent workmanship. Highly recommended.",
+        },
+      ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
 
       <main className="flex-grow">
         {/* Hero */}
-        <section className="brand-hero py-16">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              {t("airconPage.heroTitle")}
-            </h1>
-            <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto">
-              {t("airconPage.heroSubtitle")}
-            </p>
+        <section
+          className="relative flex min-h-[calc(100svh-5rem)] items-end overflow-hidden bg-cover bg-center text-white md:min-h-[660px]"
+          style={{
+            backgroundImage: `linear-gradient(180deg, rgba(31, 19, 9, 0.08) 0%, rgba(31, 19, 9, 0.45) 42%, rgba(31, 19, 9, 0.94) 100%), linear-gradient(90deg, rgba(31, 19, 9, 0.92) 0%, rgba(31, 19, 9, 0.65) 48%, rgba(31, 19, 9, 0.05) 100%), url(${airconHeroImg})`,
+          }}
+        >
+          <div className="container mx-auto px-4 pb-8 pt-20 md:pb-14">
+            <div className="max-w-4xl">
+              <p className="mb-4 inline-block max-w-full rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-black uppercase leading-5 text-white backdrop-blur-sm md:text-sm">
+                {t("airconPage.heroEyebrow")}
+              </p>
+              <h1 className="max-w-3xl text-5xl font-black leading-none md:text-7xl">
+                {t("airconPage.heroTitle")}
+              </h1>
+              <p className="mt-5 max-w-2xl text-lg font-medium leading-8 opacity-95 md:text-2xl">
+                {t("airconPage.heroSubtitle")}
+              </p>
+              <div className="mt-6 grid gap-2 sm:grid-cols-3">
+                {heroBullets.map((item) => (
+                  <div key={item} className="flex items-start gap-2 rounded-lg border border-white/15 bg-white/10 p-3 text-sm font-semibold backdrop-blur-sm">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button asChild size="lg" className="rounded-full px-8 text-base font-black">
+                  <Link to="/reservar?servicio=aire-acondicionado">
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    {t("airconPage.heroCta")}
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="rounded-full border-2 border-white bg-white text-secondary hover:bg-primary hover:text-white">
+                  <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-secondary py-5 text-secondary-foreground">
+          <div className="container mx-auto px-4">
+            <div className="grid gap-3 md:grid-cols-3">
+              {benefits.map(({ icon: Icon, title, desc }) => (
+                <div key={title} className="flex items-start gap-3 rounded-lg border border-white/10 bg-white/5 p-4">
+                  <Icon className="mt-1 h-6 w-6 shrink-0 text-primary" />
+                  <div>
+                    <h2 className="font-black uppercase leading-tight">{title}</h2>
+                    <p className="mt-1 text-sm text-secondary-foreground/80">{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-black md:text-5xl">
+                {t("airconPage.servicesTitle")}
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                {t("airconPage.servicesIntro")}
+              </p>
+            </div>
+            <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {coreServices.map(({ icon: Icon, title, desc }) => (
+                <Card key={title} className="h-full border-t-4 border-t-primary">
+                  <CardContent className="p-5">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-xl font-black">{title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">{desc}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-y border-border bg-muted/30 py-12">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-black text-center mb-8 md:text-4xl">
+              {isEnglish ? "Customer reviews" : "Reseñas de clientes"}
+            </h2>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {reviews.map((review, index) => (
+                <ReviewCard key={index} {...review} />
+              ))}
+            </div>
           </div>
         </section>
 
@@ -235,7 +450,9 @@ const AireAcondicionado = () => {
                 </Card>
                 <div className="text-center">
                   <Button asChild size="lg">
-                    <a href="tel:+34623635732">Solicitar presupuesto</a>
+                    <Link to="/reservar?servicio=aire-acondicionado">
+                      {t("airconPage.ctaBand.bookNow")}
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -257,12 +474,12 @@ const AireAcondicionado = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="rounded-2xl px-8">
-                <Link to="/reservar">
+                <Link to="/reservar?servicio=aire-acondicionado">
                   {t("airconPage.ctaBand.bookNow")}
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 border-2 border-primary text-primary hover:bg-primary hover:text-white">
-                <a href="tel:+34623635732">
+                <a href={`tel:${PHONE_TEL}`}>
                   {t("airconPage.ctaBand.callLabel")}
                 </a>
               </Button>

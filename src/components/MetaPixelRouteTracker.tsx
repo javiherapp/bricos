@@ -12,7 +12,6 @@ const serviceContentNames: Record<string, string> = {
   "/servicios/exteriores": "Exteriores",
   "/servicios/electrodomesticos": "Electrodomésticos",
   "/servicios/pintura": "Pintura y Reformas Menores",
-  "/servicios/jardineria": "Jardinería y Paisajismo",
   "/servicios/fontaneria": "Fontanería Básica",
   "/servicios/aire-acondicionado": "Aire Acondicionado",
   "/servicios/electricidad": "Servicios Eléctricos Menores",

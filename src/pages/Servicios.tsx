@@ -1,4 +1,4 @@
-import { Wrench, Hammer, Plug, TreePine, AirVent, Zap, Home, Paintbrush, Leaf, Droplets, KeyRound } from "lucide-react";
+import { Wrench, Hammer, Plug, AirVent, Zap, Home, Paintbrush, Droplets, KeyRound } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
@@ -28,7 +28,6 @@ const Servicios = () => {
     },
     {
       icon: Home,
-      secondaryIcon: TreePine,
       title: t("home.services.cards.exteriors.title"),
       description: t("home.services.cards.exteriors.description"),
       link: "/servicios/exteriores",
@@ -38,12 +37,6 @@ const Servicios = () => {
       title: t("home.services.cards.painting.title"),
       description: t("home.services.cards.painting.description"),
       link: "/servicios/pintura",
-    },
-    {
-      icon: Leaf,
-      title: t("home.services.cards.gardening.title"),
-      description: t("home.services.cards.gardening.description"),
-      link: "/servicios/jardineria",
     },
     {
       icon: Droplets,

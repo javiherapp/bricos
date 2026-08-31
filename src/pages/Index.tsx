@@ -6,7 +6,6 @@ import {
   Wrench,
   Hammer,
   X,
-  TreePine,
   Shield,
   Zap,
   Clock,
@@ -18,7 +17,6 @@ import {
   AirVent,
   Home,
   Paintbrush,
-  Leaf,
   Target,
   Users,
   Gift,
@@ -43,7 +41,6 @@ import appliancesImg from "@/assets/specialty-appliances.jpg";
 import mechanicalImg from "@/assets/specialty-mechanical.jpg";
 import plumbingImg from "@/assets/specialty-plumbing.jpg";
 import paintingImg from "@/assets/specialty-painting.jpg";
-import gardeningImg from "@/assets/specialty-gardening.jpg";
 import { useTranslation } from "react-i18next";
 import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
@@ -149,7 +146,6 @@ const Index = () => {
     },
     {
       icon: Home,
-      secondaryIcon: TreePine,
       shortTitle: t("home.hero.serviceGlance.exteriors"),
       title: t("home.services.cards.exteriors.title"),
       description: t("home.services.cards.exteriors.description"),
@@ -161,13 +157,6 @@ const Index = () => {
       title: t("home.services.cards.painting.title"),
       description: t("home.services.cards.painting.description"),
       link: "/servicios/pintura",
-    },
-    {
-      icon: Leaf,
-      shortTitle: t("home.hero.serviceGlance.gardening"),
-      title: t("home.services.cards.gardening.title"),
-      description: t("home.services.cards.gardening.description"),
-      link: "/servicios/jardineria",
     },
   ];
 
@@ -191,10 +180,6 @@ const Index = () => {
     {
       image: exteriorImg,
       name: t("home.services.cards.exteriors.title"),
-    },
-    {
-      image: gardeningImg,
-      name: t("home.services.cards.gardening.title"),
     },
     {
       image: appliancesImg,
@@ -277,7 +262,7 @@ const Index = () => {
                 className="mt-8 grid max-w-4xl grid-cols-3 gap-3 sm:grid-cols-5 lg:grid-cols-10"
                 aria-label={t("home.hero.serviceGlance.label")}
               >
-                {services.map(({ icon: Icon, secondaryIcon: SecondaryIcon, shortTitle, title, link }) => (
+                {services.map(({ icon: Icon, shortTitle, title, link }) => (
                   <Link
                     key={link}
                     to={link}
@@ -285,14 +270,7 @@ const Index = () => {
                     aria-label={title}
                   >
                     <span className="relative flex h-8 w-8 shrink-0 items-center justify-center">
-                      {SecondaryIcon ? (
-                        <>
-                          <Icon className="h-6 w-6 translate-x-1 text-white transition-transform group-hover:scale-110" />
-                          <SecondaryIcon className="absolute h-5 w-5 -translate-x-2 -translate-y-1 text-white/85 transition-transform group-hover:scale-110" />
-                        </>
-                      ) : (
-                        <Icon className="h-7 w-7 text-white transition-transform group-hover:scale-110" />
-                      )}
+                      <Icon className="h-7 w-7 text-white transition-transform group-hover:scale-110" />
                     </span>
                     <span className="max-w-full break-words text-[0.68rem] font-semibold leading-tight opacity-95">
                       {shortTitle}

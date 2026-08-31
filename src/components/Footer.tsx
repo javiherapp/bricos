@@ -78,11 +78,6 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/servicios/jardineria" className="hover:text-primary transition-colors">
-                  {t("footer.servicesList.gardening")}
-                </Link>
-              </li>
-              <li>
                 <Link to="/servicios/fontaneria" className="hover:text-primary transition-colors">
                   {t("footer.servicesList.plumbing")}
                 </Link>

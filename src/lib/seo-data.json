@@ -27,7 +27,7 @@
     {
       "path": "/",
       "title": "Bricos | Manitas y mantenimiento del hogar en Vega Baja, Alicante",
-      "description": "Servicio local de manitas, mantenimiento, reparaciones, montaje, fontanería básica, pintura, jardinería, aire acondicionado y electrodomésticos en la Vega Baja de Alicante.",
+      "description": "Servicio local de manitas, mantenimiento, reparaciones, montaje, fontanería básica, pintura, aire acondicionado y electrodomésticos en la Vega Baja de Alicante.",
       "breadcrumb": ["Inicio"],
       "priority": 1,
       "changeFrequency": "weekly"
@@ -35,7 +35,7 @@
     {
       "path": "/servicios",
       "title": "Servicios de manitas en Vega Baja, Alicante | Bricos",
-      "description": "Mantenimiento del hogar, montaje, fontanería, cerrajería, aire acondicionado, electricidad, pintura, jardinería, exteriores y electrodomésticos en Vega Baja.",
+      "description": "Mantenimiento del hogar, montaje, fontanería, cerrajería, aire acondicionado, electricidad, pintura, exteriores y electrodomésticos en Vega Baja.",
       "breadcrumb": ["Inicio", "Servicios"],
       "priority": 0.95,
       "changeFrequency": "weekly"
@@ -86,15 +86,6 @@
       "changeFrequency": "monthly"
     },
     {
-      "path": "/servicios/jardineria",
-      "title": "Jardinería y paisajismo en Vega Baja | Bricos",
-      "description": "Mantenimiento de jardín, limpieza exterior, poda ligera, paisajismo básico, riego sencillo y estructuras ligeras para patios y terrazas.",
-      "breadcrumb": ["Inicio", "Servicios", "Jardinería"],
-      "serviceType": "Jardinería y paisajismo",
-      "priority": 0.82,
-      "changeFrequency": "monthly"
-    },
-    {
       "path": "/servicios/fontaneria",
       "title": "Fontanería básica en Vega Baja, Alicante | Bricos",
       "description": "Arreglo de grifos, sanitarios, cisternas, sifones, ósmosis, descalcificadoras, termos eléctricos, sellados y desatascos menores sin obra.",
@@ -114,10 +105,10 @@
     },
     {
       "path": "/servicios/aire-acondicionado",
-      "title": "Reparación de aire acondicionado en Vega Baja | Bricos",
-      "description": "Mantenimiento, limpieza, reparación, instalación, revisión de fugas y carga de refrigerante para aires acondicionados domésticos en Vega Baja.",
+      "title": "Aire acondicionado no enfría o no funciona bien en Vega Baja | Bricos",
+      "description": "Reparación, mantenimiento, limpieza, instalación, fugas, goteos, olores, ruidos y carga de gas para aires acondicionados domésticos en Vega Baja.",
       "breadcrumb": ["Inicio", "Servicios", "Aire acondicionado"],
-      "serviceType": "Reparación y mantenimiento de aire acondicionado",
+      "serviceType": "Reparación, mantenimiento e instalación de aire acondicionado",
       "priority": 0.9,
       "changeFrequency": "monthly"
     },

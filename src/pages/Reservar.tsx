@@ -22,9 +22,8 @@ const serviceOptions = [
   { value: "mantenimiento", label: "Mantenimiento y Reparación del Hogar" },
   { value: "montaje", label: "Montaje e Instalación" },
   { value: "fontaneria", label: "Fontanería Básica" },
-  { value: "aire-acondicionado", label: "Aire Acondicionado" },
+  { value: "aire-acondicionado", label: "Aire Acondicionado: reparación, limpieza e instalación" },
   { value: "pintura", label: "Pintura y Reformas Menores" },
-  { value: "jardineria", label: "Jardinería y Paisajismo" },
   { value: "electrodomesticos", label: "Electrodomésticos" },
   { value: "exteriores", label: "Exteriores" },
   { value: "electricidad", label: "Servicios Eléctricos Menores" },
@@ -42,11 +41,16 @@ const getOptionLabel = (
   value: string,
 ) => options.find((option) => option.value === value)?.label ?? value;
 
+const getInitialServiceType = (value: string | null) =>
+  serviceOptions.some((option) => option.value === value) ? value : "";
+
 const Reservar = () => {
   const { toast } = useToast();
   const [searchParams] = useSearchParams();
   const [date, setDate] = useState<Date>();
-  const [serviceType, setServiceType] = useState<string>("");
+  const [serviceType, setServiceType] = useState<string>(
+    getInitialServiceType(searchParams.get("servicio")),
+  );
   const [preferredTime, setPreferredTime] = useState<string>("");
   const [problemPhoto, setProblemPhoto] = useState<File | null>(null);
   const [problemPhotoPreview, setProblemPhotoPreview] = useState<string>("");

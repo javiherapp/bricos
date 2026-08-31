@@ -93,7 +93,7 @@ const ZonaServicio = () => {
                 )}
               </div>
               <p className="mt-4 text-center text-sm text-muted-foreground">
-                Servicio local de mantenimiento del hogar, aire acondicionado, fontanería, carpintería, pintura y jardinería en la Vega Baja de Alicante, incluyendo Torrevieja, Orihuela, Guardamar del Segura, Rojales y Pilar de la Horadada.
+                Servicio local de mantenimiento del hogar, aire acondicionado, fontanería, carpintería, pintura y electricidad en la Vega Baja de Alicante, incluyendo Torrevieja, Orihuela, Guardamar del Segura, Rojales y Pilar de la Horadada.
               </p>
             </div>
 

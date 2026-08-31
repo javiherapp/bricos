@@ -61,7 +61,7 @@ const localBusiness = {
   email: seoData.email,
   priceRange: "Primera hora + desplazamiento desde 70 EUR",
   description:
-    "Bricos ofrece servicios locales de manitas, mantenimiento, reparaciones, montaje, fontanería básica, cerrajería residencial, aire acondicionado, electricidad, pintura, jardinería y electrodomésticos en la Vega Baja de Alicante.",
+    "Bricos ofrece servicios locales de manitas, mantenimiento, reparaciones, montaje, fontanería básica, cerrajería residencial, aire acondicionado, electricidad, pintura y electrodomésticos en la Vega Baja de Alicante.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Vega Baja del Segura",
@@ -87,7 +87,6 @@ const localBusiness = {
     "Servicios eléctricos menores",
     "Reparación de electrodomésticos",
     "Pintura y reformas menores",
-    "Jardineria y paisajismo",
   ].map((name) => ({
     "@type": "Offer",
     itemOffered: {

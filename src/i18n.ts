@@ -38,7 +38,6 @@ const resources = {
           appliances: "Electrodomésticos",
           exteriors: "Exteriores",
           painting: "Pintura y Reformas menores",
-          gardening: "Jardinería y Paisajismo",
           plumbing: "Fontanería Básica",
           locksmith: "Cerrajería Residencial",
           aircon: "Aire Acondicionado",
@@ -108,7 +107,6 @@ const resources = {
             appliances: "Electrodomésticos",
             exteriors: "Exteriores",
             painting: "Pintura",
-            gardening: "Jardín",
             plumbing: "Fontanería",
             locksmith: "Cerrajería",
             electrical: "Electricidad",
@@ -162,11 +160,6 @@ const resources = {
               title: "Pintura y Reformas menores",
               description:
                 "Retoques, parches y pequeños trabajos de acabado para renovar su vivienda sin una reforma grande.",
-            },
-            gardening: {
-              title: "Jardinería y Paisajismo",
-              description:
-                "Mantenimiento de jardín, paisajismo básico, estructuras ligeras y pequeños ajustes de riego.",
             },
             plumbing: {
               title: "Fontanería Básica",
@@ -222,7 +215,7 @@ const resources = {
             "En Bricos hacemos las cosas bien. Contamos con oficio, herramientas y cuidado para que el resultado sea el que toca: limpio, seguro y duradero.",
           rangeTitle: "Amplia Gama de Servicios",
           rangeText:
-            "Nuestros principales: mantenimiento y reparación, montaje e instalación, exteriores, pintura, jardinería y paisajismo, fontanería básica, cerrajería residencial, electrodomésticos, aire acondicionado y eléctricos menores.",
+            "Nuestros principales: mantenimiento y reparación, montaje e instalación, exteriores, pintura, fontanería básica, cerrajería residencial, electrodomésticos, aire acondicionado y eléctricos menores.",
           familyTitle: "Negocio Familiar",
           familyText:
             "Como empresa familiar, aportamos un nivel de cuidado y dedicación profundamente personal. Entendemos el valor del hogar y la importancia de la confianza.",
@@ -241,7 +234,7 @@ const resources = {
         heroSubtitle:
           "Ofrecemos una amplia gama de servicios profesionales para el mantenimiento y mejora de su hogar en la Vega Baja de Alicante.",
         intro:
-          "En Bricos, somos más que simples profesionales del mantenimiento; somos una parte vital de su comunidad local. Nuestros servicios van desde el mantenimiento de puertas y ventanas hasta instalaciones de seguridad, todo entregado con una artesanía excepcional. Nos enorgullecemos no solo de reparar hogares, sino de mejorarlos, asegurando que cada trabajo, ya sea montaje de muebles o mantenimiento de jardines, se realice con un toque personal.",
+          "En Bricos, somos más que simples profesionales del mantenimiento; somos una parte vital de su comunidad local. Nuestros servicios van desde el mantenimiento de puertas y ventanas hasta instalaciones de seguridad, todo entregado con una artesanía excepcional. Nos enorgullecemos no solo de reparar hogares, sino de mejorarlos, asegurando que cada trabajo, ya sea montaje de muebles o reparación doméstica, se realice con un toque personal.",
         whyTitle: "¿Por Qué Elegir Bricos?",
         blocks: {
           certifiedTitle: "Profesionales Certificados",
@@ -322,39 +315,6 @@ const resources = {
           heading: "Acabados limpios, sin complicaciones",
           body:
             "Cuidamos la preparación, el remate y la limpieza para que el resultado se note por lo bien integrado que queda.",
-        },
-      },
-      gardeningPage: {
-        heroTitle: "Jardinería y Paisajismo",
-        heroSubtitle:
-          "Mantenimiento de jardín, paisajismo básico y estructuras ligeras para que su terraza, patio o parcela se vea cuidada, funcional y agradable.",
-        whatIncludedTitle: "Qué incluye este servicio",
-        whatIncludedBody:
-          "Realizamos tareas de jardinería y mejora exterior: poda ligera, limpieza de hojas y restos, preparación de zonas verdes, paisajismo básico, revisión de riego sencillo y pequeñas estructuras como jardineras, celosías, borduras o soportes.",
-        exclusionsTitle: "Importante",
-        exclusionsItems: [
-          "No realizamos tala de árboles grandes.",
-          "No asumimos grandes obras de paisajismo integral o movimientos importantes de terreno.",
-          "No instalamos sistemas de riego complejos desde cero.",
-        ],
-        recommendedTitle: "Recomendado",
-        recommendedItems: [
-          "Hacer mantenimiento antes de temporadas de calor o lluvias.",
-          "Mantener despejadas terrazas, desagües y zonas de paso.",
-          "Revisar goteros y mangueras al inicio de cada temporada.",
-        ],
-        ctaBand: {
-          eyebrow: "LA CALIDAD QUE ESPERAS",
-          heading: "LOS SERVICIOS QUE TE MERECES",
-          body:
-            "Ponga su jardín o terraza al día con mantenimiento, paisajismo práctico y estructuras exteriores bien rematadas.",
-          bookNow: "Reservar Ahora",
-          callLabel: "+34 623 635 732",
-        },
-        satisfactionBand: {
-          heading: "Exteriores listos para disfrutar",
-          body:
-            "Nos encargamos de las tareas y mejoras que marcan la diferencia para que su zona exterior se vea cuidada, ordenada y con intención.",
         },
       },
       plumbingPage: {
@@ -455,12 +415,17 @@ const resources = {
         },
       },
       airconPage: {
-        heroTitle: "Aire Acondicionado: Reparación y Mantenimiento",
+        heroEyebrow: "Reparación, mantenimiento, limpieza, instalación y gas",
+        heroTitle: "¿Tu aire acondicionado no funciona como debería?",
         heroSubtitle:
-          "Servicio completo para su aire acondicionado: limpieza, desagües, electrónica, ventiladores, ajustes mecánicos/eléctricos, instalación, revisión de fugas y carga de gas/refrigerante cuando el equipo lo necesite.",
+          "Lo dejamos listo para volver a enfriar: diagnóstico, reparación, mantenimiento, limpieza completa, instalaciones y carga de gas/refrigerante cuando el equipo lo necesita.",
+        heroCta: "Enviar foto y pedir presupuesto",
+        servicesTitle: "Servicio completo de aire acondicionado",
+        servicesIntro:
+          "Aunque el anuncio destaque mantenimiento y limpieza, también trabajamos reparaciones, instalaciones, sustitución de piezas y carga de gas.",
         whatIncludedTitle: "Qué incluye este servicio",
         whatIncludedBody:
-          "Realizamos mantenimiento, reparación e instalación en equipos domésticos split: limpieza de filtros y unidades, desatasco de desagües, reducción de ruidos y vibraciones, sustitución de piezas, revisión del circuito frigorífico, detección de fugas y carga de gas/refrigerante. Nuestro objetivo es dejar el equipo funcionando correctamente, de principio a fin.",
+          "Realizamos mantenimiento, limpieza, reparación e instalación en equipos domésticos split. Revisamos filtros, unidad interior y exterior accesible, turbina, bandeja de condensados, desagüe, vibraciones, piezas eléctricas, circuito frigorífico, posibles fugas y carga de refrigerante. Nuestro objetivo es que el equipo vuelva a funcionar con buen caudal, menos olores, menos ruido y el rendimiento correcto.",
         exclusionsTitle: "Servicio completo",
         exclusionsItems: [
           "Trabajamos mantenimiento, reparaciones, instalación y puesta a punto.",
@@ -469,13 +434,14 @@ const resources = {
         ],
         recommendedTitle: "Recomendado",
         recommendedItems: [
+          "Enviar fotos del equipo, mando, placa de características y zona exterior para valorar mejor.",
           "Limpieza de filtros cada 1-3 meses según uso.",
-          "Revisión anual de desagüe y anclajes.",
+          "Revisión anual antes del verano: filtros, desagüe, anclajes, rendimiento y posibles fugas.",
         ],
         ctaBand: {
-          eyebrow: "LA CALIDAD QUE ESPERAS",
-          heading: "LOS SERVICIOS QUE TE MERECES",
-          body: "¿Gotea, huele, no enfría o hace ruido su aire? Le ayudamos con mantenimiento, reparación e instalación.",
+          eyebrow: "PRESUPUESTO RÁPIDO POR WHATSAPP",
+          heading: "ENVÍE UNA FOTO Y LE ORIENTAMOS",
+          body: "Díganos qué le pasa al aire acondicionado: goteo, olor, falta de frío, ruido, instalación, reparación o carga de gas. Le responderemos con claridad.",
           bookNow: "Reservar Ahora",
           callLabel: "+34 623 635 732",
         },
@@ -638,7 +604,6 @@ const resources = {
           appliances: "Appliances",
           exteriors: "Outdoor & exterior work",
           painting: "Painting & small improvements",
-          gardening: "Gardening & landscaping",
           plumbing: "Basic plumbing",
           locksmith: "Residential locksmith",
           aircon: "Air conditioning",
@@ -708,7 +673,6 @@ const resources = {
             appliances: "Appliances",
             exteriors: "Exteriors",
             painting: "Painting",
-            gardening: "Garden",
             plumbing: "Plumbing",
             locksmith: "Locksmith",
             electrical: "Electrical",
@@ -762,11 +726,6 @@ const resources = {
               title: "Painting & small improvements",
               description:
                 "Touch-ups, patches and small finishing jobs to refresh your home without a full renovation.",
-            },
-            gardening: {
-              title: "Gardening & landscaping",
-              description:
-                "Garden maintenance, basic landscaping, light outdoor structures and simple irrigation adjustments.",
             },
             plumbing: {
               title: "Basic plumbing",
@@ -822,7 +781,7 @@ const resources = {
             "At Bricos, we believe in doing things properly. The right tools, the right skills and the care to leave your home safe, tidy and looking how it should.",
           rangeTitle: "Wide range of services",
           rangeText:
-            "Our core services include home maintenance and repair, assembly and installation, exterior work, painting, gardening and landscaping, basic plumbing, residential locksmith work, appliances, air conditioning repairs and small electrical jobs.",
+            "Our core services include home maintenance and repair, assembly and installation, exterior work, painting, basic plumbing, residential locksmith work, appliances, air conditioning repairs and small electrical jobs.",
           familyTitle: "Family-run business",
           familyText:
             "As a family business, we bring a personal level of care and responsibility. We understand how important your home is and we work hard to earn your trust.",
@@ -841,7 +800,7 @@ const resources = {
         heroSubtitle:
           "We offer a wide range of professional home maintenance services across the Vega Baja area.",
         intro:
-          "At Bricos, we’re more than just repair people – we’re part of your local community. Our work ranges from looking after doors and windows to fitting security equipment, all delivered with genuine craftsmanship. We’re proud not just to fix homes but to improve them, making sure every job – from furniture assembly to garden care – is finished with a personal touch.",
+          "At Bricos, we’re more than just repair people – we’re part of your local community. Our work ranges from looking after doors and windows to fitting security equipment, all delivered with genuine craftsmanship. We’re proud not just to fix homes but to improve them, making sure every job – from furniture assembly to home repairs – is finished with a personal touch.",
         whyTitle: "Why choose Bricos?",
         blocks: {
           certifiedTitle: "Qualified professionals",
@@ -922,39 +881,6 @@ const resources = {
           heading: "Clean finishes, no fuss",
           body:
             "We look after the preparation, finishing and clean-up so the result blends in properly.",
-        },
-      },
-      gardeningPage: {
-        heroTitle: "Gardening & landscaping",
-        heroSubtitle:
-          "Garden maintenance, basic landscaping and light outdoor structures to keep your terrace, patio or plot tidy, practical and pleasant.",
-        whatIncludedTitle: "What this service covers",
-        whatIncludedBody:
-          "We carry out gardening and outdoor improvement tasks: light pruning, clearing leaves and green waste, preparing planted areas, basic landscaping, simple irrigation checks and small structures such as planters, trellises, borders or supports.",
-        exclusionsTitle: "Important",
-        exclusionsItems: [
-          "We do not fell large trees.",
-          "We do not take on major landscaping works or significant groundworks.",
-          "We do not install complex irrigation systems from scratch.",
-        ],
-        recommendedTitle: "Recommended",
-        recommendedItems: [
-          "Scheduling maintenance before hot or rainy seasons.",
-          "Keeping terraces, drains and walkways clear.",
-          "Checking drippers and hoses at the start of each season.",
-        ],
-        ctaBand: {
-          eyebrow: "QUALITY YOU CAN EXPECT",
-          heading: "THE SERVICE YOUR HOME DESERVES",
-          body:
-            "Bring your garden or terrace back into shape with maintenance, practical landscaping and well-finished outdoor structures.",
-          bookNow: "Book now",
-          callLabel: "+34 623 635 732",
-        },
-        satisfactionBand: {
-          heading: "Outdoor areas ready to enjoy",
-          body:
-            "We handle the jobs and improvements that make your outside space feel cared for, ordered and intentional.",
         },
       },
       plumbingPage: {
@@ -1055,12 +981,17 @@ const resources = {
         },
       },
       airconPage: {
-        heroTitle: "Air conditioning: repair & servicing",
+        heroEyebrow: "Repairs, servicing, cleaning, installations and gas",
+        heroTitle: "Is your air-con not working as it should?",
         heroSubtitle:
-          "Complete air-conditioning service: cleaning, drains, electronics, fans, mechanical/electrical adjustments, installation, leak checks and gas/refrigerant charging when the system needs it.",
+          "We get it ready to cool again: diagnosis, repairs, servicing, complete cleaning, installations and gas/refrigerant charging when the unit needs it.",
+        heroCta: "Send a photo and request a quote",
+        servicesTitle: "Complete air-conditioning service",
+        servicesIntro:
+          "The ad may focus on maintenance and cleaning, but we also handle repairs, installations, part replacement and gas charging.",
         whatIncludedTitle: "What this service covers",
         whatIncludedBody:
-          "We handle maintenance, repairs and installation for domestic split units: cleaning filters and indoor/outdoor units, clearing drains, reducing noise and vibration, replacing parts, checking the refrigeration circuit, finding leaks and charging gas/refrigerant. The aim is to get the system working properly from start to finish.",
+          "We handle maintenance, cleaning, repairs and installation for domestic split units. We check filters, accessible indoor and outdoor units, fan drums, condensate trays, drains, vibration, electrical parts, the refrigeration circuit, possible leaks and refrigerant charging. The aim is to get the unit working again with good airflow, fewer smells, less noise and proper cooling performance.",
         exclusionsTitle: "Complete service",
         exclusionsItems: [
           "We cover maintenance, repairs, installation and commissioning.",
@@ -1069,13 +1000,14 @@ const resources = {
         ],
         recommendedTitle: "Recommended",
         recommendedItems: [
-          "Cleaning filters every 1–3 months depending on use.",
-          "An annual check of the condensate drain and fixings.",
+          "Send photos of the unit, remote, data plate and outdoor area so we can assess the job better.",
+          "Clean filters every 1-3 months depending on use.",
+          "Book an annual check before summer: filters, drain, fixings, performance and possible leaks.",
         ],
         ctaBand: {
-          eyebrow: "QUALITY YOU CAN EXPECT",
-          heading: "THE SERVICE YOUR HOME DESERVES",
-          body: "Leaking, smelly or noisy air‑con? We can help with cleaning and light repairs.",
+          eyebrow: "QUICK QUOTE BY WHATSAPP",
+          heading: "SEND A PHOTO AND WE WILL GUIDE YOU",
+          body: "Tell us what is happening with your air-con: leaking, smells, weak cooling, noise, installation, repair or gas charging. We will respond clearly.",
           bookNow: "Book now",
           callLabel: "+34 623 635 732",
         },
@@ -1215,7 +1147,8 @@ i18n
       escapeValue: false,
     },
     detection: {
-      order: ["localStorage", "htmlTag", "navigator"],
+      order: ["querystring", "localStorage", "navigator", "htmlTag"],
+      lookupQuerystring: "lng",
       caches: ["localStorage"],
     },
   });

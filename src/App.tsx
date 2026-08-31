@@ -20,7 +20,6 @@ import Montaje from "./pages/servicios/Montaje";
 import Exteriores from "./pages/servicios/Exteriores";
 import Electrodomesticos from "./pages/servicios/Electrodomesticos";
 import Pintura from "./pages/servicios/Pintura";
-import Jardineria from "./pages/servicios/Jardineria";
 import AireAcondicionado from "./pages/servicios/AireAcondicionado";
 import Electricidad from "./pages/servicios/Electricidad";
 import Fontaneria from "./pages/servicios/Fontaneria";
@@ -42,7 +41,6 @@ const AppRoutes = () => {
         <Route path="/servicios/exteriores" element={<Exteriores />} />
         <Route path="/servicios/electrodomesticos" element={<Electrodomesticos />} />
         <Route path="/servicios/pintura" element={<Pintura />} />
-        <Route path="/servicios/jardineria" element={<Jardineria />} />
         <Route path="/servicios/fontaneria" element={<Fontaneria />} />
         <Route path="/servicios/cerrajeria" element={<Cerrajeria />} />
         <Route path="/servicios/aire-acondicionado" element={<AireAcondicionado />} />
